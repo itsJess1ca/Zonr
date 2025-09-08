@@ -1,0 +1,60 @@
+{
+  "name": "zonr",
+  "version": "1.0.0",
+  "description": "A modern TypeScript library",
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "test:run": "vitest run",
+    "lint": "eslint src --ext .ts",
+    "lint:fix": "eslint src --ext .ts --fix",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts",
+    "clean": "rimraf dist",
+    "playground": "tsx playground/index.ts",
+    "demo:minimal": "tsx playground/demo-minimal.ts",
+    "demo:dashboard": "tsx playground/demo-dashboard.ts",
+    "demo:build": "tsx playground/demo-build-system.ts",
+    "demo:data": "tsx playground/demo-data-processing.ts",
+    "demo:gaming": "tsx playground/demo-gaming.ts",
+    "prepublishOnly": "pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.1",
+    "@types/react": "^19.1.12",
+    "@typescript-eslint/eslint-plugin": "^8.42.0",
+    "@typescript-eslint/parser": "^8.42.0",
+    "@vitest/ui": "^3.2.4",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.6.2",
+    "rimraf": "^6.0.1",
+    "tsx": "^4.20.5",
+    "typescript": "^5.5.3",
+    "vitest": "^3.2.4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "dependencies": {
+    "ink": "^6.2.3",
+    "react": "^19.1.1",
+    "string-width": "^8.1.0"
+  }
+}
