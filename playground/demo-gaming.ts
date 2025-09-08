@@ -4,7 +4,7 @@ import Zonr from "../src";
 const zonr = new Zonr();
 
 // Player activity feed
-const playerActivity = zonr.zones.add({
+const playerActivity = zonr.addZone({
   name: "Player Activity",
   width: "40%",
   height: "auto", 
@@ -12,7 +12,7 @@ const playerActivity = zonr.zones.add({
 });
 
 // Server stats
-const serverStats = zonr.zones.add({
+const serverStats = zonr.addZone({
   name: "Server Statistics",
   width: "30%",
   height: "auto",
@@ -20,7 +20,7 @@ const serverStats = zonr.zones.add({
 });
 
 // Chat/Events
-const gameEvents = zonr.zones.add({
+const gameEvents = zonr.addZone({
   name: "Game Events", 
   width: "30%",
   height: "auto",
@@ -28,7 +28,7 @@ const gameEvents = zonr.zones.add({
 });
 
 // Match results
-const matchResults = zonr.zones.add({
+const matchResults = zonr.addZone({
   name: "Recent Matches",
   width: "60%",
   height: 10,
@@ -36,7 +36,7 @@ const matchResults = zonr.zones.add({
 });
 
 // System alerts
-const alerts = zonr.zones.add({
+const alerts = zonr.addZone({
   name: "System Alerts",
   width: "40%",
   height: 10,

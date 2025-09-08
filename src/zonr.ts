@@ -170,6 +170,62 @@ export default class Zonr {
     process.on('SIGTERM', handleExit);
   }
 
+  // Top-level zone management methods for cleaner API
+  public addZone(config: ZoneConfig): Zone {
+    return this.zones.add(config);
+  }
+
+  public getZone(name: string): Zone | undefined {
+    return this.zones.get(name);
+  }
+
+  public hasZone(name: string): boolean {
+    return this.zones.has(name);
+  }
+
+  public removeZone(nameOrZone: string | Zone): boolean {
+    const name = typeof nameOrZone === 'string' ? nameOrZone : nameOrZone.getName();
+    
+    // Remove from renderer
+    this.renderer.removeZone(name);
+    
+    // Remove from zone index
+    delete this.zoneIndex[name];
+    delete (this as any)[name];
+    
+    // Remove from zone manager
+    const removed = this.zones.remove(name);
+    
+    // Re-render to update layout
+    if (removed) {
+      this.scheduleRender();
+    }
+    
+    return removed;
+  }
+
+  public getAllZones(): Zone[] {
+    return this.zones.list();
+  }
+
+  public clearZones(): void {
+    // Clear all zones from renderer
+    this.renderer.clearZones();
+    
+    // Clear zone index
+    for (const name in this.zoneIndex) {
+      delete (this as any)[name];
+    }
+    this.zoneIndex = {};
+    
+    // Clear zone manager
+    const allZones = this.zones.list();
+    allZones.forEach(zone => this.zones.remove(zone.getName()));
+    
+    // Re-render
+    this.scheduleRender();
+  }
+
   public stop(): void {
     if (this.renderTimeout) {
       clearTimeout(this.renderTimeout);

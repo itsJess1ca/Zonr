@@ -54,14 +54,14 @@ import Zonr from 'zonr';
 const zonr = new Zonr();
 
 // Add zones with different layouts
-const logs = zonr.zones.add({
+const logs = zonr.addZone({
   name: "Application Logs",
   width: "70%",
   height: "auto", 
   borderColor: "blue"
 });
 
-const status = zonr.zones.add({
+const status = zonr.addZone({
   name: "System Status",
   width: "30%", 
   height: "auto",
@@ -137,7 +137,7 @@ const zonr = new Zonr();
 ### Adding Zones
 
 ```typescript
-const zone = zonr.zones.add({
+const zone = zonr.addZone({
   name: string,           // Zone header text
   width: string | number, // "50%", "auto", or pixel value
   height: string | number,// "auto", "50%", or pixel value  
@@ -163,14 +163,21 @@ zone.getName()               // Get zone name
 zone.getConfig()             // Get zone configuration
 ```
 
-### Zone Manager
+### Zone Management
 
 ```typescript
-// Access all zones
-zonr.zones.getAll()          // Get all zones array
-zonr.zones.getByName(name)   // Find zone by name
-zonr.zones.clear()           // Clear all zones
-zonr.zones.remove(zone)      // Remove specific zone
+// Zone management methods
+zonr.addZone(config)         // Add a new zone
+zonr.getZone(name)           // Find zone by name
+zonr.hasZone(name)           // Check if zone exists
+zonr.getAllZones()           // Get all zones array
+zonr.removeZone(nameOrZone)  // Remove specific zone by name or reference
+zonr.clearZones()            // Remove all zones
+
+// Legacy API still available
+zonr.zones.add(config)       // Same as zonr.addZone()
+zonr.zones.get(name)         // Same as zonr.getZone()
+zonr.zones.list()            // Same as zonr.getAllZones()
 ```
 
 ### Layout Configuration

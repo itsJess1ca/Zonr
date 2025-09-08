@@ -4,14 +4,14 @@ import Zonr from "../src";
 const zonr = new Zonr();
 
 // Simple two-zone layout
-const logs = zonr.zones.add({
+const logs = zonr.addZone({
   name: "Application Logs",
   width: "70%",
   height: "auto",
   borderColor: "blue"
 });
 
-const status = zonr.zones.add({
+const status = zonr.addZone({
   name: "Status", 
   width: "30%",
   height: "auto",

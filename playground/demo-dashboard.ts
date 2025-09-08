@@ -4,7 +4,7 @@ import Zonr from "../src";
 const zonr = new Zonr();
 
 // Left sidebar - system metrics  
-const systemMetrics = zonr.zones.add({
+const systemMetrics = zonr.addZone({
   name: "System Metrics",
   width: "30%", 
   height: "auto",
@@ -12,7 +12,7 @@ const systemMetrics = zonr.zones.add({
 });
 
 // Center - main logs
-const mainLogs = zonr.zones.add({
+const mainLogs = zonr.addZone({
   name: "Application Logs",
   width: "50%",
   height: "auto", 
@@ -20,7 +20,7 @@ const mainLogs = zonr.zones.add({
 });
 
 // Right sidebar - alerts/notifications
-const alerts = zonr.zones.add({
+const alerts = zonr.addZone({
   name: "Alerts",
   width: "20%",
   height: "auto",
@@ -28,7 +28,7 @@ const alerts = zonr.zones.add({
 });
 
 // Bottom status bar - no header for clean look
-const statusBar = zonr.zones.add({
+const statusBar = zonr.addZone({
   name: "Status",
   width: "100%",
   height: 5,

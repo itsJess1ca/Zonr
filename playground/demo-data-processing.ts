@@ -4,7 +4,7 @@ import Zonr from "../src";
 const zonr = new Zonr();
 
 // Input queue - shows incoming data
-const inputQueue = zonr.zones.add({
+const inputQueue = zonr.addZone({
   name: "Input Queue",
   width: "25%",
   height: "auto",
@@ -12,7 +12,7 @@ const inputQueue = zonr.zones.add({
 });
 
 // Processing pipeline - shows current operations  
-const processingPipeline = zonr.zones.add({
+const processingPipeline = zonr.addZone({
   name: "Processing Pipeline",
   width: "50%",
   height: "auto",
@@ -20,7 +20,7 @@ const processingPipeline = zonr.zones.add({
 });
 
 // Output results - shows processed data
-const outputResults = zonr.zones.add({
+const outputResults = zonr.addZone({
   name: "Output Results", 
   width: "25%",
   height: "auto",
@@ -28,14 +28,14 @@ const outputResults = zonr.zones.add({
 });
 
 // Statistics and metrics at bottom
-const statistics = zonr.zones.add({
+const statistics = zonr.addZone({
   name: "Statistics",
   width: "50%",
   height: 8,
   borderColor: "cyan"
 });
 
-const errors = zonr.zones.add({
+const errors = zonr.addZone({
   name: "Errors & Warnings",
   width: "50%", 
   height: 8,

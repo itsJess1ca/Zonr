@@ -4,7 +4,7 @@ import Zonr from "../src";
 const zonr = new Zonr();
 
 // Build steps progress zone  
-const buildProgress = zonr.zones.add({
+const buildProgress = zonr.addZone({
   name: "Build Pipeline",
   width: "60%",
   height: 12,
@@ -12,7 +12,7 @@ const buildProgress = zonr.zones.add({
 });
 
 // Build logs zone
-const buildLogs = zonr.zones.add({
+const buildLogs = zonr.addZone({
   name: "Build Output", 
   width: "40%",
   height: "auto",
@@ -20,7 +20,7 @@ const buildLogs = zonr.zones.add({
 });
 
 // Test results zone
-const testResults = zonr.zones.add({
+const testResults = zonr.addZone({
   name: "Test Results",
   width: "50%", 
   height: "auto",
@@ -28,7 +28,7 @@ const testResults = zonr.zones.add({
 });
 
 // Deployment status
-const deployment = zonr.zones.add({
+const deployment = zonr.addZone({
   name: "Deployment",
   width: "50%",
   height: "auto", 

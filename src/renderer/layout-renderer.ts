@@ -15,6 +15,16 @@ export class LayoutRenderer {
     this.zoneMessages.set(zone.name, []);
   }
 
+  removeZone(zoneName: string) {
+    this.zones = this.zones.filter(zone => zone.name !== zoneName);
+    this.zoneMessages.delete(zoneName);
+  }
+
+  clearZones() {
+    this.zones = [];
+    this.zoneMessages.clear();
+  }
+
   addMessage(zoneName: string, message: LogMessage) {
     const messages = this.zoneMessages.get(zoneName) || [];
     
