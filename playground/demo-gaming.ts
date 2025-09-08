@@ -8,7 +8,7 @@ const playerActivity = zonr.addZone({
   name: "Player Activity",
   width: "40%",
   height: "auto", 
-  borderColor: "cyan"
+  borderColor: "blue"
 });
 
 // Server stats
@@ -16,7 +16,7 @@ const serverStats = zonr.addZone({
   name: "Server Statistics",
   width: "30%",
   height: "auto",
-  borderColor: "green"
+  borderColor: "blue"
 });
 
 // Chat/Events
@@ -24,7 +24,7 @@ const gameEvents = zonr.addZone({
   name: "Game Events", 
   width: "30%",
   height: "auto",
-  borderColor: "yellow"
+  borderColor: "blue"
 });
 
 // Match results

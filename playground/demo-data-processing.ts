@@ -8,7 +8,7 @@ const inputQueue = zonr.addZone({
   name: "Input Queue",
   width: "25%",
   height: "auto",
-  borderColor: "yellow"
+  borderColor: "blue"
 });
 
 // Processing pipeline - shows current operations  
@@ -24,7 +24,7 @@ const outputResults = zonr.addZone({
   name: "Output Results", 
   width: "25%",
   height: "auto",
-  borderColor: "green"
+  borderColor: "blue"
 });
 
 // Statistics and metrics at bottom
@@ -61,8 +61,8 @@ const generateDataRecord = () => {
 };
 
 // Processing queue
-const processingQueue = [];
-const completedQueue = [];
+const processingQueue: Record<string, unknown>[] = [];
+const completedQueue: Record<string, unknown>[] = [];
 
 const addToInputQueue = () => {
   const record = generateDataRecord();
@@ -81,6 +81,7 @@ const processData = () => {
   if (processingQueue.length === 0) return;
   
   const record = processingQueue.shift();
+  if (!record) return;
   const processingTime = Math.random() * 2000 + 500; // 0.5-2.5 seconds
   
   // Show processing steps
@@ -102,7 +103,7 @@ const processData = () => {
       if (success) {
         record.status = 'completed';
         record.processedAt = new Date().toISOString();
-        record.processedSize = Math.floor(record.size * (0.7 + Math.random() * 0.6)); // Compression
+        record.processedSize = Math.floor(record.size as number * (0.7 + Math.random() * 0.6)); // Compression
         
         completedQueue.push(record);
         processingPipeline.info(`   └─ ✅ Completed in ${(processingTime/1000).toFixed(1)}s`);

@@ -8,7 +8,7 @@ const buildProgress = zonr.addZone({
   name: "Build Pipeline",
   width: "60%",
   height: 12,
-  borderColor: "cyan"
+  borderColor: "blue"
 });
 
 // Build logs zone
@@ -16,7 +16,7 @@ const buildLogs = zonr.addZone({
   name: "Build Output", 
   width: "40%",
   height: "auto",
-  borderColor: "green"
+  borderColor: "blue"
 });
 
 // Test results zone
@@ -36,16 +36,16 @@ const deployment = zonr.addZone({
 });
 
 const buildSteps = [
-  { name: 'Environment Setup', duration: 2000 },
-  { name: 'Dependency Installation', duration: 8000 },
-  { name: 'Code Compilation', duration: 12000 },
-  { name: 'Unit Tests', duration: 15000 },
-  { name: 'Integration Tests', duration: 18000 },
-  { name: 'Code Coverage Analysis', duration: 5000 },
-  { name: 'Security Scan', duration: 10000 },
-  { name: 'Build Artifacts', duration: 3000 },
-  { name: 'Docker Image Build', duration: 20000 },
-  { name: 'Quality Gate Check', duration: 2000 }
+  { name: 'Environment Setup', duration: 400 },
+  { name: 'Dependency Installation', duration: 800 },
+  { name: 'Code Compilation', duration: 1000 },
+  { name: 'Unit Tests', duration: 800 },
+  { name: 'Integration Tests', duration: 1200 },
+  { name: 'Code Coverage Analysis', duration: 600 },
+  { name: 'Security Scan', duration: 800 },
+  { name: 'Build Artifacts', duration: 500 },
+  { name: 'Docker Image Build', duration: 1500 },
+  { name: 'Quality Gate Check', duration: 400 }
 ];
 
 let currentStep = 0;
@@ -165,7 +165,7 @@ const generateBuildLogs = () => {
     ]
   };
   
-  const stepLogs = logs[step.name] || [];
+  const stepLogs = logs[step.name as keyof typeof logs] || [];
   if (stepLogs.length > 0) {
     const randomLog = stepLogs[Math.floor(Math.random() * stepLogs.length)];
     buildLogs.info(randomLog);
@@ -200,6 +200,7 @@ const generateTestResults = () => {
 
 const updateDeployment = () => {
   if (currentStep < 8) {
+    deployment.clear();
     deployment.info('⏳ Waiting for build completion...');
     return;
   }
@@ -262,7 +263,7 @@ const buildInterval = setInterval(() => {
   generateTestResults();
   updateDeployment();
   
-}, 1000);
+}, 200);
 
 // Initial display
 updateBuildProgress();

@@ -8,7 +8,7 @@ const systemMetrics = zonr.addZone({
   name: "System Metrics",
   width: "30%", 
   height: "auto",
-  borderColor: "green"
+  borderColor: "blue"
 });
 
 // Center - main logs
@@ -33,7 +33,7 @@ const statusBar = zonr.addZone({
   width: "100%",
   height: 5,
   showHeader: false,
-  borderColor: "yellow"
+  borderColor: "blue"
 });
 
 // Simulate system metrics

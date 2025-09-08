@@ -85,45 +85,95 @@ status.info('💾 Memory: 2.1GB');
 
 ## 🎬 Demo Gallery
 
-### Minimal Dashboard
-<!-- Add GIF showing basic two-zone layout -->
-*[GIF placeholder: Basic logs + status layout]*
+<details>
+<summary><b>🚀 Playground Demo</b> - Basic file processing with progress tracking</summary>
+
+The main playground demonstration showing file processing with real-time progress bars, metadata tracking, and logging.
+
+```bash
+pnpm run playground
+```
+
+*Features: Progress bars, batch processing, real-time metrics, file logging*
+
+![Hero Demo GIF](public/playground.gif)
+
+</details>
+
+<details>
+<summary><b>📊 Minimal Dashboard</b> - Simple two-zone layout</summary>
+
+Clean, minimal interface demonstrating basic zone creation with application logs and system status.
 
 ```bash
 pnpm run demo:minimal
 ```
 
-### Gaming Interface  
-<!-- Add GIF showing gaming demo with emojis and complex layout -->
-*[GIF placeholder: Gaming zones with emojis, stats, leaderboard]*
+*Features: Basic layouts, log levels, system metrics, auto-updating status*
+
+![Demo Minimal GIF](public/demo-minimal.gif)
+
+</details>
+
+<details>
+<summary><b>🎮 Gaming Interface Demo</b> - Multi-zone gaming server monitor</summary>
+
+Comprehensive gaming server monitoring interface with player activity, server stats, game events, and match results.
 
 ```bash
 pnpm run demo:gaming
 ```
 
-### Build System Monitor
-<!-- Add GIF showing build pipeline visualization -->
-*[GIF placeholder: Build stages, progress bars, test results]*
+*Features: Multi-zone layout, real-time stats, emoji rendering, leaderboards*
+
+![Gaming Demo GIF](public/demo-gaming.gif)
+
+</details>
+
+<details>
+<summary><b>🔧 Build System Monitor</b> - Complex build pipeline visualization</summary>
+
+Advanced build pipeline demonstration with progress tracking, build logs, test results, and deployment status.
 
 ```bash
 pnpm run demo:build
 ```
 
-### Data Processing Dashboard
-<!-- Add GIF showing data processing with metrics -->
-*[GIF placeholder: Data streams, processing metrics, charts]*
+*Features: Build stages, progress indicators, test results, deployment tracking*
+
+![Build Demo GIF](public/demo-build.gif)
+
+</details>
+
+<details>
+<summary><b>📈 Data Processing Dashboard</b> - Real-time data pipeline</summary>
+
+Real-time data processing pipeline with input queues, processing steps, output results, and performance metrics.
 
 ```bash
 pnpm run demo:data
 ```
 
-### Full Development Dashboard
-<!-- Add GIF showing comprehensive development environment -->
-*[GIF placeholder: Comprehensive multi-zone developer interface]*
+*Features: Queue management, processing analytics, throughput metrics, auto-height zones*
+
+![Data Demo GIF](public/demo-data.gif)
+
+</details>
+
+<details>
+<summary><b>🖥️ Full Development Dashboard</b> - Complete monitoring interface</summary>
+
+Comprehensive developer monitoring interface with system metrics, application logs, alerts, and status indicators.
 
 ```bash
 pnpm run demo:dashboard
 ```
+
+*Features: System monitoring, log aggregation, alert management, comprehensive layouts*
+
+![Dashboard Demo GIF](public/demo-dashboard.gif)
+
+</details>
 
 ---
 
