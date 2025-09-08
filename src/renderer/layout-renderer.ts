@@ -74,6 +74,9 @@ export class LayoutRenderer {
         const zoneWidth = typeof zoneInfo.width === 'number' ? zoneInfo.width : 40;
         const messages = this.zoneMessages.get(zoneInfo.zone.name) || [];
 
+        // Update the zone's innerWidth based on calculated layout width
+        zoneInfo.zone.updateCalculatedDimensions(zoneWidth);
+
         renderableZones.push({
           zone: zoneInfo.zone,
           x: currentX,

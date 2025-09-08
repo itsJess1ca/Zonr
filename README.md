@@ -14,8 +14,7 @@
 
 ## 🚀 Hero Demo
 
-<!-- Add hero GIF/image showcasing the main functionality -->
-*[Hero image/GIF placeholder - showcasing multiple zones with real-time updates]*
+![Hero Demo GIF](public/playground.gif)
 
 Zonr transforms terminal output from chaotic text streams into organized, responsive interfaces. Create dashboards, build tools, monitoring systems, and interactive applications with intuitive zone-based layouts that adapt to your terminal size.
 

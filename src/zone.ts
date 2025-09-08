@@ -5,7 +5,7 @@ import { globalEventEmitter } from './events.js';
 export class ZoneImpl implements Zone {
   public readonly name: string;
   public readonly width: number;
-  public readonly innerWidth: number;
+  public innerWidth: number;
   public readonly height: number | 'auto';
   public readonly showHeader: boolean;
   public readonly transports: Transport[];
@@ -97,5 +97,24 @@ export class ZoneImpl implements Zone {
       timestamp: new Date(),
       zoneName: this.name
     });
+  }
+
+  // Update calculated dimensions after layout calculation
+  updateCalculatedDimensions(calculatedWidth: number): void {
+    this.innerWidth = calculatedWidth - 4; // Account for borders + padding
+  }
+
+  getName(): string {
+    return this.name;
+  }
+
+  getConfig(): ZoneConfig {
+    return {
+      name: this.name,
+      width: this.originalWidth,
+      height: this.height,
+      showHeader: this.showHeader,
+      borderColor: this.borderColor as any
+    };
   }
 }

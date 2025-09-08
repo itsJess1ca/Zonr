@@ -33,6 +33,9 @@ export interface Zone {
   error(message: string): void;
   debug(message: string): void;
   clear(): void;
+  updateCalculatedDimensions(calculatedWidth: number): void;
+  getName(): string;
+  getConfig(): ZoneConfig;
 }
 
 export interface Transport {
