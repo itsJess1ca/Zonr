@@ -198,7 +198,7 @@ height: "30%"       // Percentage of terminal height
 height: 20          // Fixed row height
 
 // Color options
-borderColor: "red" | "green" | "blue" | "yellow" | "magenta" | "cyan" | "white" | "gray"
+borderColor: "black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" | "white" | "gray"
 ```
 
 ---

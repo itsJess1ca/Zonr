@@ -15,7 +15,7 @@ const metadata = zonr.zones.add({
   name: "Metadata",
   width: "40%",
   height: 10,
-  borderColor: "#a13737"
+  borderColor: "cyan"
 });
 
 const progressBar = zonr.zones.add({
@@ -25,7 +25,7 @@ const progressBar = zonr.zones.add({
   height: 1
 });
 
-const filesToProcess = Array.from({ length: 100 }, (_, i) => `file_${i + 1}.txt`);
+const filesToProcess = Array.from({ length: 1000 }, (_, i) => `file_${i + 1}.txt`);
 const batchSize = 5;
 let i = 0;
 let currentBatch = 0;
