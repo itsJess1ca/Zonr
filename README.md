@@ -369,7 +369,7 @@ pnpm test:ui        # Run tests with UI
 
 ## 📄 License
 
-MIT © [Your Name](https://github.com/yourusername)
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
 ---
 
