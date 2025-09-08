@@ -1,4 +1,8 @@
-# 🎯 Zonr
+<div align="center">
+
+![Zonr Logo](public/full.svg)
+
+</div>
 
 > A modern TypeScript library for building organized, dynamic terminal interfaces with zone-based layouts
 
