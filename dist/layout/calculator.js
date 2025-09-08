@@ -11,10 +11,10 @@ export class LayoutCalculator {
                     width,
                     height,
                     rowIndex: index,
-                    isAutoHeight: height === 'auto'
+                    isAutoHeight: height === 'auto',
                 })),
                 hasAutoZones: rowZones.some(({ height }) => height === 'auto'),
-            }))
+            })),
         };
     }
     static groupZonesIntoRows(zones) {
@@ -22,7 +22,7 @@ export class LayoutCalculator {
         let currentRow = [];
         let currentRowWidth = 0;
         const maxWidth = 100;
-        zones.forEach(zone => {
+        zones.forEach((zone) => {
             const originalWidth = zone.originalWidth;
             let zoneWidthPercent = 0;
             if (typeof originalWidth === 'string') {
@@ -40,12 +40,17 @@ export class LayoutCalculator {
             else {
                 zoneWidthPercent = 100;
             }
-            if (currentRowWidth + zoneWidthPercent > maxWidth && currentRow.length > 0) {
+            if (currentRowWidth + zoneWidthPercent > maxWidth &&
+                currentRow.length > 0) {
                 rows.push(currentRow);
                 currentRow = [];
                 currentRowWidth = 0;
             }
-            currentRow.push({ zone, width: zone.originalWidth || zone.width, height: zone.height });
+            currentRow.push({
+                zone,
+                width: zone.originalWidth || zone.width,
+                height: zone.height,
+            });
             currentRowWidth += zoneWidthPercent;
         });
         if (currentRow.length > 0) {
@@ -54,7 +59,7 @@ export class LayoutCalculator {
         return rows;
     }
     static distributeWidthsInRows(rows, terminalWidth) {
-        return rows.map(row => {
+        return rows.map((row) => {
             // Calculate percentage values for each zone in the row
             const percentages = row.map(({ zone }) => {
                 const originalWidth = zone.originalWidth;
@@ -74,7 +79,7 @@ export class LayoutCalculator {
             const totalOverhead = row.length * borderPaddingOverhead;
             const availableContentWidth = terminalWidth - totalOverhead;
             // Calculate base widths (floor division)
-            const baseWidths = percentages.map(p => Math.floor((availableContentWidth * p) / 100));
+            const baseWidths = percentages.map((p) => Math.floor((availableContentWidth * p) / 100));
             // Calculate used width and remainder
             const usedContentWidth = baseWidths.reduce((sum, w) => sum + w, 0);
             const remainderWidth = availableContentWidth - usedContentWidth;
@@ -82,13 +87,13 @@ export class LayoutCalculator {
             const sortedIndices = percentages
                 .map((p, i) => ({ percentage: p, index: i }))
                 .sort((a, b) => b.percentage - a.percentage)
-                .map(x => x.index);
+                .map((x) => x.index);
             // Add remainder columns to largest zones
             for (let i = 0; i < remainderWidth; i++) {
                 baseWidths[sortedIndices[i % sortedIndices.length]]++;
             }
             // Add back overhead to get final zone widths
-            const finalWidths = baseWidths.map(w => w + borderPaddingOverhead);
+            const finalWidths = baseWidths.map((w) => w + borderPaddingOverhead);
             // Debug logging for width calculations
             if (process.env.DEBUG_WIDTHS) {
                 console.log('Width distribution debug:');
@@ -100,27 +105,27 @@ export class LayoutCalculator {
             // Return row with updated widths
             return row.map((zoneInfo, index) => ({
                 ...zoneInfo,
-                width: finalWidths[index]
+                width: finalWidths[index],
             }));
         });
     }
     static distributeHeights(context) {
         let remainingHeight = context.totalTerminalHeight;
         // First pass: Handle mixed rows (rows with both auto and fixed zones)
-        context.rows.forEach(row => {
+        context.rows.forEach((row) => {
             if (!row.hasAutoZones) {
                 // All zones have fixed heights, use the maximum
-                const maxFixedHeight = Math.max(...row.zones.map(zoneInfo => typeof zoneInfo.height === 'number' ? zoneInfo.height : 4));
+                const maxFixedHeight = Math.max(...row.zones.map((zoneInfo) => typeof zoneInfo.height === 'number' ? zoneInfo.height : 4));
                 row.fixedHeight = maxFixedHeight;
                 row.calculatedHeight = maxFixedHeight;
                 remainingHeight -= maxFixedHeight;
             }
             else {
                 // Row has auto zones, check if there are also fixed zones
-                const fixedZones = row.zones.filter(z => !z.isAutoHeight);
+                const fixedZones = row.zones.filter((z) => !z.isAutoHeight);
                 if (fixedZones.length > 0) {
                     // Mixed row: use the maximum fixed height for the entire row
-                    const maxFixedHeight = Math.max(...fixedZones.map(zoneInfo => typeof zoneInfo.height === 'number' ? zoneInfo.height : 4));
+                    const maxFixedHeight = Math.max(...fixedZones.map((zoneInfo) => typeof zoneInfo.height === 'number' ? zoneInfo.height : 4));
                     row.fixedHeight = maxFixedHeight;
                     row.calculatedHeight = maxFixedHeight;
                     row.availableHeight = maxFixedHeight;
@@ -129,9 +134,9 @@ export class LayoutCalculator {
             }
         });
         // Second pass: Distribute remaining height among pure auto rows
-        const pureAutoRows = context.rows.filter(row => row.hasAutoZones && !row.fixedHeight);
+        const pureAutoRows = context.rows.filter((row) => row.hasAutoZones && !row.fixedHeight);
         const heightPerAutoRow = Math.floor(remainingHeight / Math.max(1, pureAutoRows.length));
-        pureAutoRows.forEach(row => {
+        pureAutoRows.forEach((row) => {
             row.availableHeight = heightPerAutoRow;
             row.calculatedHeight = heightPerAutoRow;
         });
@@ -151,7 +156,7 @@ export class LayoutCalculator {
                 maxDisplayableMessages: Math.max(1, availableForContent),
                 calculatedHeight: fixedHeight,
                 overhead,
-                availableForContent
+                availableForContent,
             };
         }
         // With overlapping header design: header no longer takes content space
@@ -166,7 +171,7 @@ export class LayoutCalculator {
             maxDisplayableMessages,
             calculatedHeight: availableHeight,
             overhead,
-            availableForContent
+            availableForContent,
         };
     }
 }

@@ -16,7 +16,7 @@ export class LayoutRenderer {
   }
 
   removeZone(zoneName: string) {
-    this.zones = this.zones.filter(zone => zone.name !== zoneName);
+    this.zones = this.zones.filter((zone) => zone.name !== zoneName);
     this.zoneMessages.delete(zoneName);
   }
 
@@ -27,7 +27,7 @@ export class LayoutRenderer {
 
   addMessage(zoneName: string, message: LogMessage) {
     const messages = this.zoneMessages.get(zoneName) || [];
-    
+
     if (message.level === 'clear') {
       this.zoneMessages.set(zoneName, []);
     } else {
@@ -38,40 +38,54 @@ export class LayoutRenderer {
 
   render() {
     let terminalSize: { width: number; height: number };
-    
+
     try {
       // Windows-specific workaround: call _refreshSize() before getWindowSize()
-      if (process.platform === 'win32' && typeof (process.stdout as any)._refreshSize === 'function') {
-        (process.stdout as any)._refreshSize();
+      if (
+        process.platform === 'win32' &&
+        typeof (
+          process.stdout as NodeJS.WriteStream & { _refreshSize?: () => void }
+        )._refreshSize === 'function'
+      ) {
+        (
+          process.stdout as unknown as NodeJS.WriteStream & {
+            _refreshSize: () => void;
+          }
+        )._refreshSize();
       }
-      
+
       const windowSize = process.stdout.getWindowSize();
       terminalSize = {
         width: windowSize[0],
-        height: windowSize[1]
+        height: windowSize[1],
       };
-    } catch (e) {
+    } catch (_e) {
       // Fallback to columns/rows if getWindowSize() fails
       terminalSize = {
         width: process.stdout.columns || 80,
-        height: process.stdout.rows || 24
+        height: process.stdout.rows || 24,
       };
     }
-    
+
     // Use existing layout calculator to determine zone positions and sizes
-    let context = LayoutCalculator.createLayoutContext(this.zones, terminalSize.width, terminalSize.height - 1);
+    let context = LayoutCalculator.createLayoutContext(
+      this.zones,
+      terminalSize.width,
+      terminalSize.height - 1
+    );
     context = LayoutCalculator.distributeHeights(context);
 
     // Convert layout context to renderable zones
     const renderableZones: RenderableZone[] = [];
     let currentY = 0;
 
-    context.rows.forEach(row => {
+    context.rows.forEach((row) => {
       let currentX = 0;
       const rowHeight = row.calculatedHeight || row.availableHeight || 4;
 
-      row.zones.forEach(zoneInfo => {
-        const zoneWidth = typeof zoneInfo.width === 'number' ? zoneInfo.width : 40;
+      row.zones.forEach((zoneInfo) => {
+        const zoneWidth =
+          typeof zoneInfo.width === 'number' ? zoneInfo.width : 40;
         const messages = this.zoneMessages.get(zoneInfo.zone.name) || [];
 
         // Update the zone's innerWidth based on calculated layout width
@@ -83,7 +97,7 @@ export class LayoutRenderer {
           y: currentY,
           width: zoneWidth,
           height: rowHeight,
-          messages: messages
+          messages: messages,
         });
 
         currentX += zoneWidth;
@@ -110,7 +124,7 @@ export class LayoutRenderer {
 
     // Always check if terminal size changed by comparing zone positions/sizes
     const terminalSizeChanged = this.hasTerminalSizeChanged(currentZones);
-    
+
     if (terminalSizeChanged) {
       // Terminal size changed - clear screen and scrollback to prevent artifacts
       process.stdout.write('\x1b[2J\x1b[3J\x1b[H'); // Clear screen + scrollback, home cursor
@@ -123,11 +137,11 @@ export class LayoutRenderer {
 
     // Check which zones have changed content
     const changedZones: RenderableZone[] = [];
-    
+
     for (let i = 0; i < currentZones.length; i++) {
       const current = currentZones[i];
       const previous = this.lastRenderableZones[i];
-      
+
       if (!previous || this.hasZoneChanged(current, previous)) {
         changedZones.push(current);
       }
@@ -136,10 +150,10 @@ export class LayoutRenderer {
     // Only update changed zones
     if (changedZones.length > 0) {
       let output = '';
-      changedZones.forEach(zone => {
+      changedZones.forEach((zone) => {
         output += ZoneRenderer.renderZone(zone);
       });
-      
+
       if (output) {
         process.stdout.write(output);
       }
@@ -158,10 +172,14 @@ export class LayoutRenderer {
     for (let i = 0; i < currentZones.length; i++) {
       const current = currentZones[i];
       const previous = this.lastRenderableZones[i];
-      
-      if (!previous ||
-          current.x !== previous.x || current.y !== previous.y ||
-          current.width !== previous.width || current.height !== previous.height) {
+
+      if (
+        !previous ||
+        current.x !== previous.x ||
+        current.y !== previous.y ||
+        current.width !== previous.width ||
+        current.height !== previous.height
+      ) {
         return true;
       }
     }
@@ -169,7 +187,10 @@ export class LayoutRenderer {
     return false;
   }
 
-  private hasZoneChanged(current: RenderableZone, previous: RenderableZone): boolean {
+  private hasZoneChanged(
+    current: RenderableZone,
+    previous: RenderableZone
+  ): boolean {
     // Check if messages changed (position/size changes are handled separately)
     if (current.messages.length !== previous.messages.length) {
       return true;
@@ -178,11 +199,13 @@ export class LayoutRenderer {
     for (let i = 0; i < current.messages.length; i++) {
       const currentMsg = current.messages[i];
       const previousMsg = previous.messages[i];
-      
-      if (!previousMsg || 
-          currentMsg.message !== previousMsg.message ||
-          currentMsg.level !== previousMsg.level ||
-          currentMsg.timestamp !== previousMsg.timestamp) {
+
+      if (
+        !previousMsg ||
+        currentMsg.message !== previousMsg.message ||
+        currentMsg.level !== previousMsg.level ||
+        currentMsg.timestamp !== previousMsg.timestamp
+      ) {
         return true;
       }
     }
@@ -196,7 +219,7 @@ export class LayoutRenderer {
     this.isInitialized = false;
     this.lastRenderableZones = [];
     this.lastRenderOutput = '';
-    
+
     // Force immediate re-render after clearing state
     setTimeout(() => {
       this.render();

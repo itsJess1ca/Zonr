@@ -1,5 +1,10 @@
-import type { Zone, Transport, LogLevel, ZoneConfig } from './types.js';
-import { FileTransport } from './transports/file-transport.js';
+import type {
+  Zone,
+  Transport,
+  LogLevel,
+  ZoneConfig,
+  ANSIColor,
+} from './types.js';
 import { globalEventEmitter } from './events.js';
 
 export class ZoneImpl implements Zone {
@@ -10,7 +15,7 @@ export class ZoneImpl implements Zone {
   public readonly showHeader: boolean;
   public readonly transports: Transport[];
   public readonly originalWidth: string | number | undefined;
-  public readonly borderColor: string = "blue";
+  public readonly borderColor: ANSIColor = 'blue';
 
   constructor(config: ZoneConfig) {
     this.name = config.name;
@@ -21,22 +26,28 @@ export class ZoneImpl implements Zone {
     this.showHeader = config.showHeader !== false; // Default to true
     this.transports = this.createTransports(config.additionalTransports);
     if (config.borderColor) {
-      this.borderColor = config.borderColor;
+      (this as { borderColor: ANSIColor }).borderColor = config.borderColor;
     }
   }
 
-  private parseSize(size: string | number | undefined, defaultValue: number): number {
+  private parseSize(
+    size: string | number | undefined,
+    defaultValue: number
+  ): number {
     if (typeof size === 'number') return size;
     if (typeof size === 'string') {
       if (size.endsWith('%')) {
-        return parseInt(size) * defaultValue / 100;
+        return (parseInt(size) * defaultValue) / 100;
       }
       return parseInt(size) || defaultValue;
     }
     return defaultValue;
   }
 
-  private parseHeight(height: string | number | 'auto' | undefined, includeHeader: boolean = true): number | 'auto' {
+  private parseHeight(
+    height: string | number | 'auto' | undefined,
+    includeHeader: boolean = true
+  ): number | 'auto' {
     if (height === 'auto') return 'auto';
     const minHeight = includeHeader ? 5 : 4; // 2 borders + 1 padding + 1 content + (1 header space if needed)
     if (typeof height === 'number') {
@@ -45,7 +56,7 @@ export class ZoneImpl implements Zone {
     if (typeof height === 'string') {
       if (height.endsWith('%')) {
         const terminalHeight = process.stdout.rows || 24;
-        const calculated = parseInt(height) * terminalHeight / 100;
+        const calculated = (parseInt(height) * terminalHeight) / 100;
         return Math.max(calculated, minHeight);
       }
       const parsed = parseInt(height) || 10;
@@ -54,8 +65,9 @@ export class ZoneImpl implements Zone {
     return 10;
   }
 
-  private createTransports(additionalTransports?: string[]): Transport[] {
+  private createTransports(_additionalTransports?: string[]): Transport[] {
     const transports: Transport[] = [];
+    // TODO: Implement transport creation based on additionalTransports parameter
     return transports;
   }
 
@@ -65,11 +77,11 @@ export class ZoneImpl implements Zone {
       message,
       level,
       timestamp: new Date(),
-      zoneName: this.name
+      zoneName: this.name,
     });
 
     // Also write to transports
-    this.transports.forEach(transport => {
+    this.transports.forEach((transport) => {
       transport.write(message, level);
     });
   }
@@ -95,7 +107,7 @@ export class ZoneImpl implements Zone {
       message: '',
       level: 'clear',
       timestamp: new Date(),
-      zoneName: this.name
+      zoneName: this.name,
     });
   }
 
@@ -114,7 +126,7 @@ export class ZoneImpl implements Zone {
       width: this.originalWidth,
       height: this.height,
       showHeader: this.showHeader,
-      borderColor: this.borderColor as any
+      borderColor: this.borderColor,
     };
   }
 }

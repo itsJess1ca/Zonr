@@ -15,10 +15,14 @@ export interface RenderableZone {
 export class ZoneRenderer {
   private static getColorForLevel(level: string): string {
     switch (level) {
-      case 'error': return 'red';
-      case 'warn': return 'yellow';
-      case 'debug': return 'gray';
-      default: return 'white';
+      case 'error':
+        return 'red';
+      case 'warn':
+        return 'yellow';
+      case 'debug':
+        return 'gray';
+      default:
+        return 'white';
     }
   }
 
@@ -34,10 +38,13 @@ export class ZoneRenderer {
 
     // Truncate while accounting for wide characters
     let truncated = text;
-    while (this.getVisualWidth(truncated + '...') > maxWidth && truncated.length > 0) {
+    while (
+      this.getVisualWidth(truncated + '...') > maxWidth &&
+      truncated.length > 0
+    ) {
       truncated = truncated.slice(0, -1);
     }
-    
+
     return truncated.length > 0 ? truncated + '...' : '...';
   }
 
@@ -77,8 +84,14 @@ export class ZoneRenderer {
         const messageY = contentY + index;
         const truncatedText = this.truncateText(message.message, contentWidth);
         const color = this.getColorForLevel(message.level);
-        
-        output += ANSIRenderer.drawText(contentX, messageY, truncatedText, color, contentWidth);
+
+        output += ANSIRenderer.drawText(
+          contentX,
+          messageY,
+          truncatedText,
+          color,
+          contentWidth
+        );
       }
     });
 
@@ -90,12 +103,12 @@ export class ZoneRenderer {
 
   static renderFrame(zones: RenderableZone[]): string {
     let output = '';
-    
+
     // Hide cursor during render
     output += ANSIRenderer.hideCursor();
 
     // Render all zones
-    zones.forEach(zone => {
+    zones.forEach((zone) => {
       output += this.renderZone(zone);
     });
 

@@ -25,7 +25,7 @@ export class ANSIRenderer {
             white: '\x1b[37m',
             gray: '\x1b[90m',
             reset: '\x1b[0m',
-            bold: '\x1b[1m'
+            bold: '\x1b[1m',
         };
         return colors[color] || colors.reset;
     }
@@ -40,12 +40,13 @@ export class ANSIRenderer {
             bottomLeft: '╰',
             bottomRight: '╯',
             horizontal: '─',
-            vertical: '│'
+            vertical: '│',
         };
         // Draw top border
         output += this.moveCursor(y, x);
         output += colorCode;
-        output += chars.topLeft + chars.horizontal.repeat(width - 2) + chars.topRight;
+        output +=
+            chars.topLeft + chars.horizontal.repeat(width - 2) + chars.topRight;
         output += resetCode;
         // Draw side borders and content area
         for (let i = 1; i < height - 1; i++) {
@@ -57,7 +58,8 @@ export class ANSIRenderer {
         // Draw bottom border
         output += this.moveCursor(y + height - 1, x);
         output += colorCode;
-        output += chars.bottomLeft + chars.horizontal.repeat(width - 2) + chars.bottomRight;
+        output +=
+            chars.bottomLeft + chars.horizontal.repeat(width - 2) + chars.bottomRight;
         output += resetCode;
         return output;
     }
@@ -73,7 +75,10 @@ export class ANSIRenderer {
             if (actualWidth > maxWidth) {
                 // Truncate while accounting for wide characters
                 let truncated = text;
-                while (stringWidth(truncated + '...') + (truncated.match(/\uFE0F/g) || []).length > maxWidth && truncated.length > 0) {
+                while (stringWidth(truncated + '...') +
+                    (truncated.match(/\uFE0F/g) || []).length >
+                    maxWidth &&
+                    truncated.length > 0) {
                     truncated = truncated.slice(0, -1);
                 }
                 displayText = truncated.length > 0 ? truncated + '...' : '...';
@@ -85,7 +90,9 @@ export class ANSIRenderer {
     }
     static drawZoneHeader(x, y, title, width, color) {
         let output = '';
-        const colorCode = color ? this.setColor(color) + this.setColor('bold') : this.setColor('bold');
+        const colorCode = color
+            ? this.setColor(color) + this.setColor('bold')
+            : this.setColor('bold');
         const resetCode = this.setColor('reset');
         // Position header over the top border
         const headerText = ` ${title} `;
@@ -101,7 +108,7 @@ export class ANSIRenderer {
     static getTerminalSize() {
         return {
             width: process.stdout.columns || 80,
-            height: process.stdout.rows || 24
+            height: process.stdout.rows || 24,
         };
     }
 }

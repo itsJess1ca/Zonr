@@ -28,7 +28,7 @@ export interface FileTransportOptions {
 export declare class FileTransport implements Transport {
     name: string;
     private logs;
-    constructor(options: FileTransportOptions);
+    constructor(_options: FileTransportOptions);
     applyDefaults(options: FileTransportOptions): FileTransportOptions;
     write(message: string, level: LogLevel): void;
     getLogs(): JSONLogMessage[];

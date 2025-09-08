@@ -1,7 +1,8 @@
 export class FileTransport {
-    constructor(options) {
+    constructor(_options) {
         this.name = 'file';
         this.logs = [];
+        // TODO: Implement file transport functionality
     }
     applyDefaults(options) {
         const defaults = {
@@ -20,7 +21,7 @@ export class FileTransport {
         const formattedMessage = {
             timestamp,
             level,
-            message
+            message,
         };
         this.logs.push(formattedMessage);
     }

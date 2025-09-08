@@ -1,13 +1,13 @@
-import type { Zone, Transport, ZoneConfig } from './types.js';
+import type { Zone, Transport, ZoneConfig, ANSIColor } from './types.js';
 export declare class ZoneImpl implements Zone {
     readonly name: string;
     readonly width: number;
-    readonly innerWidth: number;
+    innerWidth: number;
     readonly height: number | 'auto';
     readonly showHeader: boolean;
     readonly transports: Transport[];
     readonly originalWidth: string | number | undefined;
-    readonly borderColor: string;
+    readonly borderColor: ANSIColor;
     constructor(config: ZoneConfig);
     private parseSize;
     private parseHeight;
@@ -18,5 +18,8 @@ export declare class ZoneImpl implements Zone {
     error(message: string): void;
     debug(message: string): void;
     clear(): void;
+    updateCalculatedDimensions(calculatedWidth: number): void;
+    getName(): string;
+    getConfig(): ZoneConfig;
 }
 //# sourceMappingURL=zone.d.ts.map

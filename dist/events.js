@@ -12,7 +12,7 @@ export class ZoneEventEmitter {
         }
     }
     emit(message) {
-        this.listeners.forEach(listener => listener(message));
+        this.listeners.forEach((listener) => listener(message));
     }
 }
 export const globalEventEmitter = new ZoneEventEmitter();

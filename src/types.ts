@@ -1,12 +1,12 @@
-export type ANSIColor = 
-  | 'black' 
-  | 'red' 
-  | 'green' 
-  | 'yellow' 
-  | 'blue' 
-  | 'magenta' 
-  | 'cyan' 
-  | 'white' 
+export type ANSIColor =
+  | 'black'
+  | 'red'
+  | 'green'
+  | 'yellow'
+  | 'blue'
+  | 'magenta'
+  | 'cyan'
+  | 'white'
   | 'gray';
 
 export interface ZoneConfig {
@@ -27,7 +27,7 @@ export interface Zone {
   transports: Transport[];
   originalWidth: string | number | undefined; // Keep original for layout calculations
   borderColor: ANSIColor;
-  
+
   info(message: string): void;
   warn(message: string): void;
   error(message: string): void;

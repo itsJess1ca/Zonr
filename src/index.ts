@@ -1,2 +1,8 @@
 export { default } from './zonr.js';
-export type { Zone, ZoneConfig, Transport, LogLevel, ANSIColor } from './types.js';
+export type {
+  Zone,
+  ZoneConfig,
+  Transport,
+  LogLevel,
+  ANSIColor,
+} from './types.js';

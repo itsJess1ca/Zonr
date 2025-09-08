@@ -8,7 +8,7 @@ export class ZoneManagerImpl implements ZoneManager {
     if (this.zones.has(config.name)) {
       throw new Error(`Zone with name '${config.name}' already exists`);
     }
-    
+
     const zone = new ZoneImpl(config);
     this.zones.set(config.name, zone);
     return zone;

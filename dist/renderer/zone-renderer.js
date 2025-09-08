@@ -3,10 +3,14 @@ import { ANSIRenderer } from './ansi-renderer.js';
 export class ZoneRenderer {
     static getColorForLevel(level) {
         switch (level) {
-            case 'error': return 'red';
-            case 'warn': return 'yellow';
-            case 'debug': return 'gray';
-            default: return 'white';
+            case 'error':
+                return 'red';
+            case 'warn':
+                return 'yellow';
+            case 'debug':
+                return 'gray';
+            default:
+                return 'white';
         }
     }
     static getVisualWidth(text) {
@@ -20,7 +24,8 @@ export class ZoneRenderer {
             return text;
         // Truncate while accounting for wide characters
         let truncated = text;
-        while (this.getVisualWidth(truncated + '...') > maxWidth && truncated.length > 0) {
+        while (this.getVisualWidth(truncated + '...') > maxWidth &&
+            truncated.length > 0) {
             truncated = truncated.slice(0, -1);
         }
         return truncated.length > 0 ? truncated + '...' : '...';
@@ -28,6 +33,8 @@ export class ZoneRenderer {
     static renderZone(renderableZone) {
         const { zone, x, y, width, height, messages } = renderableZone;
         let output = '';
+        // Hide cursor during zone update
+        output += ANSIRenderer.hideCursor();
         // Draw the zone border
         output += ANSIRenderer.drawBox(x, y, width, height, zone.borderColor);
         // Draw the zone header if enabled
@@ -39,6 +46,11 @@ export class ZoneRenderer {
         const contentY = y + (zone.showHeader ? 2 : 1); // Account for top border + header
         const contentWidth = width - 4; // Account for borders + padding
         const contentHeight = height - (zone.showHeader ? 3 : 2); // Account for borders + header
+        // Clear content area first to prevent old text from showing
+        for (let i = 0; i < contentHeight; i++) {
+            output += ANSIRenderer.moveCursor(contentY + i, contentX);
+            output += ' '.repeat(contentWidth);
+        }
         // Render messages
         const maxMessages = Math.max(1, contentHeight);
         const messagesToShow = messages.slice(-maxMessages);
@@ -50,15 +62,16 @@ export class ZoneRenderer {
                 output += ANSIRenderer.drawText(contentX, messageY, truncatedText, color, contentWidth);
             }
         });
+        // Show cursor after zone update
+        output += ANSIRenderer.showCursor();
         return output;
     }
     static renderFrame(zones) {
         let output = '';
-        // Clear screen and hide cursor
-        output += ANSIRenderer.clearScreen();
+        // Hide cursor during render
         output += ANSIRenderer.hideCursor();
         // Render all zones
-        zones.forEach(zone => {
+        zones.forEach((zone) => {
             output += this.renderZone(zone);
         });
         // Show cursor at the end

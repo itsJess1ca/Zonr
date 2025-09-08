@@ -1,5 +1,4 @@
 import type { Transport, LogLevel } from '../types.js';
-import fs from "node:fs";
 
 interface JSONLogMessage {
   timestamp: string;
@@ -16,7 +15,7 @@ export type FileSize = `${number}${FileSizeUnit}`;
 
 export interface FileTransportOptions {
   filename: string; // Specifies the name of the file. Required.
-  path: string // Specifies the base path for files. Required.
+  path: string; // Specifies the base path for files. Required.
   compress?: boolean | 'gzip' | Compressor; // Specifies compression method of rotated files. Default: false.
   encoding?: BufferEncoding; //Specifies the default encoding. Default: 'utf8'.
   history?: string; // Specifies the history filename. Default: false.
@@ -34,8 +33,8 @@ export class FileTransport implements Transport {
   name = 'file';
   private logs: JSONLogMessage[] = [];
 
-  constructor(options: FileTransportOptions) {
-
+  constructor(_options: FileTransportOptions) {
+    // TODO: Implement file transport functionality
   }
 
   applyDefaults(options: FileTransportOptions): FileTransportOptions {
@@ -56,8 +55,8 @@ export class FileTransport implements Transport {
     const formattedMessage = {
       timestamp,
       level,
-      message
-  };
+      message,
+    };
     this.logs.push(formattedMessage);
   }
 

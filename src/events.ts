@@ -20,7 +20,7 @@ export class ZoneEventEmitter {
   }
 
   emit(message: LogMessage): void {
-    this.listeners.forEach(listener => listener(message));
+    this.listeners.forEach((listener) => listener(message));
   }
 }
 

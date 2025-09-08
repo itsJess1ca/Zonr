@@ -30,12 +30,18 @@ export class ANSIRenderer {
       white: '\x1b[37m',
       gray: '\x1b[90m',
       reset: '\x1b[0m',
-      bold: '\x1b[1m'
+      bold: '\x1b[1m',
     };
     return colors[color] || colors.reset;
   }
 
-  static drawBox(x: number, y: number, width: number, height: number, color?: string) {
+  static drawBox(
+    x: number,
+    y: number,
+    width: number,
+    height: number,
+    color?: string
+  ) {
     let output = '';
     const colorCode = color ? this.setColor(color) : '';
     const resetCode = color ? this.setColor('reset') : '';
@@ -47,13 +53,14 @@ export class ANSIRenderer {
       bottomLeft: '╰',
       bottomRight: '╯',
       horizontal: '─',
-      vertical: '│'
+      vertical: '│',
     };
 
     // Draw top border
     output += this.moveCursor(y, x);
     output += colorCode;
-    output += chars.topLeft + chars.horizontal.repeat(width - 2) + chars.topRight;
+    output +=
+      chars.topLeft + chars.horizontal.repeat(width - 2) + chars.topRight;
     output += resetCode;
 
     // Draw side borders and content area
@@ -67,13 +74,20 @@ export class ANSIRenderer {
     // Draw bottom border
     output += this.moveCursor(y + height - 1, x);
     output += colorCode;
-    output += chars.bottomLeft + chars.horizontal.repeat(width - 2) + chars.bottomRight;
+    output +=
+      chars.bottomLeft + chars.horizontal.repeat(width - 2) + chars.bottomRight;
     output += resetCode;
 
     return output;
   }
 
-  static drawText(x: number, y: number, text: string, color?: string, maxWidth?: number) {
+  static drawText(
+    x: number,
+    y: number,
+    text: string,
+    color?: string,
+    maxWidth?: number
+  ) {
     let output = '';
     const colorCode = color ? this.setColor(color) : '';
     const resetCode = color ? this.setColor('reset') : '';
@@ -83,11 +97,16 @@ export class ANSIRenderer {
     if (maxWidth) {
       const variationSelectorCount = (text.match(/\uFE0F/g) || []).length;
       const actualWidth = stringWidth(text) + variationSelectorCount;
-      
+
       if (actualWidth > maxWidth) {
         // Truncate while accounting for wide characters
         let truncated = text;
-        while (stringWidth(truncated + '...') + (truncated.match(/\uFE0F/g) || []).length > maxWidth && truncated.length > 0) {
+        while (
+          stringWidth(truncated + '...') +
+            (truncated.match(/\uFE0F/g) || []).length >
+            maxWidth &&
+          truncated.length > 0
+        ) {
           truncated = truncated.slice(0, -1);
         }
         displayText = truncated.length > 0 ? truncated + '...' : '...';
@@ -96,13 +115,21 @@ export class ANSIRenderer {
 
     output += this.moveCursor(y, x);
     output += colorCode + displayText + resetCode;
-    
+
     return output;
   }
 
-  static drawZoneHeader(x: number, y: number, title: string, width: number, color?: string) {
+  static drawZoneHeader(
+    x: number,
+    y: number,
+    title: string,
+    width: number,
+    color?: string
+  ) {
     let output = '';
-    const colorCode = color ? this.setColor(color) + this.setColor('bold') : this.setColor('bold');
+    const colorCode = color
+      ? this.setColor(color) + this.setColor('bold')
+      : this.setColor('bold');
     const resetCode = this.setColor('reset');
 
     // Position header over the top border
@@ -123,7 +150,7 @@ export class ANSIRenderer {
   static getTerminalSize() {
     return {
       width: process.stdout.columns || 80,
-      height: process.stdout.rows || 24
+      height: process.stdout.rows || 24,
     };
   }
 }
