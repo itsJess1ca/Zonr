@@ -6,3 +6,4 @@ export type {
   LogLevel,
   ANSIColor,
 } from './types.js';
+export { FileTransport, type FileTransportOptions } from './transports/file-transport.js';

@@ -65,9 +65,26 @@ export class ZoneImpl implements Zone {
     return 10;
   }
 
-  private createTransports(_additionalTransports?: string[]): Transport[] {
+  private createTransports(additionalTransports?: (string | Transport)[]): Transport[] {
     const transports: Transport[] = [];
-    // TODO: Implement transport creation based on additionalTransports parameter
+    
+    if (!additionalTransports) {
+      return transports;
+    }
+
+    for (const transport of additionalTransports) {
+      if (typeof transport === 'string') {
+        // Handle string-based transport creation for backward compatibility
+        // For now, we'll skip string-based transports since they require factory implementation
+        console.warn(`String-based transport "${transport}" is not yet implemented. Use Transport class instances instead.`);
+      } else if (transport && typeof transport.write === 'function') {
+        // It's already a Transport instance, use it directly
+        transports.push(transport);
+      } else {
+        console.warn('Invalid transport provided:', transport);
+      }
+    }
+
     return transports;
   }
 
