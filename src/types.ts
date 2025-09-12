@@ -13,7 +13,7 @@ export interface ZoneConfig {
   name: string;
   width?: string | number;
   height?: string | number | 'auto';
-  additionalTransports?: string[];
+  additionalTransports?: (string | Transport)[];
   showHeader?: boolean;
   borderColor?: ANSIColor;
 }
@@ -41,6 +41,10 @@ export interface Zone {
 export interface Transport {
   name: string;
   write(message: string, level: LogLevel): void;
+  flush?(): Promise<void>;
+  close?(): Promise<void>;
+  destroy?(): void;
+  destroyed?: boolean;
 }
 
 export type LogLevel = 'info' | 'warn' | 'error' | 'debug';

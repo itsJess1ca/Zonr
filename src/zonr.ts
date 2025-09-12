@@ -3,6 +3,10 @@ import { ZoneManagerImpl } from './zone-manager.js';
 import { LayoutRenderer } from './renderer/layout-renderer.js';
 import { globalEventEmitter } from './events.js';
 
+export interface ZonrOptions {
+  autoCleanup?: boolean; // Enable/disable automatic signal handling (default: true)
+}
+
 export default class Zonr {
   public readonly zones: ZoneManagerImpl;
   private zoneIndex: { [name: string]: Zone } = {};
@@ -11,8 +15,10 @@ export default class Zonr {
   private renderTimeout: NodeJS.Timeout | null = null;
   private lastTerminalSize = { width: 0, height: 0 };
   private resizeCheckInterval: NodeJS.Timeout | null = null;
+  private options: ZonrOptions;
 
-  constructor() {
+  constructor(options: ZonrOptions = {}) {
+    this.options = { autoCleanup: true, ...options };
     this.zones = new ZoneManagerImpl();
     this.renderer = new LayoutRenderer();
 
@@ -25,6 +31,11 @@ export default class Zonr {
     // Listen for terminal resize events and set up Windows workaround
     this.setupResizeHandler();
     this.setupResizePolling();
+
+    // Set up signal handlers for graceful shutdown (if enabled)
+    if (this.options.autoCleanup) {
+      this.setupSignalHandlers();
+    }
 
     // Override zones.add to update index and renderer
     const originalAdd = this.zones.add.bind(this.zones);
@@ -73,8 +84,6 @@ export default class Zonr {
 
       if (!this.isRendered) {
         this.isRendered = true;
-        // Set up signal handlers for clean exit
-        this.setupSignalHandlers();
       }
     }
   }
@@ -181,13 +190,49 @@ export default class Zonr {
   }
 
   private setupSignalHandlers(): void {
-    const handleExit = () => {
+    const handleExit = async (signal: string) => {
+      console.log(`\nReceived ${signal}, shutting down gracefully...`);
+      
+      try {
+        // Flush and close all transports before exiting
+        await this.flushAllTransports();
+        await this.closeAllTransports();
+        console.log('All transports flushed and closed.');
+      } catch (error) {
+        console.error('Error during transport cleanup:', error);
+      }
+      
+      // Clean up renderer
       this.stop();
       process.exit(0);
     };
 
-    process.on('SIGINT', handleExit);
-    process.on('SIGTERM', handleExit);
+    // Handle Ctrl+C (SIGINT) and termination (SIGTERM)
+    process.on('SIGINT', () => handleExit('SIGINT'));
+    process.on('SIGTERM', () => handleExit('SIGTERM'));
+    
+    // Handle uncaught exceptions and unhandled rejections
+    process.on('uncaughtException', async (error) => {
+      console.error('Uncaught Exception:', error);
+      await this.gracefulShutdown();
+      process.exit(1);
+    });
+    
+    process.on('unhandledRejection', async (reason, promise) => {
+      console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+      await this.gracefulShutdown();
+      process.exit(1);
+    });
+  }
+
+  private async gracefulShutdown(): Promise<void> {
+    try {
+      await this.flushAllTransports();
+      await this.closeAllTransports();
+    } catch (error) {
+      console.error('Error during graceful shutdown:', error);
+    }
+    this.stop();
   }
 
   // Top-level zone management methods for cleaner API
@@ -245,6 +290,36 @@ export default class Zonr {
 
     // Re-render
     this.scheduleRender();
+  }
+
+  public async flushAllTransports(): Promise<void> {
+    const allZones = this.zones.list();
+    const flushPromises: Promise<void>[] = [];
+
+    for (const zone of allZones) {
+      for (const transport of zone.transports) {
+        if (transport.flush) {
+          flushPromises.push(transport.flush());
+        }
+      }
+    }
+
+    await Promise.all(flushPromises);
+  }
+
+  public async closeAllTransports(): Promise<void> {
+    const allZones = this.zones.list();
+    const closePromises: Promise<void>[] = [];
+
+    for (const zone of allZones) {
+      for (const transport of zone.transports) {
+        if (transport.close) {
+          closePromises.push(transport.close());
+        }
+      }
+    }
+
+    await Promise.all(closePromises);
   }
 
   public stop(): void {
