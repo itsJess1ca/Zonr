@@ -29,6 +29,8 @@ Zonr transforms terminal output from chaotic text streams into organized, respon
 - **🌍 Wide Character Support**: Proper handling of emoji and Unicode characters
 - **🚀 High Performance**: Differential rendering updates only changed content
 - **🪟 Cross-Platform**: Full Windows support with resize detection workarounds
+- **📁 File Transport**: High-performance logging with sonic-boom and automatic cleanup
+- **🛡️ Signal Handling**: Automatic graceful shutdown with transport flushing on SIGINT/SIGTERM
 
 ---
 
@@ -49,17 +51,23 @@ yarn add zonr
 ## 🎮 Quick Start
 
 ```typescript
-import Zonr from 'zonr';
+import Zonr, { FileTransport } from 'zonr';
 
-// Create a new terminal UI
-const zonr = new Zonr();
+// Create a new terminal UI with automatic signal handling
+const zonr = new Zonr({ autoCleanup: true });
 
-// Add zones with different layouts
+// Add zones with different layouts and file logging
 const logs = zonr.addZone({
   name: "Application Logs",
   width: "70%",
   height: "auto", 
-  borderColor: "blue"
+  borderColor: "blue",
+  additionalTransports: [
+    new FileTransport({
+      filePath: "./app.log",
+      highVolume: true  // Optimized for high-throughput logging
+    })
+  ]
 });
 
 const status = zonr.addZone({
@@ -69,7 +77,7 @@ const status = zonr.addZone({
   borderColor: "green"
 });
 
-// Start logging
+// Start logging - automatically flushes to file on exit
 logs.info('🚀 Application started');
 logs.warn('⚠️  High memory usage detected');
 logs.error('❌ Database connection failed');
@@ -271,20 +279,36 @@ borderColor: "black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" 
 
 ## 🔧 Advanced Usage
 
-### Custom Transports
+### File Transport
 
 ```typescript
 import { FileTransport } from 'zonr';
 
-// Log to file in addition to terminal
-const fileTransport = new FileTransport('./app.log');
+// High-performance file logging with automatic cleanup
+const fileTransport = new FileTransport({
+  filePath: './logs/app.log',        // Direct file path
+  highVolume: true,                  // Optimize for high-throughput logging
+  maxFiles: 5,                       // File rotation (placeholder)
+  maxSize: '100MB'                   // Size rotation (placeholder)
+});
 
-const zone = zonr.zones.add({
+// Alternative: path + filename pattern
+const altTransport = new FileTransport({
+  path: './logs',                    // Directory path
+  filename: 'application.log',       // Filename
+  sync: true,                        // Synchronous writes for reliability
+  minLength: 8192                    // Buffer size for performance
+});
+
+const zone = zonr.addZone({
   name: "Persistent Logs",
   width: "100%",
   height: "auto",
-  transports: [fileTransport]
+  additionalTransports: [fileTransport]  // Updated property name
 });
+
+// Automatic transport cleanup on SIGINT/SIGTERM
+// Files are properly flushed and closed when process exits
 ```
 
 ### Event-Driven Updates
@@ -297,6 +321,35 @@ zone.info('Processing started...');
 setTimeout(() => {
   zone.info('Processing completed ✅');
 }, 2000);
+```
+
+### Automatic Signal Handling
+
+```typescript
+// Create Zonr instance with automatic cleanup (default: true)
+const zonr = new Zonr({ autoCleanup: true });
+
+// Add zones with file transports
+const logger = zonr.addZone({
+  name: "Application",
+  additionalTransports: [
+    new FileTransport({ filePath: './app.log' })
+  ]
+});
+
+logger.info('Application started');
+
+// When user presses Ctrl+C or process receives SIGTERM:
+// 1. All transports are automatically flushed
+// 2. All transports are properly closed  
+// 3. Process exits gracefully
+// 4. No data is lost!
+
+// Disable automatic cleanup if needed
+const manualZonr = new Zonr({ autoCleanup: false });
+// You would need to manually call:
+// await manualZonr.flushAllTransports();
+// await manualZonr.closeAllTransports();
 ```
 
 ### Dynamic Layout Changes
@@ -337,8 +390,8 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 ### Development Setup
 
 ```bash
-# Clone the repository
-git clone <repository-url>
+# Clone the repository  
+git clone https://github.com/itsJess1ca/Zonr.git
 cd zonr
 
 # Install dependencies
@@ -354,6 +407,39 @@ pnpm build
 pnpm run demo:minimal
 pnpm run demo:gaming
 ```
+
+### Conventional Commits
+
+This project uses [Conventional Commits](https://www.conventionalcommits.org/) with automated semantic versioning:
+
+```bash
+# Interactive commit prompts (recommended)
+pnpm run commit
+
+# Manual conventional format
+git commit -m "feat: add new zone layout algorithm"
+git commit -m "fix: resolve border alignment issue" 
+git commit -m "docs: update API documentation"
+
+# Test what would be released
+pnpm run release:dry
+```
+
+**Commit Types:**
+- `feat:` - New features (minor version bump)
+- `fix:` - Bug fixes (patch version bump)
+- `docs:` - Documentation changes
+- `style:` - Code style changes
+- `refactor:` - Code refactoring
+- `test:` - Adding or updating tests
+- `chore:` - Maintenance tasks
+- `ci:` - CI/CD changes
+- `perf:` - Performance improvements
+- `build:` - Build system changes
+
+**Breaking Changes:** Add `BREAKING CHANGE:` in commit footer for major version bumps.
+
+**Automated Releases:** Semantic releases are automatically created when conventional commits are pushed to the main branch.
 
 ### Running Tests
 
@@ -381,15 +467,15 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 📞 Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/zonr/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/yourusername/zonr/discussions)
-- 📧 **Email**: your.email@example.com
+- 🐛 **Issues**: [GitHub Issues](https://github.com/itsJess1ca/Zonr/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/itsJess1ca/Zonr/discussions)
+- 📧 **Email**: jessica.ide247@gmail.com
 
 ---
 
 <div align="center">
 
-**[⭐ Give us a star on GitHub!](https://github.com/yourusername/zonr)**
+**[⭐ Give us a star on GitHub!](https://github.com/itsJess1ca/Zonr)**
 
 Made with ❤️ for the terminal-loving community
 
