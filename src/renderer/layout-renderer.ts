@@ -9,6 +9,8 @@ export class LayoutRenderer {
   private lastRenderableZones: RenderableZone[] = [];
   private lastRenderOutput: string = '';
   private isInitialized = false;
+  private renderedZones: Set<string> = new Set(); // Track which zones have been fully rendered
+  private zoneMessageHashes: Map<string, string> = new Map(); // Track content hashes for efficient comparison
 
   addZone(zone: Zone) {
     this.zones.push(zone);
@@ -18,11 +20,15 @@ export class LayoutRenderer {
   removeZone(zoneName: string) {
     this.zones = this.zones.filter((zone) => zone.name !== zoneName);
     this.zoneMessages.delete(zoneName);
+    this.renderedZones.delete(zoneName);
+    this.zoneMessageHashes.delete(zoneName);
   }
 
   clearZones() {
     this.zones = [];
     this.zoneMessages.clear();
+    this.renderedZones.clear();
+    this.zoneMessageHashes.clear();
   }
 
   addMessage(zoneName: string, message: LogMessage) {
@@ -119,6 +125,12 @@ export class LayoutRenderer {
       this.lastRenderableZones = JSON.parse(JSON.stringify(currentZones));
       this.lastRenderOutput = renderOutput;
       this.isInitialized = true;
+      
+      // Mark all zones as rendered
+      currentZones.forEach(zone => {
+        this.renderedZones.add(zone.zone.name);
+      });
+      
       return;
     }
 
@@ -132,28 +144,69 @@ export class LayoutRenderer {
       process.stdout.write(renderOutput);
       this.lastRenderableZones = JSON.parse(JSON.stringify(currentZones));
       this.lastRenderOutput = renderOutput;
+      
+      // Mark all zones as rendered after terminal size change
+      this.renderedZones.clear();
+      currentZones.forEach(zone => {
+        this.renderedZones.add(zone.zone.name);
+      });
+      
       return;
     }
 
-    // Check which zones have changed content
+    // Check which zones have changed content or need initial render
     const changedZones: RenderableZone[] = [];
+    const newZones: RenderableZone[] = [];
 
-    for (let i = 0; i < currentZones.length; i++) {
-      const current = currentZones[i];
-      const previous = this.lastRenderableZones[i];
+    // Create a map of previous zones by name for more reliable comparison
+    const previousZonesMap = new Map<string, RenderableZone>();
+    this.lastRenderableZones.forEach(zone => {
+      previousZonesMap.set(zone.zone.name, zone);
+    });
 
-      if (!previous || this.hasZoneChanged(current, previous)) {
+    for (const current of currentZones) {
+      const zoneName = current.zone.name;
+      const previous = previousZonesMap.get(zoneName);
+
+      // Check if zone has never been rendered (needs full render with borders/headers)
+      if (!this.renderedZones.has(zoneName)) {
+        newZones.push(current);
+        this.renderedZones.add(zoneName);
+      } else if (previous && this.hasZoneChanged(current, previous)) {
+        // Zone exists but content changed (only update content)
         changedZones.push(current);
+      }
+      // Implicit else: zone exists and hasn't changed, skip rendering
+    }
+
+    // Render new zones with full borders and headers
+    if (newZones.length > 0) {
+      let output = '';
+      output += '\x1b[?25l'; // Hide cursor
+      
+      newZones.forEach((zone) => {
+        output += ZoneRenderer.renderZone(zone);
+      });
+      
+      output += '\x1b[?25h'; // Show cursor
+      
+      if (output) {
+        process.stdout.write(output);
       }
     }
 
-    // Only update changed zones
+    // Only update changed zones - render content only to prevent border/header flicker
     if (changedZones.length > 0) {
       let output = '';
+      output += '\x1b[?25l'; // Hide cursor
+      
       changedZones.forEach((zone) => {
-        output += ZoneRenderer.renderZone(zone);
+        // Only render the content area, preserving borders and headers
+        output += ZoneRenderer.renderZoneContent(zone);
       });
-
+      
+      output += '\x1b[?25h'; // Show cursor
+      
       if (output) {
         process.stdout.write(output);
       }
@@ -191,17 +244,29 @@ export class LayoutRenderer {
     current: RenderableZone,
     previous: RenderableZone
   ): boolean {
-    // Check if messages changed (position/size changes are handled separately)
+    // Quick check: if message array lengths differ, definitely changed
     if (current.messages.length !== previous.messages.length) {
       return true;
     }
 
-    for (let i = 0; i < current.messages.length; i++) {
-      const currentMsg = current.messages[i];
-      const previousMsg = previous.messages[i];
+    // If both arrays are empty, no change
+    if (current.messages.length === 0 && previous.messages.length === 0) {
+      return false;
+    }
+
+    // Compare messages efficiently by checking the last few messages
+    // (since we typically only show the most recent messages)
+    const messagesToCheck = Math.min(10, current.messages.length); // Check last 10 messages max
+    const currentStart = current.messages.length - messagesToCheck;
+    const previousStart = previous.messages.length - messagesToCheck;
+
+    for (let i = 0; i < messagesToCheck; i++) {
+      const currentMsg = current.messages[currentStart + i];
+      const previousMsg = previous.messages[previousStart + i];
 
       if (
         !previousMsg ||
+        !currentMsg ||
         currentMsg.message !== previousMsg.message ||
         currentMsg.level !== previousMsg.level ||
         currentMsg.timestamp !== previousMsg.timestamp
@@ -219,6 +284,7 @@ export class LayoutRenderer {
     this.isInitialized = false;
     this.lastRenderableZones = [];
     this.lastRenderOutput = '';
+    this.renderedZones.clear(); // Clear rendered zone tracking
 
     // Force immediate re-render after clearing state
     setTimeout(() => {
@@ -232,5 +298,6 @@ export class LayoutRenderer {
     this.isInitialized = false;
     this.lastRenderableZones = [];
     this.lastRenderOutput = '';
+    this.renderedZones.clear(); // Clear rendered zone tracking
   }
 }

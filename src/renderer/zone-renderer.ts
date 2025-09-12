@@ -49,7 +49,7 @@ export class ZoneRenderer {
   }
 
   static renderZone(renderableZone: RenderableZone): string {
-    const { zone, x, y, width, height, messages } = renderableZone;
+    const { zone, x, y, width, height } = renderableZone;
     let output = '';
 
     // Hide cursor during zone update
@@ -62,6 +62,19 @@ export class ZoneRenderer {
     if (zone.showHeader) {
       output += ANSIRenderer.drawZoneHeader(x, y, zone.name, width, 'cyan');
     }
+
+    // Render content area
+    output += this.renderZoneContent(renderableZone);
+
+    // Show cursor after zone update
+    output += ANSIRenderer.showCursor();
+
+    return output;
+  }
+
+  static renderZoneContent(renderableZone: RenderableZone): string {
+    const { zone, x, y, width, height, messages } = renderableZone;
+    let output = '';
 
     // Calculate content area
     const contentX = x + 2; // Account for left border + padding
@@ -94,9 +107,6 @@ export class ZoneRenderer {
         );
       }
     });
-
-    // Show cursor after zone update
-    output += ANSIRenderer.showCursor();
 
     return output;
   }
