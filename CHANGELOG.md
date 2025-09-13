@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/itsJess1ca/Zonr/compare/v1.0.0...v1.0.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* skip commitlint in CI environment ([1d6a452](https://github.com/itsJess1ca/Zonr/commit/1d6a45268aa46687f41b30367f3f248ba9ec7efa))
+
 # 1.0.0 (2025-09-13)
 
 
