@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/itsJess1ca/Zonr/compare/v1.0.1...v1.1.0) (2025-09-13)
+
+
+### Features
+
+* add publishConfig for public npm package ([4b781eb](https://github.com/itsJess1ca/Zonr/commit/4b781eb5e5e4579e82101933bc00bce43c3a97cf))
+
 ## [1.0.1](https://github.com/itsJess1ca/Zonr/compare/v1.0.0...v1.0.1) (2025-09-13)
 
 
