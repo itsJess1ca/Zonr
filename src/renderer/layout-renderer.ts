@@ -125,12 +125,12 @@ export class LayoutRenderer {
       this.lastRenderableZones = JSON.parse(JSON.stringify(currentZones));
       this.lastRenderOutput = renderOutput;
       this.isInitialized = true;
-      
+
       // Mark all zones as rendered
-      currentZones.forEach(zone => {
+      currentZones.forEach((zone) => {
         this.renderedZones.add(zone.zone.name);
       });
-      
+
       return;
     }
 
@@ -144,13 +144,13 @@ export class LayoutRenderer {
       process.stdout.write(renderOutput);
       this.lastRenderableZones = JSON.parse(JSON.stringify(currentZones));
       this.lastRenderOutput = renderOutput;
-      
+
       // Mark all zones as rendered after terminal size change
       this.renderedZones.clear();
-      currentZones.forEach(zone => {
+      currentZones.forEach((zone) => {
         this.renderedZones.add(zone.zone.name);
       });
-      
+
       return;
     }
 
@@ -160,7 +160,7 @@ export class LayoutRenderer {
 
     // Create a map of previous zones by name for more reliable comparison
     const previousZonesMap = new Map<string, RenderableZone>();
-    this.lastRenderableZones.forEach(zone => {
+    this.lastRenderableZones.forEach((zone) => {
       previousZonesMap.set(zone.zone.name, zone);
     });
 
@@ -183,13 +183,13 @@ export class LayoutRenderer {
     if (newZones.length > 0) {
       let output = '';
       output += '\x1b[?25l'; // Hide cursor
-      
+
       newZones.forEach((zone) => {
         output += ZoneRenderer.renderZone(zone);
       });
-      
+
       output += '\x1b[?25h'; // Show cursor
-      
+
       if (output) {
         process.stdout.write(output);
       }
@@ -199,14 +199,14 @@ export class LayoutRenderer {
     if (changedZones.length > 0) {
       let output = '';
       output += '\x1b[?25l'; // Hide cursor
-      
+
       changedZones.forEach((zone) => {
         // Only render the content area, preserving borders and headers
         output += ZoneRenderer.renderZoneContent(zone);
       });
-      
+
       output += '\x1b[?25h'; // Show cursor
-      
+
       if (output) {
         process.stdout.write(output);
       }

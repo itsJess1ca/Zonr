@@ -192,7 +192,7 @@ export default class Zonr {
   private setupSignalHandlers(): void {
     const handleExit = async (signal: string) => {
       console.log(`\nReceived ${signal}, shutting down gracefully...`);
-      
+
       try {
         // Flush and close all transports before exiting
         await this.flushAllTransports();
@@ -201,7 +201,7 @@ export default class Zonr {
       } catch (error) {
         console.error('Error during transport cleanup:', error);
       }
-      
+
       // Clean up renderer
       this.stop();
       process.exit(0);
@@ -210,14 +210,14 @@ export default class Zonr {
     // Handle Ctrl+C (SIGINT) and termination (SIGTERM)
     process.on('SIGINT', () => handleExit('SIGINT'));
     process.on('SIGTERM', () => handleExit('SIGTERM'));
-    
+
     // Handle uncaught exceptions and unhandled rejections
     process.on('uncaughtException', async (error) => {
       console.error('Uncaught Exception:', error);
       await this.gracefulShutdown();
       process.exit(1);
     });
-    
+
     process.on('unhandledRejection', async (reason, promise) => {
       console.error('Unhandled Rejection at:', promise, 'reason:', reason);
       await this.gracefulShutdown();

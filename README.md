@@ -6,9 +6,9 @@
 
 > A modern TypeScript library for building organized, dynamic terminal interfaces with zone-based layouts
 
-[![npm version](https://badge.fury.io/js/zonr.svg)](https://badge.fury.io/js/zonr)
+[![npm version](https://badge.fury.io/js/@zonr-logs%2Fcore.svg)](https://badge.fury.io/js/@zonr-logs%2Fcore)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Node.js Version](https://img.shields.io/node/v/zonr.svg)](https://nodejs.org/)
+[![Node.js Version](https://img.shields.io/node/v/@zonr-logs%2Fcore.svg)](https://nodejs.org/)
 
 ---
 

@@ -13,18 +13,18 @@ export interface FileTransportOptions {
   filename?: string;
   path?: string;
   filePath?: string; // Alternative single-path option
-  
+
   // File rotation options
   maxFiles?: number;
   maxSize?: string;
-  
+
   // SonicBoom options
   encoding?: BufferEncoding;
   sync?: boolean;
   minLength?: number;
-  retryEAGAIN?: SonicBoomOpts["retryEAGAIN"];
+  retryEAGAIN?: SonicBoomOpts['retryEAGAIN'];
   onError?: (error: Error) => void;
-  
+
   // High-volume logging options
   highVolume?: boolean; // Optimize for high-volume logging (larger buffer, sync mode)
 }
@@ -38,7 +38,7 @@ export class FileTransport implements Transport {
   constructor(options: FileTransportOptions) {
     this.options = this.applyDefaults(options);
     const filePath = this.getFilePath(options);
-    
+
     try {
       this.stream = new SonicBoom({
         dest: filePath,
@@ -49,9 +49,11 @@ export class FileTransport implements Transport {
       });
 
       this.stream.on('error', (err: Error) => {
-        const errorHandler = this.options.onError || ((error: Error) => {
-          console.error(`FileTransport error: ${error.message}`);
-        });
+        const errorHandler =
+          this.options.onError ||
+          ((error: Error) => {
+            console.error(`FileTransport error: ${error.message}`);
+          });
         errorHandler(err);
       });
 
@@ -62,12 +64,13 @@ export class FileTransport implements Transport {
       this.stream.on('drain', () => {
         // Buffered data has been written
       });
-
     } catch (error) {
       const err = error as Error;
-      const errorHandler = this.options.onError || ((error: Error) => {
-        console.error(`FileTransport initialization error: ${error.message}`);
-      });
+      const errorHandler =
+        this.options.onError ||
+        ((error: Error) => {
+          console.error(`FileTransport initialization error: ${error.message}`);
+        });
       errorHandler(err);
       throw err;
     }
@@ -81,7 +84,9 @@ export class FileTransport implements Transport {
       // Use path + filename combination
       return join(options.path, options.filename);
     } else {
-      throw new Error('FileTransport requires either "filePath" or both "path" and "filename" options');
+      throw new Error(
+        'FileTransport requires either "filePath" or both "path" and "filename" options'
+      );
     }
   }
 
@@ -107,14 +112,16 @@ export class FileTransport implements Transport {
         level,
         message,
       };
-      
+
       const formattedLine = JSON.stringify(logEntry) + '\n';
       this.stream.write(formattedLine);
     } catch (error) {
       const err = error as Error;
-      const errorHandler = this.options.onError || ((error: Error) => {
-        console.error(`FileTransport write error: ${error.message}`);
-      });
+      const errorHandler =
+        this.options.onError ||
+        ((error: Error) => {
+          console.error(`FileTransport write error: ${error.message}`);
+        });
       errorHandler(err);
     }
   }
