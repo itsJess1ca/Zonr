@@ -27,8 +27,8 @@ jobs:
         with:
           # Fetch full history for semantic-release
           fetch-depth: 0
-          # Use a personal access token to allow pushing back to main
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # Use a personal access token to allow pushing back to main and bypass repository rules
+          token: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
 
       - name: Install pnpm
         uses: pnpm/action-setup@v4
@@ -68,7 +68,7 @@ jobs:
         if: ${{ inputs.dry-run }}
         run: pnpm run release:dry
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_USERCONFIG: ~/.npmrc
           HUSKY: 0
@@ -77,7 +77,7 @@ jobs:
         if: ${{ !inputs.dry-run }}
         run: pnpm run release
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.RELEASE_PAT || secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_USERCONFIG: ~/.npmrc
           HUSKY: 0
