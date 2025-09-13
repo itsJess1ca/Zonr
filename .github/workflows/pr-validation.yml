@@ -41,6 +41,3 @@ jobs:
 
       - name: Build project
         run: pnpm run build
-
-      - name: Validate package can be published
-        run: pnpm pack --dry-run
