@@ -1,4 +1,4 @@
-name: ${{ inputs.dry-run == true && '🔍 Release (Dry Run)' || '🚀 Release' }}
+name: Release
 
 on:
   workflow_dispatch:
@@ -16,7 +16,7 @@ permissions:
 
 jobs:
   release:
-    name: ${{ inputs.dry-run == true && 'Dry Run Analysis' || 'Production Release' }}
+    name: ${{ inputs.dry-run == true && '🔍 Dry Run Analysis' || '🚀 Production Release' }}
     runs-on: ubuntu-latest
 
     steps:
@@ -78,26 +78,42 @@ jobs:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_USERCONFIG: ~/.npmrc
 
-      - name: Release Summary
+      - name: 📋 Release Summary
         if: always()
         run: |
-          echo "## 📋 Release Summary" >> $GITHUB_STEP_SUMMARY
-          echo "" >> $GITHUB_STEP_SUMMARY
+          # Get final version for comparison
+          FINAL_VERSION=$(node -p "require('./package.json').version")
+          INITIAL_VERSION="${{ steps.version-info.outputs.current-version }}"
+          
+          if [ "${{ inputs.dry-run }}" = "true" ]; then
+            echo "## 🔍 Dry Run Summary" >> $GITHUB_STEP_SUMMARY
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Mode**: Dry Run Analysis (No actual changes made)" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "## 🚀 Production Release Summary" >> $GITHUB_STEP_SUMMARY  
+            echo "" >> $GITHUB_STEP_SUMMARY
+            echo "**Mode**: Production Release" >> $GITHUB_STEP_SUMMARY
+          fi
+          
           echo "**Package**: \`@zonr/core\`" >> $GITHUB_STEP_SUMMARY
-          echo "**Starting Version**: \`v${{ steps.version-info.outputs.current-version }}\`" >> $GITHUB_STEP_SUMMARY
-          echo "**Mode**: ${{ inputs.dry-run == true && '🔍 Dry Run (No actual release)' || '🚀 Production Release' }}" >> $GITHUB_STEP_SUMMARY
-          echo "**Triggered**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "**Starting Version**: \`v$INITIAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then
+            echo "**Final Version**: \`v$FINAL_VERSION\` ✨" >> $GITHUB_STEP_SUMMARY
+            echo "**Version Change**: \`v$INITIAL_VERSION → v$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "**Final Version**: \`v$FINAL_VERSION\` (no change)" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "**Timestamp**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
           echo "" >> $GITHUB_STEP_SUMMARY
           
           if [ "${{ inputs.dry-run }}" = "true" ]; then
-            echo "This was a **dry run** - no packages were published and no changes were made." >> $GITHUB_STEP_SUMMARY
+            echo "✅ **Dry run completed** - Review the semantic-release logs above to see what would be released." >> $GITHUB_STEP_SUMMARY
           else
-            echo "This was a **production release** - check the logs above for details of any packages published." >> $GITHUB_STEP_SUMMARY
-          fi
-          
-          # Get final version for comparison
-          FINAL_VERSION=$(node -p "require('./package.json').version")
-          if [ "$FINAL_VERSION" != "${{ steps.version-info.outputs.current-version }}" ]; then
-            echo "" >> $GITHUB_STEP_SUMMARY
-            echo "**Final Version**: \`v$FINAL_VERSION\` ✨" >> $GITHUB_STEP_SUMMARY
+            if [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then
+              echo "✅ **Release completed** - Package published as \`@zonr/core@$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "ℹ️ **No release needed** - No relevant changes found since last release." >> $GITHUB_STEP_SUMMARY
+            fi
           fi
