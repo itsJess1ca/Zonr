@@ -1,3 +1,24 @@
+# 1.0.0 (2025-09-13)
+
+
+### Bug Fixes
+
+* correct workflow vs job naming and enhance summaries ([2628c3f](https://github.com/itsJess1ca/Zonr/commit/2628c3f159d9ca82b70a34d34613372b41a68e2a))
+* disable husky hooks during semantic-release ([d7b33b5](https://github.com/itsJess1ca/Zonr/commit/d7b33b59b518c79bb1cc83a3152d2dedaa13d6dd))
+* eliminate border/header flickering during content updates ([c2d09b0](https://github.com/itsJess1ca/Zonr/commit/c2d09b01097b787fc55454afcefe256363b402d4))
+* npm authentication in release workflow ([2010f82](https://github.com/itsJess1ca/Zonr/commit/2010f82ddde1e5f0e1abf829cb7a11d349bd6841))
+* override npm config path for semantic-release ([1724b32](https://github.com/itsJess1ca/Zonr/commit/1724b32ad64f05589af32801173929a99f62fe67))
+
+
+### Features
+
+* add automatic transport cleanup on process signals ([867bfd9](https://github.com/itsJess1ca/Zonr/commit/867bfd912ee37235518c42d45e027b49c6a7b9b7))
+* add dynamic run-name for better release tracking ([957d3fc](https://github.com/itsJess1ca/Zonr/commit/957d3fc137a3cf4453c5a065b49eb834bcfeadef))
+* add high-performance FileTransport with sonic-boom ([c05a5a0](https://github.com/itsJess1ca/Zonr/commit/c05a5a0ea61937afea044a78657672a75498a349))
+* change package name to @zonr/core for monorepo structure ([e1d6d04](https://github.com/itsJess1ca/Zonr/commit/e1d6d049a4b148ae36513f5a1ef95520095f7415))
+* enhance release workflow with dynamic titles and summaries ([359837c](https://github.com/itsJess1ca/Zonr/commit/359837cb288386854c6fb51304c7cffcb4813fc7))
+* integrate transport instances into zone configuration ([70b5931](https://github.com/itsJess1ca/Zonr/commit/70b5931eeef3e075ad33d2e56e08a7a5d94bdfa0))
+
 Lets e# Changelog
 
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
