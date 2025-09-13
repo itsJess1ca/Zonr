@@ -1,1 +1,7 @@
+# Skip commitlint in CI environment
+if [ -n "$CI" ]; then
+  echo "Skipping commitlint in CI environment"
+  exit 0
+fi
+
 npx --no -- commitlint --edit $1
