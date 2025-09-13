@@ -1,5 +1,7 @@
 name: Release
 
+run-name: ${{ inputs.dry-run == true && '🔍 Dry Run' || '🚀 Release' }} @zonr/core - ${{ github.run_number }}
+
 on:
   workflow_dispatch:
     inputs:
