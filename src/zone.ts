@@ -65,9 +65,11 @@ export class ZoneImpl implements Zone {
     return 10;
   }
 
-  private createTransports(additionalTransports?: (string | Transport)[]): Transport[] {
+  private createTransports(
+    additionalTransports?: (string | Transport)[]
+  ): Transport[] {
     const transports: Transport[] = [];
-    
+
     if (!additionalTransports) {
       return transports;
     }
@@ -76,7 +78,9 @@ export class ZoneImpl implements Zone {
       if (typeof transport === 'string') {
         // Handle string-based transport creation for backward compatibility
         // For now, we'll skip string-based transports since they require factory implementation
-        console.warn(`String-based transport "${transport}" is not yet implemented. Use Transport class instances instead.`);
+        console.warn(
+          `String-based transport "${transport}" is not yet implemented. Use Transport class instances instead.`
+        );
       } else if (transport && typeof transport.write === 'function') {
         // It's already a Transport instance, use it directly
         transports.push(transport);
