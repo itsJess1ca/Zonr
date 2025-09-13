@@ -37,11 +37,11 @@ Zonr transforms terminal output from chaotic text streams into organized, respon
 ## 📦 Installation
 
 ```bash
-npm install zonr
+npm install @zonr/core
 # or
-pnpm add zonr  
+pnpm add @zonr/core  
 # or
-yarn add zonr
+yarn add @zonr/core
 ```
 
 **Requirements:** Node.js ≥16
@@ -51,7 +51,7 @@ yarn add zonr
 ## 🎮 Quick Start
 
 ```typescript
-import Zonr, { FileTransport } from 'zonr';
+import Zonr, { FileTransport } from '@zonr/core';
 
 // Create a new terminal UI with automatic signal handling
 const zonr = new Zonr({ autoCleanup: true });
@@ -188,7 +188,7 @@ pnpm run demo:dashboard
 ### Creating a Zonr Instance
 
 ```typescript
-import Zonr from 'zonr';
+import Zonr from '@zonr/core';
 
 const zonr = new Zonr();
 ```
@@ -282,7 +282,7 @@ borderColor: "black" | "red" | "green" | "yellow" | "blue" | "magenta" | "cyan" 
 ### File Transport
 
 ```typescript
-import { FileTransport } from 'zonr';
+import { FileTransport } from '@zonr/core';
 
 // High-performance file logging with automatic cleanup
 const fileTransport = new FileTransport({

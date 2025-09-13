@@ -282,7 +282,7 @@ Closes #issue_number
 ### Bug Reports
 When reporting bugs, please include:
 
-- **Zonr version** - `pnpm list zonr`
+- **Zonr version** - `pnpm list @zonr/core`
 - **Node.js version** - `node --version`
 - **Operating system** - OS and version
 - **Terminal application** - Which terminal you're using
