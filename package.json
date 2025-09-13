@@ -75,7 +75,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/itsJess1ca/Zonr.git"
+    "url": "https://github.com/itsJess1ca/Zonr-Core.git"
   },
   "engines": {
     "node": ">=16"

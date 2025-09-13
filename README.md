@@ -391,7 +391,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ```bash
 # Clone the repository  
-git clone https://github.com/itsJess1ca/Zonr.git
+git clone https://github.com/itsJess1ca/Zonr-Core.git
 cd zonr
 
 # Install dependencies
@@ -467,15 +467,15 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## 📞 Support
 
-- 🐛 **Issues**: [GitHub Issues](https://github.com/itsJess1ca/Zonr/issues)
-- 💬 **Discussions**: [GitHub Discussions](https://github.com/itsJess1ca/Zonr/discussions)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/itsJess1ca/Zonr-Core/issues)
+- 💬 **Discussions**: [GitHub Discussions](https://github.com/itsJess1ca/Zonr-Core/discussions)
 - 📧 **Email**: jessica.ide247@gmail.com
 
 ---
 
 <div align="center">
 
-**[⭐ Give us a star on GitHub!](https://github.com/itsJess1ca/Zonr)**
+**[⭐ Give us a star on GitHub!](https://github.com/itsJess1ca/Zonr-Core)**
 
 Made with ❤️ for the terminal-loving community
 
