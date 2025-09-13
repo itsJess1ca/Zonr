@@ -1,5 +1,5 @@
 {
-  "name": "@zonr/core",
+  "name": "@zonr-logs/core",
   "version": "1.0.1",
   "description": "A modern TypeScript library for building organized, dynamic terminal interfaces with zone-based layouts",
   "type": "module",

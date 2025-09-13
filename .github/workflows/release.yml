@@ -1,6 +1,6 @@
 name: Release
 
-run-name: ${{ inputs.dry-run == true && '🔍 Dry Run' || '🚀 Release' }} @zonr/core - ${{ github.run_number }}
+run-name: ${{ inputs.dry-run == true && '🔍 Dry Run' || '🚀 Release' }} @zonr-logs/core - ${{ github.run_number }}
 
 on:
   workflow_dispatch:
@@ -99,7 +99,7 @@ jobs:
             echo "**Mode**: Production Release" >> $GITHUB_STEP_SUMMARY
           fi
           
-          echo "**Package**: \`@zonr/core\`" >> $GITHUB_STEP_SUMMARY
+          echo "**Package**: \`@zonr-logs/core\`" >> $GITHUB_STEP_SUMMARY
           echo "**Starting Version**: \`v$INITIAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
           
           if [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then
@@ -116,7 +116,7 @@ jobs:
             echo "✅ **Dry run completed** - Review the semantic-release logs above to see what would be released." >> $GITHUB_STEP_SUMMARY
           else
             if [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then
-              echo "✅ **Release completed** - Package published as \`@zonr/core@$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
+              echo "✅ **Release completed** - Package published as \`@zonr-logs/core@$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY
             else
               echo "ℹ️ **No release needed** - No relevant changes found since last release." >> $GITHUB_STEP_SUMMARY
             fi
