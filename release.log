@@ -1,0 +1,1337 @@
+2025-09-13T14:47:00.3293685Z Current runner version: '2.328.0'
+2025-09-13T14:47:00.3316982Z ##[group]Runner Image Provisioner
+2025-09-13T14:47:00.3317752Z Hosted Compute Agent
+2025-09-13T14:47:00.3318699Z Version: 20250829.383
+2025-09-13T14:47:00.3319306Z Commit: 27cb235aab5b0e52e153a26cd86b4742e89dac5d
+2025-09-13T14:47:00.3319965Z Build Date: 2025-08-29T13:48:48Z
+2025-09-13T14:47:00.3320597Z ##[endgroup]
+2025-09-13T14:47:00.3321165Z ##[group]Operating System
+2025-09-13T14:47:00.3321713Z Ubuntu
+2025-09-13T14:47:00.3322202Z 24.04.3
+2025-09-13T14:47:00.3322647Z LTS
+2025-09-13T14:47:00.3323053Z ##[endgroup]
+2025-09-13T14:47:00.3323595Z ##[group]Runner Image
+2025-09-13T14:47:00.3324164Z Image: ubuntu-24.04
+2025-09-13T14:47:00.3324633Z Version: 20250907.24.1
+2025-09-13T14:47:00.3325667Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250907.24/images/ubuntu/Ubuntu2404-Readme.md
+2025-09-13T14:47:00.3327376Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250907.24
+2025-09-13T14:47:00.3328715Z ##[endgroup]
+2025-09-13T14:47:00.3329870Z ##[group]GITHUB_TOKEN Permissions
+2025-09-13T14:47:00.3331764Z Contents: write
+2025-09-13T14:47:00.3332278Z Issues: write
+2025-09-13T14:47:00.3332767Z Metadata: read
+2025-09-13T14:47:00.3333360Z PullRequests: write
+2025-09-13T14:47:00.3333840Z ##[endgroup]
+2025-09-13T14:47:00.3335796Z Secret source: Actions
+2025-09-13T14:47:00.3336544Z Prepare workflow directory
+2025-09-13T14:47:00.3660476Z Prepare all required actions
+2025-09-13T14:47:00.3698046Z Getting action download info
+2025-09-13T14:47:00.7151894Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-09-13T14:47:00.8994403Z Download action repository 'pnpm/action-setup@v4' (SHA:a7487c7e89a18df4991f7f222e4898a00d66ddda)
+2025-09-13T14:47:01.3691003Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-09-13T14:47:01.6037875Z Complete job name: 🚀 Production Release
+2025-09-13T14:47:01.6731221Z ##[group]Run actions/checkout@v4
+2025-09-13T14:47:01.6732038Z with:
+2025-09-13T14:47:01.6732404Z   fetch-depth: 0
+2025-09-13T14:47:01.6732944Z   token: ***
+2025-09-13T14:47:01.6733336Z   repository: itsJess1ca/Zonr
+2025-09-13T14:47:01.6733784Z   ssh-strict: true
+2025-09-13T14:47:01.6734156Z   ssh-user: git
+2025-09-13T14:47:01.6734548Z   persist-credentials: true
+2025-09-13T14:47:01.6734973Z   clean: true
+2025-09-13T14:47:01.6735368Z   sparse-checkout-cone-mode: true
+2025-09-13T14:47:01.6735847Z   fetch-tags: false
+2025-09-13T14:47:01.6736236Z   show-progress: true
+2025-09-13T14:47:01.6736645Z   lfs: false
+2025-09-13T14:47:01.6737002Z   submodules: false
+2025-09-13T14:47:01.6737403Z   set-safe-directory: true
+2025-09-13T14:47:01.6738030Z ##[endgroup]
+2025-09-13T14:47:01.7797084Z Syncing repository: itsJess1ca/Zonr
+2025-09-13T14:47:01.7799265Z ##[group]Getting Git version info
+2025-09-13T14:47:01.7799908Z Working directory is '/home/runner/work/Zonr/Zonr'
+2025-09-13T14:47:01.7800849Z [command]/usr/bin/git version
+2025-09-13T14:47:01.7891929Z git version 2.51.0
+2025-09-13T14:47:01.7917872Z ##[endgroup]
+2025-09-13T14:47:01.7934803Z Temporarily overriding HOME='/home/runner/work/_temp/2533200c-6098-4889-b839-aa70b3d55415' before making global git config changes
+2025-09-13T14:47:01.7936287Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-13T14:47:01.7947751Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:01.7986781Z Deleting the contents of '/home/runner/work/Zonr/Zonr'
+2025-09-13T14:47:01.7991745Z ##[group]Initializing the repository
+2025-09-13T14:47:01.7996283Z [command]/usr/bin/git init /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:01.8123077Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-09-13T14:47:01.8124603Z hint: is subject to change. To configure the initial branch name to use in all
+2025-09-13T14:47:01.8126190Z hint: of your new repositories, which will suppress this warning, call:
+2025-09-13T14:47:01.8127608Z hint:
+2025-09-13T14:47:01.8128584Z hint: 	git config --global init.defaultBranch <name>
+2025-09-13T14:47:01.8129521Z hint:
+2025-09-13T14:47:01.8130363Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-09-13T14:47:01.8131262Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-09-13T14:47:01.8131935Z hint:
+2025-09-13T14:47:01.8132305Z hint: 	git branch -m <name>
+2025-09-13T14:47:01.8132737Z hint:
+2025-09-13T14:47:01.8133301Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-09-13T14:47:01.8134238Z Initialized empty Git repository in /home/runner/work/Zonr/Zonr/.git/
+2025-09-13T14:47:01.8140462Z [command]/usr/bin/git remote add origin https://github.com/itsJess1ca/Zonr
+2025-09-13T14:47:01.8178661Z ##[endgroup]
+2025-09-13T14:47:01.8179765Z ##[group]Disabling automatic garbage collection
+2025-09-13T14:47:01.8182345Z [command]/usr/bin/git config --local gc.auto 0
+2025-09-13T14:47:01.8210464Z ##[endgroup]
+2025-09-13T14:47:01.8211132Z ##[group]Setting up auth
+2025-09-13T14:47:01.8217026Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-13T14:47:01.8245839Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-13T14:47:01.8733706Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-13T14:47:01.8762507Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-13T14:47:01.8990716Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-09-13T14:47:01.9025613Z ##[endgroup]
+2025-09-13T14:47:01.9027194Z ##[group]Fetching the repository
+2025-09-13T14:47:01.9043580Z [command]/usr/bin/git -c protocol.version=2 fetch --prune --no-recurse-submodules origin +refs/heads/*:refs/remotes/origin/* +refs/tags/*:refs/tags/*
+2025-09-13T14:47:02.6232162Z From https://github.com/itsJess1ca/Zonr
+2025-09-13T14:47:02.6233584Z  * [new branch]      main       -> origin/main
+2025-09-13T14:47:02.6234528Z  * [new tag]         v1.0.0     -> v1.0.0
+2025-09-13T14:47:02.6235345Z  * [new tag]         v1.0.1     -> v1.0.1
+2025-09-13T14:47:02.6272181Z [command]/usr/bin/git branch --list --remote origin/main
+2025-09-13T14:47:02.6295224Z   origin/main
+2025-09-13T14:47:02.6305437Z [command]/usr/bin/git rev-parse refs/remotes/origin/main
+2025-09-13T14:47:02.6325126Z b7afecca2c8687b38426d7326e9239c225a214cc
+2025-09-13T14:47:02.6331688Z ##[endgroup]
+2025-09-13T14:47:02.6333012Z ##[group]Determining the checkout info
+2025-09-13T14:47:02.6334432Z ##[endgroup]
+2025-09-13T14:47:02.6336200Z [command]/usr/bin/git sparse-checkout disable
+2025-09-13T14:47:02.6377669Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-09-13T14:47:02.6404649Z ##[group]Checking out the ref
+2025-09-13T14:47:02.6407955Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-09-13T14:47:02.7018451Z Switched to a new branch 'main'
+2025-09-13T14:47:02.7020428Z branch 'main' set up to track 'origin/main'.
+2025-09-13T14:47:02.7032200Z ##[endgroup]
+2025-09-13T14:47:02.7069972Z [command]/usr/bin/git log -1 --format=%H
+2025-09-13T14:47:02.7092918Z b7afecca2c8687b38426d7326e9239c225a214cc
+2025-09-13T14:47:02.7340023Z ##[group]Run pnpm/action-setup@v4
+2025-09-13T14:47:02.7341056Z with:
+2025-09-13T14:47:02.7341729Z   version: latest
+2025-09-13T14:47:02.7342507Z   dest: ~/setup-pnpm
+2025-09-13T14:47:02.7343317Z   run_install: null
+2025-09-13T14:47:02.7344157Z   package_json_file: package.json
+2025-09-13T14:47:02.7345153Z   standalone: false
+2025-09-13T14:47:02.7345922Z ##[endgroup]
+2025-09-13T14:47:02.7890795Z ##[group]Running self-installer...
+2025-09-13T14:47:03.3397764Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2025-09-13T14:47:03.3484800Z Packages: +1
+2025-09-13T14:47:03.3486942Z +
+2025-09-13T14:47:03.7739101Z Progress: resolved 1, reused 0, downloaded 1, added 1, done
+2025-09-13T14:47:03.8004981Z
+2025-09-13T14:47:03.8005516Z dependencies:
+2025-09-13T14:47:03.8006179Z + pnpm 10.16.0
+2025-09-13T14:47:03.8006504Z
+2025-09-13T14:47:03.8033544Z Done in 851ms
+2025-09-13T14:47:03.8207931Z ##[endgroup]
+2025-09-13T14:47:03.8212922Z Installation Completed!
+2025-09-13T14:47:03.8370352Z ##[group]Run actions/setup-node@v4
+2025-09-13T14:47:03.8370820Z with:
+2025-09-13T14:47:03.8371173Z   node-version: 20
+2025-09-13T14:47:03.8371564Z   cache: pnpm
+2025-09-13T14:47:03.8371938Z   always-auth: false
+2025-09-13T14:47:03.8372334Z   check-latest: false
+2025-09-13T14:47:03.8372879Z   token: ***
+2025-09-13T14:47:03.8373237Z env:
+2025-09-13T14:47:03.8373672Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:03.8374171Z ##[endgroup]
+2025-09-13T14:47:04.0783844Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-09-13T14:47:04.0790482Z ##[group]Environment details
+2025-09-13T14:47:07.0019597Z node: v20.19.5
+2025-09-13T14:47:07.0019977Z npm: 10.8.2
+2025-09-13T14:47:07.0020250Z yarn: 1.22.22
+2025-09-13T14:47:07.0022807Z ##[endgroup]
+2025-09-13T14:47:07.0049195Z [command]/home/runner/setup-pnpm/node_modules/.bin/pnpm store path --silent
+2025-09-13T14:47:07.5125939Z /home/runner/setup-pnpm/node_modules/.bin/store/v10
+2025-09-13T14:47:07.7070923Z Cache hit for: node-cache-Linux-x64-pnpm-a811a1b8d69d846f739c73c9e00dc83bc045e0aa8ef5dc232328f88a3da1d6e1
+2025-09-13T14:47:08.5531280Z Received 35332323 of 35332323 (100.0%), 45.5 MBs/sec
+2025-09-13T14:47:08.5532040Z Cache Size: ~34 MB (35332323 B)
+2025-09-13T14:47:08.5637080Z [command]/usr/bin/tar -xf /home/runner/work/_temp/262b73c9-96e4-4be3-ba61-8c75b041a31b/cache.tzst -P -C /home/runner/work/Zonr/Zonr --use-compress-program unzstd
+2025-09-13T14:47:09.2751821Z Cache restored successfully
+2025-09-13T14:47:09.2823753Z Cache restored from key: node-cache-Linux-x64-pnpm-a811a1b8d69d846f739c73c9e00dc83bc045e0aa8ef5dc232328f88a3da1d6e1
+2025-09-13T14:47:09.2959304Z ##[group]Run pnpm install --frozen-lockfile
+2025-09-13T14:47:09.2959717Z [36;1mpnpm install --frozen-lockfile[0m
+2025-09-13T14:47:09.3104666Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:09.3104927Z env:
+2025-09-13T14:47:09.3105172Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:09.3105479Z ##[endgroup]
+2025-09-13T14:47:09.7162483Z Lockfile is up to date, resolution step is skipped
+2025-09-13T14:47:09.7789642Z Progress: resolved 1, reused 0, downloaded 0, added 0
+2025-09-13T14:47:09.8799743Z Packages: +585
+2025-09-13T14:47:09.8802725Z ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+2025-09-13T14:47:10.5564862Z Progress: resolved 585, reused 585, downloaded 0, added 585, done
+2025-09-13T14:47:10.9093588Z
+2025-09-13T14:47:10.9094476Z dependencies:
+2025-09-13T14:47:10.9094960Z + sonic-boom 4.2.0
+2025-09-13T14:47:10.9095394Z + string-width 8.1.0
+2025-09-13T14:47:10.9095658Z
+2025-09-13T14:47:10.9095825Z devDependencies:
+2025-09-13T14:47:10.9096317Z + @commitlint/cli 19.8.1
+2025-09-13T14:47:10.9096899Z + @commitlint/config-conventional 19.8.1
+2025-09-13T14:47:10.9097376Z + @eslint/js 9.35.0
+2025-09-13T14:47:10.9097830Z + @semantic-release/changelog 6.0.3
+2025-09-13T14:47:10.9098523Z + @semantic-release/git 10.0.1
+2025-09-13T14:47:10.9098978Z + @types/node 24.3.1
+2025-09-13T14:47:10.9099454Z + @typescript-eslint/eslint-plugin 8.42.0
+2025-09-13T14:47:10.9100002Z + @typescript-eslint/parser 8.42.0
+2025-09-13T14:47:10.9100511Z + @vitest/ui 3.2.4
+2025-09-13T14:47:10.9100869Z + commitizen 4.3.1
+2025-09-13T14:47:10.9101308Z + conventional-changelog-cli 5.0.0
+2025-09-13T14:47:10.9101850Z + cz-conventional-changelog 3.3.0
+2025-09-13T14:47:10.9102123Z + eslint 9.35.0
+2025-09-13T14:47:10.9102382Z + eslint-config-prettier 10.1.8
+2025-09-13T14:47:10.9102765Z + husky 9.1.7
+2025-09-13T14:47:10.9103111Z + prettier 3.6.2
+2025-09-13T14:47:10.9103872Z + rimraf 6.0.1
+2025-09-13T14:47:10.9104162Z + semantic-release 24.2.8
+2025-09-13T14:47:10.9104395Z + tsx 4.20.5
+2025-09-13T14:47:10.9104612Z + typescript 5.9.2
+2025-09-13T14:47:10.9104828Z + vitest 3.2.4
+2025-09-13T14:47:10.9105019Z
+2025-09-13T14:47:10.9105904Z ╭ Warning ─────────────────────────────────────────────────────────────────────╮
+2025-09-13T14:47:10.9106464Z │                                                                              │
+2025-09-13T14:47:10.9107019Z │   Ignored build scripts: esbuild.                                            │
+2025-09-13T14:47:10.9108112Z │   Run "pnpm approve-builds" to pick which dependencies should be allowed     │
+2025-09-13T14:47:10.9109269Z │   to run scripts.                                                            │
+2025-09-13T14:47:10.9110101Z │                                                                              │
+2025-09-13T14:47:10.9111053Z ╰──────────────────────────────────────────────────────────────────────────────╯
+2025-09-13T14:47:10.9111425Z
+2025-09-13T14:47:10.9228766Z
+2025-09-13T14:47:10.9229139Z > @zonr/core@1.0.1 prepare /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:10.9229735Z > husky
+2025-09-13T14:47:10.9229907Z
+2025-09-13T14:47:10.9809933Z Done in 1.6s using pnpm v10.16.0
+2025-09-13T14:47:10.9963505Z ##[group]Run pnpm run prepublishOnly
+2025-09-13T14:47:10.9963850Z [36;1mpnpm run prepublishOnly[0m
+2025-09-13T14:47:10.9995672Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:10.9995915Z env:
+2025-09-13T14:47:10.9996157Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:10.9996462Z ##[endgroup]
+2025-09-13T14:47:11.3525664Z
+2025-09-13T14:47:11.3526444Z > @zonr/core@1.0.1 prepublishOnly /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:11.3527517Z > pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck
+2025-09-13T14:47:11.3528079Z
+2025-09-13T14:47:11.7092190Z
+2025-09-13T14:47:11.7093059Z > @zonr/core@1.0.1 clean /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:11.7093491Z > rimraf dist
+2025-09-13T14:47:11.7093619Z
+2025-09-13T14:47:12.1318564Z
+2025-09-13T14:47:12.1319196Z > @zonr/core@1.0.1 build /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:12.1319596Z > tsc
+2025-09-13T14:47:12.1319711Z
+2025-09-13T14:47:13.6319011Z
+2025-09-13T14:47:13.6319793Z > @zonr/core@1.0.1 test:run /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:13.6320309Z > vitest run
+2025-09-13T14:47:13.6320475Z
+2025-09-13T14:47:14.0498782Z
+2025-09-13T14:47:14.0501404Z [1m[46m RUN [49m[22m [36mv3.2.4 [39m[90m/home/runner/work/Zonr/Zonr[39m
+2025-09-13T14:47:14.0501960Z
+2025-09-13T14:47:14.4147458Z  [32m✓[39m tests/layout.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+2025-09-13T14:47:14.4306067Z  [32m✓[39m tests/integration.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+2025-09-13T14:47:14.5703191Z [90mstderr[2m | tests/file-transport.test.ts[2m > [22m[2mFileTransport[2m > [22m[2mconstructor[2m > [22m[2mshould handle custom error handler
+2025-09-13T14:47:14.5704815Z [22m[39mFileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:14.5705287Z
+2025-09-13T14:47:14.5785282Z [90mstderr[2m | tests/file-transport.test.ts[2m > [22m[2mFileTransport[2m > [22m[2mwrite[2m > [22m[2mshould not write to destroyed transport
+2025-09-13T14:47:14.5786571Z [22m[39mFileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:14.5786997Z
+2025-09-13T14:47:14.5944537Z  [32m✓[39m tests/file-transport.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+2025-09-13T14:47:14.6054475Z
+2025-09-13T14:47:14.6058746Z [2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+2025-09-13T14:47:14.6059811Z [2m      Tests [22m [1m[32m37 passed[39m[22m[90m (37)[39m
+2025-09-13T14:47:14.6060746Z [2m   Start at [22m 14:47:14
+2025-09-13T14:47:14.6064877Z [2m   Duration [22m 555ms[2m (transform 277ms, setup 0ms, collect 507ms, tests 55ms, environment 1ms, prepare 298ms)[22m
+2025-09-13T14:47:14.6065626Z
+2025-09-13T14:47:15.0572746Z
+2025-09-13T14:47:15.0573352Z > @zonr/core@1.0.1 lint /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:15.0573769Z > eslint src --ext .ts
+2025-09-13T14:47:15.0574005Z
+2025-09-13T14:47:16.6591791Z
+2025-09-13T14:47:16.6592593Z > @zonr/core@1.0.1 typecheck /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:16.6593060Z > tsc --noEmit
+2025-09-13T14:47:16.6593206Z
+2025-09-13T14:47:17.7030403Z ##[group]Run git config --local user.email "action@github.com"
+2025-09-13T14:47:17.7031176Z [36;1mgit config --local user.email "action@github.com"[0m
+2025-09-13T14:47:17.7031796Z [36;1mgit config --local user.name "GitHub Action"[0m
+2025-09-13T14:47:17.7077059Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:17.7077451Z env:
+2025-09-13T14:47:17.7077843Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:17.7078598Z ##[endgroup]
+2025-09-13T14:47:17.7227795Z ##[group]Run echo "//registry.npmjs.org/:_authToken=***" > ~/.npmrc
+2025-09-13T14:47:17.7228698Z [36;1mecho "//registry.npmjs.org/:_authToken=***" > ~/.npmrc[0m
+2025-09-13T14:47:17.7229143Z [36;1mecho "registry=https://registry.npmjs.org/" >> ~/.npmrc[0m
+2025-09-13T14:47:17.7256282Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:17.7256514Z env:
+2025-09-13T14:47:17.7256749Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:17.7257032Z ##[endgroup]
+2025-09-13T14:47:17.7324585Z ##[group]Run CURRENT_VERSION=$(node -p "require('./package.json').version")
+2025-09-13T14:47:17.7325087Z [36;1mCURRENT_VERSION=$(node -p "require('./package.json').version")[0m
+2025-09-13T14:47:17.7325515Z [36;1mecho "current-version=$CURRENT_VERSION" >> $GITHUB_OUTPUT[0m
+2025-09-13T14:47:17.7325864Z [36;1mecho "Current version: v$CURRENT_VERSION"[0m
+2025-09-13T14:47:17.7352990Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:17.7353224Z env:
+2025-09-13T14:47:17.7353457Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:17.7353748Z ##[endgroup]
+2025-09-13T14:47:17.7664065Z Current version: v1.0.1
+2025-09-13T14:47:17.7718096Z ##[group]Run pnpm run release
+2025-09-13T14:47:17.7718602Z [36;1mpnpm run release[0m
+2025-09-13T14:47:17.7746949Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:17.7747177Z env:
+2025-09-13T14:47:17.7747417Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:17.7747906Z   GITHUB_TOKEN: ***
+2025-09-13T14:47:17.7748184Z   NPM_TOKEN: ***
+2025-09-13T14:47:17.7748611Z   NPM_CONFIG_USERCONFIG: ~/.npmrc
+2025-09-13T14:47:17.7748838Z   HUSKY: 0
+2025-09-13T14:47:17.7749013Z ##[endgroup]
+2025-09-13T14:47:18.1437090Z
+2025-09-13T14:47:18.1437586Z > @zonr/core@1.0.1 release /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:18.1438146Z > semantic-release
+2025-09-13T14:47:18.1438515Z
+2025-09-13T14:47:18.9450993Z [2:47:18 PM] [semantic-release] › ℹ  Running semantic-release version 24.2.8
+2025-09-13T14:47:19.1322315Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "verifyConditions" from "@semantic-release/changelog"
+2025-09-13T14:47:19.1324778Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "verifyConditions" from "@semantic-release/npm"
+2025-09-13T14:47:19.1326347Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "verifyConditions" from "@semantic-release/github"
+2025-09-13T14:47:19.1327839Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "verifyConditions" from "@semantic-release/git"
+2025-09-13T14:47:19.1331269Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "analyzeCommits" from "@semantic-release/commit-analyzer"
+2025-09-13T14:47:19.1334518Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "generateNotes" from "@semantic-release/release-notes-generator"
+2025-09-13T14:47:19.1339123Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "prepare" from "@semantic-release/changelog"
+2025-09-13T14:47:19.1340512Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "prepare" from "@semantic-release/npm"
+2025-09-13T14:47:19.1342679Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "prepare" from "@semantic-release/git"
+2025-09-13T14:47:19.1346778Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "publish" from "@semantic-release/npm"
+2025-09-13T14:47:19.1348799Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "publish" from "@semantic-release/github"
+2025-09-13T14:47:19.1350611Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "addChannel" from "@semantic-release/npm"
+2025-09-13T14:47:19.1352014Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "addChannel" from "@semantic-release/github"
+2025-09-13T14:47:19.1355776Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "success" from "@semantic-release/github"
+2025-09-13T14:47:19.1357373Z [2:47:19 PM] [semantic-release] › ✔  Loaded plugin "fail" from "@semantic-release/github"
+2025-09-13T14:47:20.0261569Z [2:47:20 PM] [semantic-release] › ✔  Run automated release from branch main on repository https://github.com/itsJess1ca/Zonr.git
+2025-09-13T14:47:20.1958050Z [2:47:20 PM] [semantic-release] › ✔  Allowed to push to the Git repository
+2025-09-13T14:47:20.1962883Z [2:47:20 PM] [semantic-release] › ℹ  Start step "verifyConditions" of plugin "@semantic-release/changelog"
+2025-09-13T14:47:20.1974319Z [2:47:20 PM] [semantic-release] › ✔  Completed step "verifyConditions" of plugin "@semantic-release/changelog"
+2025-09-13T14:47:20.1975277Z [2:47:20 PM] [semantic-release] › ℹ  Start step "verifyConditions" of plugin "@semantic-release/npm"
+2025-09-13T14:47:20.2018973Z [2:47:20 PM] [semantic-release] [@semantic-release/npm] › ℹ  Verify authentication for registry https://registry.npmjs.org/
+2025-09-13T14:47:20.2026543Z [2:47:20 PM] [semantic-release] [@semantic-release/npm] › ℹ  Reading npm config from /home/runner/.npmrc
+2025-09-13T14:47:22.0954865Z its_jess1ca
+2025-09-13T14:47:22.1022511Z [2:47:22 PM] [semantic-release] › ✔  Completed step "verifyConditions" of plugin "@semantic-release/npm"
+2025-09-13T14:47:22.1023522Z [2:47:22 PM] [semantic-release] › ℹ  Start step "verifyConditions" of plugin "@semantic-release/github"
+2025-09-13T14:47:22.1034520Z [2:47:22 PM] [semantic-release] [@semantic-release/github] › ℹ  Verify GitHub authentication (https://api.github.com)
+2025-09-13T14:47:22.4122712Z [2:47:22 PM] [semantic-release] › ✔  Completed step "verifyConditions" of plugin "@semantic-release/github"
+2025-09-13T14:47:22.4124193Z [2:47:22 PM] [semantic-release] › ℹ  Start step "verifyConditions" of plugin "@semantic-release/git"
+2025-09-13T14:47:22.4132273Z [2:47:22 PM] [semantic-release] › ✔  Completed step "verifyConditions" of plugin "@semantic-release/git"
+2025-09-13T14:47:22.4189819Z [2:47:22 PM] [semantic-release] › ℹ  Found git tag v1.0.1 associated with version 1.0.1 on branch main
+2025-09-13T14:47:22.4273259Z [2:47:22 PM] [semantic-release] › ℹ  Found 2 commits since last release
+2025-09-13T14:47:22.4276580Z [2:47:22 PM] [semantic-release] › ℹ  Start step "analyzeCommits" of plugin "@semantic-release/commit-analyzer"
+2025-09-13T14:47:22.4337947Z [2:47:22 PM] [semantic-release] [@semantic-release/commit-analyzer] › ℹ  Analyzing commit: Merge branch 'main' of github.com:itsJess1ca/Zonr
+2025-09-13T14:47:22.4341815Z [2:47:22 PM] [semantic-release] [@semantic-release/commit-analyzer] › ℹ  The commit should not trigger a release
+2025-09-13T14:47:22.4343775Z [2:47:22 PM] [semantic-release] [@semantic-release/commit-analyzer] › ℹ  Analyzing commit: feat: add publishConfig for public npm package
+2025-09-13T14:47:22.4344652Z
+2025-09-13T14:47:22.4345090Z - Add publishConfig with access: public for scoped package
+2025-09-13T14:47:22.4345931Z - Ensures @zonr/core can be published to npm registry
+2025-09-13T14:47:22.4346644Z - Required for public scoped packages on npm
+2025-09-13T14:47:22.4347027Z
+2025-09-13T14:47:22.4347596Z 🤖 Generated with [Claude Code](https://claude.ai/code)
+2025-09-13T14:47:22.4348036Z
+2025-09-13T14:47:22.4348621Z Co-Authored-By: Claude <noreply@anthropic.com>
+2025-09-13T14:47:22.4350043Z [2:47:22 PM] [semantic-release] [@semantic-release/commit-analyzer] › ℹ  The release type for the commit is minor
+2025-09-13T14:47:22.4351944Z [2:47:22 PM] [semantic-release] [@semantic-release/commit-analyzer] › ℹ  Analysis of 2 commits complete: minor release
+2025-09-13T14:47:22.4354038Z [2:47:22 PM] [semantic-release] › ✔  Completed step "analyzeCommits" of plugin "@semantic-release/commit-analyzer"
+2025-09-13T14:47:22.4403933Z [2:47:22 PM] [semantic-release] › ℹ  The next release version is 1.1.0
+2025-09-13T14:47:22.4416706Z [2:47:22 PM] [semantic-release] › ℹ  Start step "generateNotes" of plugin "@semantic-release/release-notes-generator"
+2025-09-13T14:47:22.4870977Z [2:47:22 PM] [semantic-release] › ✔  Completed step "generateNotes" of plugin "@semantic-release/release-notes-generator"
+2025-09-13T14:47:22.4873024Z [2:47:22 PM] [semantic-release] › ℹ  Start step "prepare" of plugin "@semantic-release/changelog"
+2025-09-13T14:47:22.4879440Z [2:47:22 PM] [semantic-release] [@semantic-release/changelog] › ℹ  Update /home/runner/work/Zonr/Zonr/CHANGELOG.md
+2025-09-13T14:47:22.4890774Z [2:47:22 PM] [semantic-release] › ✔  Completed step "prepare" of plugin "@semantic-release/changelog"
+2025-09-13T14:47:22.4972716Z [2:47:22 PM] [semantic-release] › ℹ  Start step "prepare" of plugin "@semantic-release/npm"
+2025-09-13T14:47:22.5015009Z [2:47:22 PM] [semantic-release] [@semantic-release/npm] › ℹ  Write version 1.1.0 to package.json in /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:22.9910523Z v1.1.0
+2025-09-13T14:47:22.9974023Z [2:47:22 PM] [semantic-release] › ✔  Completed step "prepare" of plugin "@semantic-release/npm"
+2025-09-13T14:47:23.0019941Z [2:47:23 PM] [semantic-release] › ℹ  Start step "prepare" of plugin "@semantic-release/git"
+2025-09-13T14:47:23.1441555Z [2:47:23 PM] [semantic-release] [@semantic-release/git] › ℹ  Found 2 file(s) to commit
+2025-09-13T14:47:23.6748849Z [2:47:23 PM] [semantic-release] [@semantic-release/git] › ℹ  Prepared Git release: v1.1.0
+2025-09-13T14:47:23.6750269Z [2:47:23 PM] [semantic-release] › ✔  Completed step "prepare" of plugin "@semantic-release/git"
+2025-09-13T14:47:23.6794891Z [2:47:23 PM] [semantic-release] › ℹ  Start step "generateNotes" of plugin "@semantic-release/release-notes-generator"
+2025-09-13T14:47:23.6953132Z [2:47:23 PM] [semantic-release] › ✔  Completed step "generateNotes" of plugin "@semantic-release/release-notes-generator"
+2025-09-13T14:47:24.5646066Z [2:47:24 PM] [semantic-release] › ✔  Created tag v1.1.0
+2025-09-13T14:47:24.5647352Z [2:47:24 PM] [semantic-release] › ℹ  Start step "publish" of plugin "@semantic-release/npm"
+2025-09-13T14:47:24.5680804Z [2:47:24 PM] [semantic-release] [@semantic-release/npm] › ℹ  Publishing version 1.1.0 to npm registry on dist-tag latest
+2025-09-13T14:47:27.2956185Z
+2025-09-13T14:47:27.2957797Z > @zonr/core@1.1.0 prepublishOnly
+2025-09-13T14:47:27.2958846Z > pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck
+2025-09-13T14:47:27.2959242Z
+2025-09-13T14:47:27.6564747Z
+2025-09-13T14:47:27.6565523Z > @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:27.6566160Z > rimraf dist
+2025-09-13T14:47:27.6566387Z
+2025-09-13T14:47:28.0802761Z
+2025-09-13T14:47:28.0803774Z > @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:28.0805064Z > tsc
+2025-09-13T14:47:28.0805296Z
+2025-09-13T14:47:29.5930850Z
+2025-09-13T14:47:29.5931566Z > @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:29.5932177Z > vitest run
+2025-09-13T14:47:29.5932389Z
+2025-09-13T14:47:29.8923833Z
+2025-09-13T14:47:29.8925822Z [1m[46m RUN [49m[22m [36mv3.2.4 [39m[90m/home/runner/work/Zonr/Zonr[39m
+2025-09-13T14:47:29.8926400Z
+2025-09-13T14:47:30.2471966Z  [32m✓[39m tests/layout.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+2025-09-13T14:47:30.2691058Z  [32m✓[39m tests/integration.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+2025-09-13T14:47:30.3785971Z [90mstderr[2m | tests/file-transport.test.ts[2m > [22m[2mFileTransport[2m > [22m[2mconstructor[2m > [22m[2mshould handle custom error handler
+2025-09-13T14:47:30.3791504Z [22m[39mFileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:30.3791999Z
+2025-09-13T14:47:30.4038755Z [90mstderr[2m | tests/file-transport.test.ts[2m > [22m[2mFileTransport[2m > [22m[2mwrite[2m > [22m[2mshould not write to destroyed transport
+2025-09-13T14:47:30.4040499Z [22m[39mFileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:30.4040942Z
+2025-09-13T14:47:30.4151756Z  [32m✓[39m tests/file-transport.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+2025-09-13T14:47:30.4253007Z
+2025-09-13T14:47:30.4256685Z [2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
+2025-09-13T14:47:30.4259280Z [2m      Tests [22m [1m[32m37 passed[39m[22m[90m (37)[39m
+2025-09-13T14:47:30.4260342Z [2m   Start at [22m 14:47:29
+2025-09-13T14:47:30.4263240Z [2m   Duration [22m 532ms[2m (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)[22m
+2025-09-13T14:47:30.4264376Z
+2025-09-13T14:47:30.8793391Z
+2025-09-13T14:47:30.8794468Z > @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:30.8795929Z > eslint src --ext .ts
+2025-09-13T14:47:30.8796231Z
+2025-09-13T14:47:32.4639199Z
+2025-09-13T14:47:32.4640162Z > @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:32.4640783Z > tsc --noEmit
+2025-09-13T14:47:32.4640940Z
+2025-09-13T14:47:33.4917844Z
+2025-09-13T14:47:33.4918888Z > @zonr/core@1.1.0 prepare
+2025-09-13T14:47:33.4919371Z > husky
+2025-09-13T14:47:33.4919513Z
+2025-09-13T14:47:34.7740941Z npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.
+2025-09-13T14:47:34.7743121Z npm warn publish errors corrected:
+2025-09-13T14:47:34.7744089Z npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"
+2025-09-13T14:47:34.7778622Z npm notice
+2025-09-13T14:47:34.7780543Z npm notice 📦  @zonr/core@1.1.0
+2025-09-13T14:47:34.7781676Z npm notice Tarball Contents
+2025-09-13T14:47:34.7785420Z npm notice 1.1kB LICENSE.md
+2025-09-13T14:47:34.7786336Z npm notice 14.0kB README.md
+2025-09-13T14:47:34.7787145Z npm notice 462B dist/events.d.ts
+2025-09-13T14:47:34.7789695Z npm notice 533B dist/events.d.ts.map
+2025-09-13T14:47:34.7790201Z npm notice 501B dist/events.js
+2025-09-13T14:47:34.7790675Z npm notice 644B dist/events.js.map
+2025-09-13T14:47:34.7791154Z npm notice 248B dist/index.d.ts
+2025-09-13T14:47:34.7791620Z npm notice 284B dist/index.d.ts.map
+2025-09-13T14:47:34.7792057Z npm notice 134B dist/index.js
+2025-09-13T14:47:34.7792498Z npm notice 185B dist/index.js.map
+2025-09-13T14:47:34.7793015Z npm notice 607B dist/layout/calculator.d.ts
+2025-09-13T14:47:34.7793454Z npm notice 586B dist/layout/calculator.d.ts.map
+2025-09-13T14:47:34.7793812Z npm notice 8.4kB dist/layout/calculator.js
+2025-09-13T14:47:34.7794166Z npm notice 7.1kB dist/layout/calculator.js.map
+2025-09-13T14:47:34.7794571Z npm notice 1.1kB dist/layout/types.d.ts
+2025-09-13T14:47:34.7795109Z npm notice 1.2kB dist/layout/types.d.ts.map
+2025-09-13T14:47:34.7795610Z npm notice 44B dist/layout/types.js
+2025-09-13T14:47:34.7795941Z npm notice 112B dist/layout/types.js.map
+2025-09-13T14:47:34.7796537Z npm notice 710B dist/renderer/ansi-renderer.d.ts
+2025-09-13T14:47:34.7797102Z npm notice 771B dist/renderer/ansi-renderer.d.ts.map
+2025-09-13T14:47:34.7797487Z npm notice 4.1kB dist/renderer/ansi-renderer.js
+2025-09-13T14:47:34.7797857Z npm notice 4.2kB dist/renderer/ansi-renderer.js.map
+2025-09-13T14:47:34.7798427Z npm notice 684B dist/renderer/layout-renderer.d.ts
+2025-09-13T14:47:34.7798823Z npm notice 665B dist/renderer/layout-renderer.d.ts.map
+2025-09-13T14:47:34.7799201Z npm notice 10.1kB dist/renderer/layout-renderer.js
+2025-09-13T14:47:34.7799582Z npm notice 8.2kB dist/renderer/layout-renderer.js.map
+2025-09-13T14:47:34.7799952Z npm notice 614B dist/renderer/zone-renderer.d.ts
+2025-09-13T14:47:34.7800322Z npm notice 686B dist/renderer/zone-renderer.d.ts.map
+2025-09-13T14:47:34.7800692Z npm notice 3.6kB dist/renderer/zone-renderer.js
+2025-09-13T14:47:34.7801093Z npm notice 3.4kB dist/renderer/zone-renderer.js.map
+2025-09-13T14:47:34.7801659Z npm notice 885B dist/transports/file-transport.d.ts
+2025-09-13T14:47:34.7802619Z npm notice 1.0kB dist/transports/file-transport.d.ts.map
+2025-09-13T14:47:34.7803043Z npm notice 3.8kB dist/transports/file-transport.js
+2025-09-13T14:47:34.7803432Z npm notice 3.5kB dist/transports/file-transport.js.map
+2025-09-13T14:47:34.7803770Z npm notice 1.3kB dist/types.d.ts
+2025-09-13T14:47:34.7804050Z npm notice 1.6kB dist/types.d.ts.map
+2025-09-13T14:47:34.7804314Z npm notice 44B dist/types.js
+2025-09-13T14:47:34.7825222Z npm notice 102B dist/types.js.map
+2025-09-13T14:47:34.7825733Z npm notice 353B dist/zone-manager.d.ts
+2025-09-13T14:47:34.7826282Z npm notice 442B dist/zone-manager.d.ts.map
+2025-09-13T14:47:34.7826762Z npm notice 682B dist/zone-manager.js
+2025-09-13T14:47:34.7827083Z npm notice 906B dist/zone-manager.js.map
+2025-09-13T14:47:34.7827393Z npm notice 841B dist/zone.d.ts
+2025-09-13T14:47:34.7827675Z npm notice 872B dist/zone.d.ts.map
+2025-09-13T14:47:34.7827946Z npm notice 4.0kB dist/zone.js
+2025-09-13T14:47:34.7828473Z npm notice 3.5kB dist/zone.js.map
+2025-09-13T14:47:34.7828802Z npm notice 1.1kB dist/zonr.d.ts
+2025-09-13T14:47:34.7829097Z npm notice 1.0kB dist/zonr.d.ts.map
+2025-09-13T14:47:34.7829368Z npm notice 9.2kB dist/zonr.js
+2025-09-13T14:47:34.7829638Z npm notice 7.9kB dist/zonr.js.map
+2025-09-13T14:47:34.7829895Z npm notice 2.6kB package.json
+2025-09-13T14:47:34.7830135Z npm notice Tarball Details
+2025-09-13T14:47:34.7830364Z npm notice name: @zonr/core
+2025-09-13T14:47:34.7830601Z npm notice version: 1.1.0
+2025-09-13T14:47:34.7830882Z npm notice filename: zonr-core-1.1.0.tgz
+2025-09-13T14:47:34.7831194Z npm notice package size: 29.3 kB
+2025-09-13T14:47:34.7831476Z npm notice unpacked size: 120.7 kB
+2025-09-13T14:47:34.7831841Z npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4
+2025-09-13T14:47:34.7832299Z npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==
+2025-09-13T14:47:34.7832714Z npm notice total files: 51
+2025-09-13T14:47:34.7832940Z npm notice
+2025-09-13T14:47:34.7833613Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+2025-09-13T14:47:35.0880393Z npm error code E404
+2025-09-13T14:47:35.0881367Z npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found
+2025-09-13T14:47:35.0882154Z npm error 404
+2025-09-13T14:47:35.0882800Z npm error 404  '@zonr/core@1.1.0' is not in this registry.
+2025-09-13T14:47:35.0883400Z npm error 404
+2025-09-13T14:47:35.0883980Z npm error 404 Note that you can also install from a
+2025-09-13T14:47:35.0884768Z npm error 404 tarball, folder, http url, or git url.
+2025-09-13T14:47:35.0892496Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log
+2025-09-13T14:47:35.1013650Z [2:47:35 PM] [semantic-release] › ✘  Failed step "publish" of plugin "@semantic-release/npm"
+2025-09-13T14:47:35.1048967Z [2:47:35 PM] [semantic-release] › ✘  An error occurred while running semantic-release: ExecaError: Command failed with exit code 1: npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'
+2025-09-13T14:47:35.1051083Z
+2025-09-13T14:47:35.1052030Z stderr | tests/file-transport.test.ts > FileTransport > constructor > should handle custom error handler
+2025-09-13T14:47:35.1053119Z FileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:35.1053541Z
+2025-09-13T14:47:35.1054281Z stderr | tests/file-transport.test.ts > FileTransport > write > should not write to destroyed transport
+2025-09-13T14:47:35.1055212Z FileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:35.1055483Z
+2025-09-13T14:47:35.1056107Z npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.
+2025-09-13T14:47:35.1056828Z npm warn publish errors corrected:
+2025-09-13T14:47:35.1057462Z npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"
+2025-09-13T14:47:35.1058412Z npm notice
+2025-09-13T14:47:35.1058832Z npm notice 📦  @zonr/core@1.1.0
+2025-09-13T14:47:35.1059137Z npm notice Tarball Contents
+2025-09-13T14:47:35.1059423Z npm notice 1.1kB LICENSE.md
+2025-09-13T14:47:35.1059697Z npm notice 14.0kB README.md
+2025-09-13T14:47:35.1060004Z npm notice 462B dist/events.d.ts
+2025-09-13T14:47:35.1060333Z npm notice 533B dist/events.d.ts.map
+2025-09-13T14:47:35.1060669Z npm notice 501B dist/events.js
+2025-09-13T14:47:35.1060992Z npm notice 644B dist/events.js.map
+2025-09-13T14:47:35.1061320Z npm notice 248B dist/index.d.ts
+2025-09-13T14:47:35.1061646Z npm notice 284B dist/index.d.ts.map
+2025-09-13T14:47:35.1061953Z npm notice 134B dist/index.js
+2025-09-13T14:47:35.1062264Z npm notice 185B dist/index.js.map
+2025-09-13T14:47:35.1062577Z npm notice 607B dist/layout/calculator.d.ts
+2025-09-13T14:47:35.1062920Z npm notice 586B dist/layout/calculator.d.ts.map
+2025-09-13T14:47:35.1063253Z npm notice 8.4kB dist/layout/calculator.js
+2025-09-13T14:47:35.1063590Z npm notice 7.1kB dist/layout/calculator.js.map
+2025-09-13T14:47:35.1063935Z npm notice 1.1kB dist/layout/types.d.ts
+2025-09-13T14:47:35.1064248Z npm notice 1.2kB dist/layout/types.d.ts.map
+2025-09-13T14:47:35.1064557Z npm notice 44B dist/layout/types.js
+2025-09-13T14:47:35.1064856Z npm notice 112B dist/layout/types.js.map
+2025-09-13T14:47:35.1065192Z npm notice 710B dist/renderer/ansi-renderer.d.ts
+2025-09-13T14:47:35.1065565Z npm notice 771B dist/renderer/ansi-renderer.d.ts.map
+2025-09-13T14:47:35.1065933Z npm notice 4.1kB dist/renderer/ansi-renderer.js
+2025-09-13T14:47:35.1066293Z npm notice 4.2kB dist/renderer/ansi-renderer.js.map
+2025-09-13T14:47:35.1066663Z npm notice 684B dist/renderer/layout-renderer.d.ts
+2025-09-13T14:47:35.1067047Z npm notice 665B dist/renderer/layout-renderer.d.ts.map
+2025-09-13T14:47:35.1067418Z npm notice 10.1kB dist/renderer/layout-renderer.js
+2025-09-13T14:47:35.1067791Z npm notice 8.2kB dist/renderer/layout-renderer.js.map
+2025-09-13T14:47:35.1068569Z npm notice 614B dist/renderer/zone-renderer.d.ts
+2025-09-13T14:47:35.1069288Z npm notice 686B dist/renderer/zone-renderer.d.ts.map
+2025-09-13T14:47:35.1069919Z npm notice 3.6kB dist/renderer/zone-renderer.js
+2025-09-13T14:47:35.1070550Z npm notice 3.4kB dist/renderer/zone-renderer.js.map
+2025-09-13T14:47:35.1071027Z npm notice 885B dist/transports/file-transport.d.ts
+2025-09-13T14:47:35.1071437Z npm notice 1.0kB dist/transports/file-transport.d.ts.map
+2025-09-13T14:47:35.1071822Z npm notice 3.8kB dist/transports/file-transport.js
+2025-09-13T14:47:35.1072212Z npm notice 3.5kB dist/transports/file-transport.js.map
+2025-09-13T14:47:35.1072552Z npm notice 1.3kB dist/types.d.ts
+2025-09-13T14:47:35.1072848Z npm notice 1.6kB dist/types.d.ts.map
+2025-09-13T14:47:35.1073123Z npm notice 44B dist/types.js
+2025-09-13T14:47:35.1073400Z npm notice 102B dist/types.js.map
+2025-09-13T14:47:35.1073690Z npm notice 353B dist/zone-manager.d.ts
+2025-09-13T14:47:35.1074013Z npm notice 442B dist/zone-manager.d.ts.map
+2025-09-13T14:47:35.1074334Z npm notice 682B dist/zone-manager.js
+2025-09-13T14:47:35.1074645Z npm notice 906B dist/zone-manager.js.map
+2025-09-13T14:47:35.1074938Z npm notice 841B dist/zone.d.ts
+2025-09-13T14:47:35.1075202Z npm notice 872B dist/zone.d.ts.map
+2025-09-13T14:47:35.1075462Z npm notice 4.0kB dist/zone.js
+2025-09-13T14:47:35.1075729Z npm notice 3.5kB dist/zone.js.map
+2025-09-13T14:47:35.1076004Z npm notice 1.1kB dist/zonr.d.ts
+2025-09-13T14:47:35.1076276Z npm notice 1.0kB dist/zonr.d.ts.map
+2025-09-13T14:47:35.1076536Z npm notice 9.2kB dist/zonr.js
+2025-09-13T14:47:35.1076794Z npm notice 7.9kB dist/zonr.js.map
+2025-09-13T14:47:35.1077045Z npm notice 2.6kB package.json
+2025-09-13T14:47:35.1077287Z npm notice Tarball Details
+2025-09-13T14:47:35.1077523Z npm notice name: @zonr/core
+2025-09-13T14:47:35.1077756Z npm notice version: 1.1.0
+2025-09-13T14:47:35.1078029Z npm notice filename: zonr-core-1.1.0.tgz
+2025-09-13T14:47:35.1078561Z npm notice package size: 29.3 kB
+2025-09-13T14:47:35.1078844Z npm notice unpacked size: 120.7 kB
+2025-09-13T14:47:35.1079362Z npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4
+2025-09-13T14:47:35.1079810Z npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==
+2025-09-13T14:47:35.1080145Z npm notice total files: 51
+2025-09-13T14:47:35.1080349Z npm notice
+2025-09-13T14:47:35.1080770Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+2025-09-13T14:47:35.1081450Z npm error code E404
+2025-09-13T14:47:35.1082074Z npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found
+2025-09-13T14:47:35.1082693Z npm error 404
+2025-09-13T14:47:35.1083069Z npm error 404  '@zonr/core@1.1.0' is not in this registry.
+2025-09-13T14:47:35.1083349Z npm error 404
+2025-09-13T14:47:35.1083618Z npm error 404 Note that you can also install from a
+2025-09-13T14:47:35.1083990Z npm error 404 tarball, folder, http url, or git url.
+2025-09-13T14:47:35.1084652Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log
+2025-09-13T14:47:35.1085075Z
+2025-09-13T14:47:35.1085081Z
+2025-09-13T14:47:35.1085224Z > @zonr/core@1.1.0 prepublishOnly
+2025-09-13T14:47:35.1085836Z > pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck
+2025-09-13T14:47:35.1086198Z
+2025-09-13T14:47:35.1086204Z
+2025-09-13T14:47:35.1086475Z > @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1086838Z > rimraf dist
+2025-09-13T14:47:35.1086949Z
+2025-09-13T14:47:35.1086954Z
+2025-09-13T14:47:35.1087231Z > @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1087489Z > tsc
+2025-09-13T14:47:35.1087590Z
+2025-09-13T14:47:35.1087595Z
+2025-09-13T14:47:35.1087783Z > @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1088065Z > vitest run
+2025-09-13T14:47:35.1088175Z
+2025-09-13T14:47:35.1088181Z
+2025-09-13T14:47:35.1088534Z  RUN  v3.2.4 /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1088741Z
+2025-09-13T14:47:35.1089137Z  ✓ tests/layout.test.ts (10 tests) 10ms
+2025-09-13T14:47:35.1089507Z  ✓ tests/integration.test.ts (13 tests) 17ms
+2025-09-13T14:47:35.1089879Z  ✓ tests/file-transport.test.ts (14 tests) 46ms
+2025-09-13T14:47:35.1090070Z
+2025-09-13T14:47:35.1090159Z  Test Files  3 passed (3)
+2025-09-13T14:47:35.1090390Z       Tests  37 passed (37)
+2025-09-13T14:47:35.1090610Z    Start at  14:47:29
+2025-09-13T14:47:35.1091061Z    Duration  532ms (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)
+2025-09-13T14:47:35.1091417Z
+2025-09-13T14:47:35.1091422Z
+2025-09-13T14:47:35.1091600Z > @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1091895Z > eslint src --ext .ts
+2025-09-13T14:47:35.1092021Z
+2025-09-13T14:47:35.1092026Z
+2025-09-13T14:47:35.1092230Z > @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1092514Z > tsc --noEmit
+2025-09-13T14:47:35.1092627Z
+2025-09-13T14:47:35.1092650Z
+2025-09-13T14:47:35.1092748Z > @zonr/core@1.1.0 prepare
+2025-09-13T14:47:35.1092961Z > husky
+2025-09-13T14:47:35.1093058Z
+2025-09-13T14:47:35.1093151Z HUSKY=0 skip install
+2025-09-13T14:47:35.1093726Z     at getFinalError (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/return/final-error.js:6:9)
+2025-09-13T14:47:35.1094606Z     at makeError (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/return/result.js:108:16)
+2025-09-13T14:47:35.1095493Z     at getAsyncResult (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/methods/main-async.js:168:4)
+2025-09-13T14:47:35.1096405Z     at handlePromise (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/execa@9.6.0/node_modules/execa/lib/methods/main-async.js:151:17)
+2025-09-13T14:47:35.1097531Z     at async default (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/@semantic-release+npm@12.0.2_semantic-release@24.2.8_typescript@5.9.2_/node_modules/@semantic-release/npm/lib/publish.js:30:5)
+2025-09-13T14:47:35.1099064Z     at async validator (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/semantic-release@24.2.8_typescript@5.9.2/node_modules/semantic-release/lib/plugins/normalize.js:36:24)
+2025-09-13T14:47:35.1100357Z     at async file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/semantic-release@24.2.8_typescript@5.9.2/node_modules/semantic-release/lib/plugins/pipeline.js:38:36
+2025-09-13T14:47:35.1101035Z     at async Promise.all (index 0)
+2025-09-13T14:47:35.1101604Z     at async next (file:///home/runner/work/Zonr/Zonr/node_modules/.pnpm/p-reduce@3.0.0/node_modules/p-reduce/index.js:15:44) {
+2025-09-13T14:47:35.1102741Z   shortMessage: "Command failed with exit code 1: npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'",
+2025-09-13T14:47:35.1103990Z   command: 'npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry https://registry.npmjs.org/',
+2025-09-13T14:47:35.1105160Z   escapedCommand: "npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'",
+2025-09-13T14:47:35.1105875Z   cwd: '/home/runner/work/Zonr/Zonr',
+2025-09-13T14:47:35.1106128Z   durationMs: 10533.072656,
+2025-09-13T14:47:35.1106337Z   failed: true,
+2025-09-13T14:47:35.1106530Z   timedOut: false,
+2025-09-13T14:47:35.1106724Z   isCanceled: false,
+2025-09-13T14:47:35.1106954Z   isGracefullyCanceled: false,
+2025-09-13T14:47:35.1107189Z   isTerminated: false,
+2025-09-13T14:47:35.1107387Z   isMaxBuffer: false,
+2025-09-13T14:47:35.1107623Z   isForcefullyTerminated: false,
+2025-09-13T14:47:35.1107851Z   exitCode: 1,
+2025-09-13T14:47:35.1108035Z   stdout: '\n' +
+2025-09-13T14:47:35.1108551Z     '> @zonr/core@1.1.0 prepublishOnly\n' +
+2025-09-13T14:47:35.1109095Z     '> pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck\n' +
+2025-09-13T14:47:35.1109479Z     '\n' +
+2025-09-13T14:47:35.1109817Z     '\n' +
+2025-09-13T14:47:35.1110107Z     '> @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1110413Z     '> rimraf dist\n' +
+2025-09-13T14:47:35.1110615Z     '\n' +
+2025-09-13T14:47:35.1110781Z     '\n' +
+2025-09-13T14:47:35.1111033Z     '> @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1111318Z     '> tsc\n' +
+2025-09-13T14:47:35.1111500Z     '\n' +
+2025-09-13T14:47:35.1111665Z     '\n' +
+2025-09-13T14:47:35.1111933Z     '> @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1112225Z     '> vitest run\n' +
+2025-09-13T14:47:35.1112415Z     '\n' +
+2025-09-13T14:47:35.1112576Z     '\n' +
+2025-09-13T14:47:35.1112952Z     '\x1B[1m\x1B[46m RUN \x1B[49m\x1B[22m \x1B[36mv3.2.4 \x1B[39m\x1B[90m/home/runner/work/Zonr/Zonr\x1B[39m\n' +
+2025-09-13T14:47:35.1113328Z     '\n' +
+2025-09-13T14:47:35.1113997Z     ' \x1B[32m✓\x1B[39m tests/layout.test.ts \x1B[2m(\x1B[22m\x1B[2m10 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 10\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1114901Z     ' \x1B[32m✓\x1B[39m tests/integration.test.ts \x1B[2m(\x1B[22m\x1B[2m13 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 17\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1115821Z     ' \x1B[32m✓\x1B[39m tests/file-transport.test.ts \x1B[2m(\x1B[22m\x1B[2m14 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 46\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1116312Z     '\n' +
+2025-09-13T14:47:35.1116660Z     '\x1B[2m Test Files \x1B[22m \x1B[1m\x1B[32m3 passed\x1B[39m\x1B[22m\x1B[90m (3)\x1B[39m\n' +
+2025-09-13T14:47:35.1117194Z     '\x1B[2m      Tests \x1B[22m \x1B[1m\x1B[32m37 passed\x1B[39m\x1B[22m\x1B[90m (37)\x1B[39m\n' +
+2025-09-13T14:47:35.1117600Z     '\x1B[2m   Start at \x1B[22m 14:47:29\n' +
+2025-09-13T14:47:35.1118195Z     '\x1B[2m   Duration \x1B[22m 532ms\x1B[2m (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)\x1B[22m\n' +
+2025-09-13T14:47:35.1118958Z     '\n' +
+2025-09-13T14:47:35.1119122Z     '\n' +
+2025-09-13T14:47:35.1119388Z     '> @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1119863Z     '> eslint src --ext .ts\n' +
+2025-09-13T14:47:35.1120085Z     '\n' +
+2025-09-13T14:47:35.1120247Z     '\n' +
+2025-09-13T14:47:35.1120521Z     '> @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1120824Z     '> tsc --noEmit\n' +
+2025-09-13T14:47:35.1121020Z     '\n' +
+2025-09-13T14:47:35.1121179Z     '\n' +
+2025-09-13T14:47:35.1121376Z     '> @zonr/core@1.1.0 prepare\n' +
+2025-09-13T14:47:35.1121611Z     '> husky\n' +
+2025-09-13T14:47:35.1121789Z     '\n' +
+2025-09-13T14:47:35.1121959Z     'HUSKY=0 skip install',
+2025-09-13T14:47:35.1122700Z   stderr: '\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mconstructor\x1B[2m > \x1B[22m\x1B[2mshould handle custom error handler\n' +
+2025-09-13T14:47:35.1123509Z     '\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n' +
+2025-09-13T14:47:35.1123857Z     '\n' +
+2025-09-13T14:47:35.1124510Z     '\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mwrite\x1B[2m > \x1B[22m\x1B[2mshould not write to destroyed transport\n' +
+2025-09-13T14:47:35.1125278Z     '\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n' +
+2025-09-13T14:47:35.1125657Z     '\n' +
+2025-09-13T14:47:35.1126215Z     'npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.\n' +
+2025-09-13T14:47:35.1126818Z     'npm warn publish errors corrected:\n' +
+2025-09-13T14:47:35.1127329Z     'npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"\n' +
+2025-09-13T14:47:35.1127769Z     'npm notice\n' +
+2025-09-13T14:47:35.1128070Z     'npm notice 📦  @zonr/core@1.1.0\n' +
+2025-09-13T14:47:35.1128504Z     'npm notice Tarball Contents\n' +
+2025-09-13T14:47:35.1128922Z     'npm notice 1.1kB LICENSE.md\n' +
+2025-09-13T14:47:35.1129210Z     'npm notice 14.0kB README.md\n' +
+2025-09-13T14:47:35.1129485Z     'npm notice 462B dist/events.d.ts\n' +
+2025-09-13T14:47:35.1129795Z     'npm notice 533B dist/events.d.ts.map\n' +
+2025-09-13T14:47:35.1130090Z     'npm notice 501B dist/events.js\n' +
+2025-09-13T14:47:35.1130381Z     'npm notice 644B dist/events.js.map\n' +
+2025-09-13T14:47:35.1130673Z     'npm notice 248B dist/index.d.ts\n' +
+2025-09-13T14:47:35.1130968Z     'npm notice 284B dist/index.d.ts.map\n' +
+2025-09-13T14:47:35.1131250Z     'npm notice 134B dist/index.js\n' +
+2025-09-13T14:47:35.1131532Z     'npm notice 185B dist/index.js.map\n' +
+2025-09-13T14:47:35.1131846Z     'npm notice 607B dist/layout/calculator.d.ts\n' +
+2025-09-13T14:47:35.1132203Z     'npm notice 586B dist/layout/calculator.d.ts.map\n' +
+2025-09-13T14:47:35.1132557Z     'npm notice 8.4kB dist/layout/calculator.js\n' +
+2025-09-13T14:47:35.1132905Z     'npm notice 7.1kB dist/layout/calculator.js.map\n' +
+2025-09-13T14:47:35.1133241Z     'npm notice 1.1kB dist/layout/types.d.ts\n' +
+2025-09-13T14:47:35.1133575Z     'npm notice 1.2kB dist/layout/types.d.ts.map\n' +
+2025-09-13T14:47:35.1133893Z     'npm notice 44B dist/layout/types.js\n' +
+2025-09-13T14:47:35.1134202Z     'npm notice 112B dist/layout/types.js.map\n' +
+2025-09-13T14:47:35.1134550Z     'npm notice 710B dist/renderer/ansi-renderer.d.ts\n' +
+2025-09-13T14:47:35.1134930Z     'npm notice 771B dist/renderer/ansi-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1135309Z     'npm notice 4.1kB dist/renderer/ansi-renderer.js\n' +
+2025-09-13T14:47:35.1135675Z     'npm notice 4.2kB dist/renderer/ansi-renderer.js.map\n' +
+2025-09-13T14:47:35.1136054Z     'npm notice 684B dist/renderer/layout-renderer.d.ts\n' +
+2025-09-13T14:47:35.1136449Z     'npm notice 665B dist/renderer/layout-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1136865Z     'npm notice 10.1kB dist/renderer/layout-renderer.js\n' +
+2025-09-13T14:47:35.1137263Z     'npm notice 8.2kB dist/renderer/layout-renderer.js.map\n' +
+2025-09-13T14:47:35.1137651Z     'npm notice 614B dist/renderer/zone-renderer.d.ts\n' +
+2025-09-13T14:47:35.1138156Z     'npm notice 686B dist/renderer/zone-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1138671Z     'npm notice 3.6kB dist/renderer/zone-renderer.js\n' +
+2025-09-13T14:47:35.1139051Z     'npm notice 3.4kB dist/renderer/zone-renderer.js.map\n' +
+2025-09-13T14:47:35.1139433Z     'npm notice 885B dist/transports/file-transport.d.ts\n' +
+2025-09-13T14:47:35.1139840Z     'npm notice 1.0kB dist/transports/file-transport.d.ts.map\n' +
+2025-09-13T14:47:35.1140232Z     'npm notice 3.8kB dist/transports/file-transport.js\n' +
+2025-09-13T14:47:35.1140623Z     'npm notice 3.5kB dist/transports/file-transport.js.map\n' +
+2025-09-13T14:47:35.1140970Z     'npm notice 1.3kB dist/types.d.ts\n' +
+2025-09-13T14:47:35.1141272Z     'npm notice 1.6kB dist/types.d.ts.map\n' +
+2025-09-13T14:47:35.1141565Z     'npm notice 44B dist/types.js\n' +
+2025-09-13T14:47:35.1141846Z     'npm notice 102B dist/types.js.map\n' +
+2025-09-13T14:47:35.1142150Z     'npm notice 353B dist/zone-manager.d.ts\n' +
+2025-09-13T14:47:35.1142489Z     'npm notice 442B dist/zone-manager.d.ts.map\n' +
+2025-09-13T14:47:35.1142810Z     'npm notice 682B dist/zone-manager.js\n' +
+2025-09-13T14:47:35.1143125Z     'npm notice 906B dist/zone-manager.js.map\n' +
+2025-09-13T14:47:35.1143430Z     'npm notice 841B dist/zone.d.ts\n' +
+2025-09-13T14:47:35.1143714Z     'npm notice 872B dist/zone.d.ts.map\n' +
+2025-09-13T14:47:35.1143993Z     'npm notice 4.0kB dist/zone.js\n' +
+2025-09-13T14:47:35.1144272Z     'npm notice 3.5kB dist/zone.js.map\n' +
+2025-09-13T14:47:35.1144555Z     'npm notice 1.1kB dist/zonr.d.ts\n' +
+2025-09-13T14:47:35.1144845Z     'npm notice 1.0kB dist/zonr.d.ts.map\n' +
+2025-09-13T14:47:35.1145130Z     'npm notice 9.2kB dist/zonr.js\n' +
+2025-09-13T14:47:35.1145408Z     'npm notice 7.9kB dist/zonr.js.map\n' +
+2025-09-13T14:47:35.1145683Z     'npm notice 2.6kB package.json\n' +
+2025-09-13T14:47:35.1145960Z     'npm notice Tarball Details\n' +
+2025-09-13T14:47:35.1146361Z     'npm notice name: @zonr/core\n' +
+2025-09-13T14:47:35.1146651Z     'npm notice version: 1.1.0\n' +
+2025-09-13T14:47:35.1146954Z     'npm notice filename: zonr-core-1.1.0.tgz\n' +
+2025-09-13T14:47:35.1147259Z     'npm notice package size: 29.3 kB\n' +
+2025-09-13T14:47:35.1147540Z     'npm notice unpacked size: 120.7 kB\n' +
+2025-09-13T14:47:35.1147908Z     'npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4\n' +
+2025-09-13T14:47:35.1148611Z     'npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==\n' +
+2025-09-13T14:47:35.1149179Z     'npm notice total files: 51\n' +
+2025-09-13T14:47:35.1149595Z     'npm notice\n' +
+2025-09-13T14:47:35.1150355Z     'npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access\n' +
+2025-09-13T14:47:35.1150915Z     'npm error code E404\n' +
+2025-09-13T14:47:35.1151661Z     'npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found\n' +
+2025-09-13T14:47:35.1152315Z     'npm error 404\n' +
+2025-09-13T14:47:35.1152819Z     "npm error 404  '@zonr/core@1.1.0' is not in this registry.\n" +
+2025-09-13T14:47:35.1153300Z     'npm error 404\n' +
+2025-09-13T14:47:35.1153772Z     'npm error 404 Note that you can also install from a\n' +
+2025-09-13T14:47:35.1154395Z     'npm error 404 tarball, folder, http url, or git url.\n' +
+2025-09-13T14:47:35.1155303Z     'npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log',
+2025-09-13T14:47:35.1156047Z   stdio: [
+2025-09-13T14:47:35.1156310Z     undefined,
+2025-09-13T14:47:35.1156554Z     '\n' +
+2025-09-13T14:47:35.1156880Z       '> @zonr/core@1.1.0 prepublishOnly\n' +
+2025-09-13T14:47:35.1157660Z       '> pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck\n' +
+2025-09-13T14:47:35.1158466Z       '\n' +
+2025-09-13T14:47:35.1158722Z       '\n' +
+2025-09-13T14:47:35.1159136Z       '> @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1159607Z       '> rimraf dist\n' +
+2025-09-13T14:47:35.1160197Z       '\n' +
+2025-09-13T14:47:35.1160498Z       '\n' +
+2025-09-13T14:47:35.1160936Z       '> @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1161431Z       '> tsc\n' +
+2025-09-13T14:47:35.1161716Z       '\n' +
+2025-09-13T14:47:35.1161994Z       '\n' +
+2025-09-13T14:47:35.1162278Z       '> @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1162586Z       '> vitest run\n' +
+2025-09-13T14:47:35.1162775Z       '\n' +
+2025-09-13T14:47:35.1162943Z       '\n' +
+2025-09-13T14:47:35.1163322Z       '\x1B[1m\x1B[46m RUN \x1B[49m\x1B[22m \x1B[36mv3.2.4 \x1B[39m\x1B[90m/home/runner/work/Zonr/Zonr\x1B[39m\n' +
+2025-09-13T14:47:35.1163705Z       '\n' +
+2025-09-13T14:47:35.1164362Z       ' \x1B[32m✓\x1B[39m tests/layout.test.ts \x1B[2m(\x1B[22m\x1B[2m10 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 10\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1165301Z       ' \x1B[32m✓\x1B[39m tests/integration.test.ts \x1B[2m(\x1B[22m\x1B[2m13 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 17\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1166230Z       ' \x1B[32m✓\x1B[39m tests/file-transport.test.ts \x1B[2m(\x1B[22m\x1B[2m14 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 46\x1B[2mms\x1B[22m\x1B[39m\n' +
+2025-09-13T14:47:35.1166723Z       '\n' +
+2025-09-13T14:47:35.1167070Z       '\x1B[2m Test Files \x1B[22m \x1B[1m\x1B[32m3 passed\x1B[39m\x1B[22m\x1B[90m (3)\x1B[39m\n' +
+2025-09-13T14:47:35.1167604Z       '\x1B[2m      Tests \x1B[22m \x1B[1m\x1B[32m37 passed\x1B[39m\x1B[22m\x1B[90m (37)\x1B[39m\n' +
+2025-09-13T14:47:35.1168008Z       '\x1B[2m   Start at \x1B[22m 14:47:29\n' +
+2025-09-13T14:47:35.1168873Z       '\x1B[2m   Duration \x1B[22m 532ms\x1B[2m (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)\x1B[22m\n' +
+2025-09-13T14:47:35.1169363Z       '\n' +
+2025-09-13T14:47:35.1169528Z       '\n' +
+2025-09-13T14:47:35.1169791Z       '> @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1170293Z       '> eslint src --ext .ts\n' +
+2025-09-13T14:47:35.1170543Z       '\n' +
+2025-09-13T14:47:35.1170714Z       '\n' +
+2025-09-13T14:47:35.1170998Z       '> @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr\n' +
+2025-09-13T14:47:35.1171314Z       '> tsc --noEmit\n' +
+2025-09-13T14:47:35.1171518Z       '\n' +
+2025-09-13T14:47:35.1171680Z       '\n' +
+2025-09-13T14:47:35.1171892Z       '> @zonr/core@1.1.0 prepare\n' +
+2025-09-13T14:47:35.1172132Z       '> husky\n' +
+2025-09-13T14:47:35.1172316Z       '\n' +
+2025-09-13T14:47:35.1172502Z       'HUSKY=0 skip install',
+2025-09-13T14:47:35.1173229Z     '\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mconstructor\x1B[2m > \x1B[22m\x1B[2mshould handle custom error handler\n' +
+2025-09-13T14:47:35.1174008Z       '\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n' +
+2025-09-13T14:47:35.1174353Z       '\n' +
+2025-09-13T14:47:35.1175013Z       '\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mwrite\x1B[2m > \x1B[22m\x1B[2mshould not write to destroyed transport\n' +
+2025-09-13T14:47:35.1175780Z       '\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n' +
+2025-09-13T14:47:35.1176121Z       '\n' +
+2025-09-13T14:47:35.1176690Z       'npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.\n' +
+2025-09-13T14:47:35.1177290Z       'npm warn publish errors corrected:\n' +
+2025-09-13T14:47:35.1177807Z       'npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"\n' +
+2025-09-13T14:47:35.1178444Z       'npm notice\n' +
+2025-09-13T14:47:35.1178798Z       'npm notice 📦  @zonr/core@1.1.0\n' +
+2025-09-13T14:47:35.1179094Z       'npm notice Tarball Contents\n' +
+2025-09-13T14:47:35.1179370Z       'npm notice 1.1kB LICENSE.md\n' +
+2025-09-13T14:47:35.1179650Z       'npm notice 14.0kB README.md\n' +
+2025-09-13T14:47:35.1180075Z       'npm notice 462B dist/events.d.ts\n' +
+2025-09-13T14:47:35.1180384Z       'npm notice 533B dist/events.d.ts.map\n' +
+2025-09-13T14:47:35.1180684Z       'npm notice 501B dist/events.js\n' +
+2025-09-13T14:47:35.1180982Z       'npm notice 644B dist/events.js.map\n' +
+2025-09-13T14:47:35.1181270Z       'npm notice 248B dist/index.d.ts\n' +
+2025-09-13T14:47:35.1181566Z       'npm notice 284B dist/index.d.ts.map\n' +
+2025-09-13T14:47:35.1181860Z       'npm notice 134B dist/index.js\n' +
+2025-09-13T14:47:35.1182147Z       'npm notice 185B dist/index.js.map\n' +
+2025-09-13T14:47:35.1182470Z       'npm notice 607B dist/layout/calculator.d.ts\n' +
+2025-09-13T14:47:35.1182831Z       'npm notice 586B dist/layout/calculator.d.ts.map\n' +
+2025-09-13T14:47:35.1183180Z       'npm notice 8.4kB dist/layout/calculator.js\n' +
+2025-09-13T14:47:35.1183528Z       'npm notice 7.1kB dist/layout/calculator.js.map\n' +
+2025-09-13T14:47:35.1183875Z       'npm notice 1.1kB dist/layout/types.d.ts\n' +
+2025-09-13T14:47:35.1184212Z       'npm notice 1.2kB dist/layout/types.d.ts.map\n' +
+2025-09-13T14:47:35.1184529Z       'npm notice 44B dist/layout/types.js\n' +
+2025-09-13T14:47:35.1184843Z       'npm notice 112B dist/layout/types.js.map\n' +
+2025-09-13T14:47:35.1185188Z       'npm notice 710B dist/renderer/ansi-renderer.d.ts\n' +
+2025-09-13T14:47:35.1185576Z       'npm notice 771B dist/renderer/ansi-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1185956Z       'npm notice 4.1kB dist/renderer/ansi-renderer.js\n' +
+2025-09-13T14:47:35.1186332Z       'npm notice 4.2kB dist/renderer/ansi-renderer.js.map\n' +
+2025-09-13T14:47:35.1186716Z       'npm notice 684B dist/renderer/layout-renderer.d.ts\n' +
+2025-09-13T14:47:35.1187113Z       'npm notice 665B dist/renderer/layout-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1187504Z       'npm notice 10.1kB dist/renderer/layout-renderer.js\n' +
+2025-09-13T14:47:35.1187890Z       'npm notice 8.2kB dist/renderer/layout-renderer.js.map\n' +
+2025-09-13T14:47:35.1188592Z       'npm notice 614B dist/renderer/zone-renderer.d.ts\n' +
+2025-09-13T14:47:35.1189014Z       'npm notice 686B dist/renderer/zone-renderer.d.ts.map\n' +
+2025-09-13T14:47:35.1189401Z       'npm notice 3.6kB dist/renderer/zone-renderer.js\n' +
+2025-09-13T14:47:35.1189778Z       'npm notice 3.4kB dist/renderer/zone-renderer.js.map\n' +
+2025-09-13T14:47:35.1190161Z       'npm notice 885B dist/transports/file-transport.d.ts\n' +
+2025-09-13T14:47:35.1190569Z       'npm notice 1.0kB dist/transports/file-transport.d.ts.map\n' +
+2025-09-13T14:47:35.1190961Z       'npm notice 3.8kB dist/transports/file-transport.js\n' +
+2025-09-13T14:47:35.1191356Z       'npm notice 3.5kB dist/transports/file-transport.js.map\n' +
+2025-09-13T14:47:35.1191710Z       'npm notice 1.3kB dist/types.d.ts\n' +
+2025-09-13T14:47:35.1192017Z       'npm notice 1.6kB dist/types.d.ts.map\n' +
+2025-09-13T14:47:35.1192316Z       'npm notice 44B dist/types.js\n' +
+2025-09-13T14:47:35.1192608Z       'npm notice 102B dist/types.js.map\n' +
+2025-09-13T14:47:35.1192924Z       'npm notice 353B dist/zone-manager.d.ts\n' +
+2025-09-13T14:47:35.1193257Z       'npm notice 442B dist/zone-manager.d.ts.map\n' +
+2025-09-13T14:47:35.1193582Z       'npm notice 682B dist/zone-manager.js\n' +
+2025-09-13T14:47:35.1193904Z       'npm notice 906B dist/zone-manager.js.map\n' +
+2025-09-13T14:47:35.1194444Z       'npm notice 841B dist/zone.d.ts\n' +
+2025-09-13T14:47:35.1194941Z       'npm notice 872B dist/zone.d.ts.map\n' +
+2025-09-13T14:47:35.1195449Z       'npm notice 4.0kB dist/zone.js\n' +
+2025-09-13T14:47:35.1195932Z       'npm notice 3.5kB dist/zone.js.map\n' +
+2025-09-13T14:47:35.1196447Z       'npm notice 1.1kB dist/zonr.d.ts\n' +
+2025-09-13T14:47:35.1196985Z       'npm notice 1.0kB dist/zonr.d.ts.map\n' +
+2025-09-13T14:47:35.1197522Z       'npm notice 9.2kB dist/zonr.js\n' +
+2025-09-13T14:47:35.1198058Z       'npm notice 7.9kB dist/zonr.js.map\n' +
+2025-09-13T14:47:35.1198804Z       'npm notice 2.6kB package.json\n' +
+2025-09-13T14:47:35.1199335Z       'npm notice Tarball Details\n' +
+2025-09-13T14:47:35.1200078Z       'npm notice name: @zonr/core\n' +
+2025-09-13T14:47:35.1200587Z       'npm notice version: 1.1.0\n' +
+2025-09-13T14:47:35.1201157Z       'npm notice filename: zonr-core-1.1.0.tgz\n' +
+2025-09-13T14:47:35.1201737Z       'npm notice package size: 29.3 kB\n' +
+2025-09-13T14:47:35.1202300Z       'npm notice unpacked size: 120.7 kB\n' +
+2025-09-13T14:47:35.1202981Z       'npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4\n' +
+2025-09-13T14:47:35.1203843Z       'npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==\n' +
+2025-09-13T14:47:35.1204520Z       'npm notice total files: 51\n' +
+2025-09-13T14:47:35.1204968Z       'npm notice\n' +
+2025-09-13T14:47:35.1205751Z       'npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access\n' +
+2025-09-13T14:47:35.1206576Z       'npm error code E404\n' +
+2025-09-13T14:47:35.1207372Z       'npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found\n' +
+2025-09-13T14:47:35.1208079Z       'npm error 404\n' +
+2025-09-13T14:47:35.1208847Z       "npm error 404  '@zonr/core@1.1.0' is not in this registry.\n" +
+2025-09-13T14:47:35.1209377Z       'npm error 404\n' +
+2025-09-13T14:47:35.1209885Z       'npm error 404 Note that you can also install from a\n' +
+2025-09-13T14:47:35.1210546Z       'npm error 404 tarball, folder, http url, or git url.\n' +
+2025-09-13T14:47:35.1211523Z       'npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log'
+2025-09-13T14:47:35.1212267Z   ],
+2025-09-13T14:47:35.1212536Z   ipcOutput: [],
+2025-09-13T14:47:35.1212857Z   pipedFrom: [],
+2025-09-13T14:47:35.1213244Z   pluginName: '@semantic-release/npm'
+2025-09-13T14:47:35.1213651Z }
+2025-09-13T14:47:35.1215242Z ExecaError: Command failed with exit code 1: npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'
+2025-09-13T14:47:35.1216733Z
+2025-09-13T14:47:35.1217455Z stderr | tests/file-transport.test.ts > FileTransport > constructor > should handle custom error handler
+2025-09-13T14:47:35.1218620Z FileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:35.1219014Z
+2025-09-13T14:47:35.1219694Z stderr | tests/file-transport.test.ts > FileTransport > write > should not write to destroyed transport
+2025-09-13T14:47:35.1220666Z FileTransport: Attempt to write to destroyed transport
+2025-09-13T14:47:35.1221047Z
+2025-09-13T14:47:35.1221959Z npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.
+2025-09-13T14:47:35.1222985Z npm warn publish errors corrected:
+2025-09-13T14:47:35.1223887Z npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"
+2025-09-13T14:47:35.1224604Z npm notice
+2025-09-13T14:47:35.1225088Z npm notice 📦  @zonr/core@1.1.0
+2025-09-13T14:47:35.1225507Z npm notice Tarball Contents
+2025-09-13T14:47:35.1225974Z npm notice 1.1kB LICENSE.md
+2025-09-13T14:47:35.1226368Z npm notice 14.0kB README.md
+2025-09-13T14:47:35.1226798Z npm notice 462B dist/events.d.ts
+2025-09-13T14:47:35.1227274Z npm notice 533B dist/events.d.ts.map
+2025-09-13T14:47:35.1227746Z npm notice 501B dist/events.js
+2025-09-13T14:47:35.1228341Z npm notice 644B dist/events.js.map
+2025-09-13T14:47:35.1228818Z npm notice 248B dist/index.d.ts
+2025-09-13T14:47:35.1229276Z npm notice 284B dist/index.d.ts.map
+2025-09-13T14:47:35.1229709Z npm notice 134B dist/index.js
+2025-09-13T14:47:35.1230155Z npm notice 185B dist/index.js.map
+2025-09-13T14:47:35.1230670Z npm notice 607B dist/layout/calculator.d.ts
+2025-09-13T14:47:35.1231255Z npm notice 586B dist/layout/calculator.d.ts.map
+2025-09-13T14:47:35.1231833Z npm notice 8.4kB dist/layout/calculator.js
+2025-09-13T14:47:35.1232406Z npm notice 7.1kB dist/layout/calculator.js.map
+2025-09-13T14:47:35.1232956Z npm notice 1.1kB dist/layout/types.d.ts
+2025-09-13T14:47:35.1233494Z npm notice 1.2kB dist/layout/types.d.ts.map
+2025-09-13T14:47:35.1234196Z npm notice 44B dist/layout/types.js
+2025-09-13T14:47:35.1234707Z npm notice 112B dist/layout/types.js.map
+2025-09-13T14:47:35.1235288Z npm notice 710B dist/renderer/ansi-renderer.d.ts
+2025-09-13T14:47:35.1235931Z npm notice 771B dist/renderer/ansi-renderer.d.ts.map
+2025-09-13T14:47:35.1236564Z npm notice 4.1kB dist/renderer/ansi-renderer.js
+2025-09-13T14:47:35.1237186Z npm notice 4.2kB dist/renderer/ansi-renderer.js.map
+2025-09-13T14:47:35.1237828Z npm notice 684B dist/renderer/layout-renderer.d.ts
+2025-09-13T14:47:35.1238673Z npm notice 665B dist/renderer/layout-renderer.d.ts.map
+2025-09-13T14:47:35.1239324Z npm notice 10.1kB dist/renderer/layout-renderer.js
+2025-09-13T14:47:35.1239980Z npm notice 8.2kB dist/renderer/layout-renderer.js.map
+2025-09-13T14:47:35.1240610Z npm notice 614B dist/renderer/zone-renderer.d.ts
+2025-09-13T14:47:35.1241252Z npm notice 686B dist/renderer/zone-renderer.d.ts.map
+2025-09-13T14:47:35.1241885Z npm notice 3.6kB dist/renderer/zone-renderer.js
+2025-09-13T14:47:35.1242514Z npm notice 3.4kB dist/renderer/zone-renderer.js.map
+2025-09-13T14:47:35.1243160Z npm notice 885B dist/transports/file-transport.d.ts
+2025-09-13T14:47:35.1243844Z npm notice 1.0kB dist/transports/file-transport.d.ts.map
+2025-09-13T14:47:35.1244505Z npm notice 3.8kB dist/transports/file-transport.js
+2025-09-13T14:47:35.1245168Z npm notice 3.5kB dist/transports/file-transport.js.map
+2025-09-13T14:47:35.1245744Z npm notice 1.3kB dist/types.d.ts
+2025-09-13T14:47:35.1246222Z npm notice 1.6kB dist/types.d.ts.map
+2025-09-13T14:47:35.1246671Z npm notice 44B dist/types.js
+2025-09-13T14:47:35.1247126Z npm notice 102B dist/types.js.map
+2025-09-13T14:47:35.1247611Z npm notice 353B dist/zone-manager.d.ts
+2025-09-13T14:47:35.1248146Z npm notice 442B dist/zone-manager.d.ts.map
+2025-09-13T14:47:35.1248816Z npm notice 682B dist/zone-manager.js
+2025-09-13T14:47:35.1249332Z npm notice 906B dist/zone-manager.js.map
+2025-09-13T14:47:35.1249829Z npm notice 841B dist/zone.d.ts
+2025-09-13T14:47:35.1250453Z npm notice 872B dist/zone.d.ts.map
+2025-09-13T14:47:35.1250909Z npm notice 4.0kB dist/zone.js
+2025-09-13T14:47:35.1251360Z npm notice 3.5kB dist/zone.js.map
+2025-09-13T14:47:35.1251822Z npm notice 1.1kB dist/zonr.d.ts
+2025-09-13T14:47:35.1252289Z npm notice 1.0kB dist/zonr.d.ts.map
+2025-09-13T14:47:35.1252727Z npm notice 9.2kB dist/zonr.js
+2025-09-13T14:47:35.1253173Z npm notice 7.9kB dist/zonr.js.map
+2025-09-13T14:47:35.1253605Z npm notice 2.6kB package.json
+2025-09-13T14:47:35.1254014Z npm notice Tarball Details
+2025-09-13T14:47:35.1254410Z npm notice name: @zonr/core
+2025-09-13T14:47:35.1254801Z npm notice version: 1.1.0
+2025-09-13T14:47:35.1255269Z npm notice filename: zonr-core-1.1.0.tgz
+2025-09-13T14:47:35.1255783Z npm notice package size: 29.3 kB
+2025-09-13T14:47:35.1256253Z npm notice unpacked size: 120.7 kB
+2025-09-13T14:47:35.1256874Z npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4
+2025-09-13T14:47:35.1257648Z npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==
+2025-09-13T14:47:35.1258360Z npm notice total files: 51
+2025-09-13T14:47:35.1258706Z npm notice
+2025-09-13T14:47:35.1259423Z npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access
+2025-09-13T14:47:35.1260122Z npm error code E404
+2025-09-13T14:47:35.1260798Z npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found
+2025-09-13T14:47:35.1261407Z npm error 404
+2025-09-13T14:47:35.1261910Z npm error 404  '@zonr/core@1.1.0' is not in this registry.
+2025-09-13T14:47:35.1262381Z npm error 404
+2025-09-13T14:47:35.1262840Z npm error 404 Note that you can also install from a
+2025-09-13T14:47:35.1263479Z npm error 404 tarball, folder, http url, or git url.
+2025-09-13T14:47:35.1264561Z npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log
+2025-09-13T14:47:35.1265184Z
+2025-09-13T14:47:35.1265192Z
+2025-09-13T14:47:35.1265414Z > @zonr/core@1.1.0 prepublishOnly
+2025-09-13T14:47:35.1266229Z > pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck
+2025-09-13T14:47:35.1266908Z
+2025-09-13T14:47:35.1266916Z
+2025-09-13T14:47:35.1267220Z > @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1267674Z > rimraf dist
+2025-09-13T14:47:35.1267851Z
+2025-09-13T14:47:35.1267858Z
+2025-09-13T14:47:35.1268148Z > @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1268745Z > tsc
+2025-09-13T14:47:35.1268904Z
+2025-09-13T14:47:35.1268911Z
+2025-09-13T14:47:35.1269226Z > @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1269691Z > vitest run
+2025-09-13T14:47:35.1269859Z
+2025-09-13T14:47:35.1269866Z
+2025-09-13T14:47:35.1270066Z  RUN  v3.2.4 /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1270355Z
+2025-09-13T14:47:35.1270653Z  ✓ tests/layout.test.ts (10 tests) 10ms
+2025-09-13T14:47:35.1271234Z  ✓ tests/integration.test.ts (13 tests) 17ms
+2025-09-13T14:47:35.1271846Z  ✓ tests/file-transport.test.ts (14 tests) 46ms
+2025-09-13T14:47:35.1272194Z
+2025-09-13T14:47:35.1272342Z  Test Files  3 passed (3)
+2025-09-13T14:47:35.1272704Z       Tests  37 passed (37)
+2025-09-13T14:47:35.1273057Z    Start at  14:47:29
+2025-09-13T14:47:35.1273825Z    Duration  532ms (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)
+2025-09-13T14:47:35.1274443Z
+2025-09-13T14:47:35.1274451Z
+2025-09-13T14:47:35.1274744Z > @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1275243Z > eslint src --ext .ts
+2025-09-13T14:47:35.1275453Z
+2025-09-13T14:47:35.1275461Z
+2025-09-13T14:47:35.1275790Z > @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.1276264Z > tsc --noEmit
+2025-09-13T14:47:35.1276447Z
+2025-09-13T14:47:35.1276455Z
+2025-09-13T14:47:35.1276612Z > @zonr/core@1.1.0 prepare
+2025-09-13T14:47:35.1276948Z > husky
+2025-09-13T14:47:35.1277105Z
+2025-09-13T14:47:35.1277250Z HUSKY=0 skip install
+2025-09-13T14:47:35.1279028Z     at getFinalError [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/execa@9.6.0/node_modules/[4mexeca[24m/lib/return/final-error.js:6:9[90m)[39m
+2025-09-13T14:47:35.1281192Z     at makeError [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/execa@9.6.0/node_modules/[4mexeca[24m/lib/return/result.js:108:16[90m)[39m
+2025-09-13T14:47:35.1283335Z     at getAsyncResult [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/execa@9.6.0/node_modules/[4mexeca[24m/lib/methods/main-async.js:168:4[90m)[39m
+2025-09-13T14:47:35.1285545Z     at handlePromise [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/execa@9.6.0/node_modules/[4mexeca[24m/lib/methods/main-async.js:151:17[90m)[39m
+2025-09-13T14:47:35.1288375Z     at async default [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/@semantic-release+npm@12.0.2_semantic-release@24.2.8_typescript@5.9.2_/node_modules/[4m@semantic-release[24m/npm/lib/publish.js:30:5[90m)[39m
+2025-09-13T14:47:35.1291282Z     at async validator [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/semantic-release@24.2.8_typescript@5.9.2/node_modules/[4msemantic-release[24m/lib/plugins/normalize.js:36:24[90m)[39m
+2025-09-13T14:47:35.1293892Z     at async [90mfile:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/semantic-release@24.2.8_typescript@5.9.2/node_modules/[4msemantic-release[24m/lib/plugins/pipeline.js:38:36
+2025-09-13T14:47:35.1295188Z     at async Promise.all (index 0)
+2025-09-13T14:47:35.1296575Z     at async next [90m(file:///home/runner/work/Zonr/Zonr/[39mnode_modules/[4m.pnpm[24m/p-reduce@3.0.0/node_modules/[4mp-reduce[24m/index.js:15:44[90m)[39m {
+2025-09-13T14:47:35.1299223Z   shortMessage: [32m"Command failed with exit code 1: npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'"[39m,
+2025-09-13T14:47:35.1301824Z   command: [32m'npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry https://registry.npmjs.org/'[39m,
+2025-09-13T14:47:35.1304457Z   escapedCommand: [32m"npm publish /home/runner/work/Zonr/Zonr --userconfig /tmp/aadcb42a2a8da82b8161463ad4a7489a/.npmrc --tag latest --registry 'https://registry.npmjs.org/'"[39m,
+2025-09-13T14:47:35.1305908Z   cwd: [32m'/home/runner/work/Zonr/Zonr'[39m,
+2025-09-13T14:47:35.1306474Z   durationMs: [33m10533.072656[39m,
+2025-09-13T14:47:35.1306931Z   failed: [33mtrue[39m,
+2025-09-13T14:47:35.1307346Z   timedOut: [33mfalse[39m,
+2025-09-13T14:47:35.1307815Z   isCanceled: [33mfalse[39m,
+2025-09-13T14:47:35.1308474Z   isGracefullyCanceled: [33mfalse[39m,
+2025-09-13T14:47:35.1309015Z   isTerminated: [33mfalse[39m,
+2025-09-13T14:47:35.1309501Z   isMaxBuffer: [33mfalse[39m,
+2025-09-13T14:47:35.1310031Z   isForcefullyTerminated: [33mfalse[39m,
+2025-09-13T14:47:35.1310524Z   exitCode: [33m1[39m,
+2025-09-13T14:47:35.1310930Z   stdout: [32m'\n'[39m +
+2025-09-13T14:47:35.1311468Z     [32m'> @zonr/core@1.1.0 prepublishOnly\n'[39m +
+2025-09-13T14:47:35.1312483Z     [32m'> pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck\n'[39m +
+2025-09-13T14:47:35.1313243Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1313594Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1314213Z     [32m'> @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1314850Z     [32m'> rimraf dist\n'[39m +
+2025-09-13T14:47:35.1315271Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1315616Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1316221Z     [32m'> @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1316805Z     [32m'> tsc\n'[39m +
+2025-09-13T14:47:35.1317185Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1317532Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1318157Z     [32m'> @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1318943Z     [32m'> vitest run\n'[39m +
+2025-09-13T14:47:35.1319539Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1319898Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1320800Z     [32m'\x1B[1m\x1B[46m RUN \x1B[49m\x1B[22m \x1B[36mv3.2.4 \x1B[39m\x1B[90m/home/runner/work/Zonr/Zonr\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1321554Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1322664Z     [32m' \x1B[32m✓\x1B[39m tests/layout.test.ts \x1B[2m(\x1B[22m\x1B[2m10 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 10\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1324337Z     [32m' \x1B[32m✓\x1B[39m tests/integration.test.ts \x1B[2m(\x1B[22m\x1B[2m13 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 17\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1326106Z     [32m' \x1B[32m✓\x1B[39m tests/file-transport.test.ts \x1B[2m(\x1B[22m\x1B[2m14 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 46\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1327067Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1327891Z     [32m'\x1B[2m Test Files \x1B[22m \x1B[1m\x1B[32m3 passed\x1B[39m\x1B[22m\x1B[90m (3)\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1329063Z     [32m'\x1B[2m      Tests \x1B[22m \x1B[1m\x1B[32m37 passed\x1B[39m\x1B[22m\x1B[90m (37)\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1329580Z     [32m'\x1B[2m   Start at \x1B[22m 14:47:29\n'[39m +
+2025-09-13T14:47:35.1330338Z     [32m'\x1B[2m   Duration \x1B[22m 532ms\x1B[2m (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)\x1B[22m\n'[39m +
+2025-09-13T14:47:35.1330884Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1331102Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1331459Z     [32m'> @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1331861Z     [32m'> eslint src --ext .ts\n'[39m +
+2025-09-13T14:47:35.1332134Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1332347Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1332719Z     [32m'> @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1333114Z     [32m'> tsc --noEmit\n'[39m +
+2025-09-13T14:47:35.1333364Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1333735Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1334015Z     [32m'> @zonr/core@1.1.0 prepare\n'[39m +
+2025-09-13T14:47:35.1334303Z     [32m'> husky\n'[39m +
+2025-09-13T14:47:35.1334535Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1334793Z     [32m'HUSKY=0 skip install'[39m,
+2025-09-13T14:47:35.1335716Z   stderr: [32m'\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mconstructor\x1B[2m > \x1B[22m\x1B[2mshould handle custom error handler\n'[39m +
+2025-09-13T14:47:35.1336633Z     [32m'\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1337033Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1337851Z     [32m'\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mwrite\x1B[2m > \x1B[22m\x1B[2mshould not write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1339025Z     [32m'\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1339425Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1340123Z     [32m'npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.\n'[39m +
+2025-09-13T14:47:35.1340800Z     [32m'npm warn publish errors corrected:\n'[39m +
+2025-09-13T14:47:35.1341430Z     [32m'npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"\n'[39m +
+2025-09-13T14:47:35.1341941Z     [32m'npm notice\n'[39m +
+2025-09-13T14:47:35.1342274Z     [32m'npm notice 📦  @zonr/core@1.1.0\n'[39m +
+2025-09-13T14:47:35.1342635Z     [32m'npm notice Tarball Contents\n'[39m +
+2025-09-13T14:47:35.1342986Z     [32m'npm notice 1.1kB LICENSE.md\n'[39m +
+2025-09-13T14:47:35.1343328Z     [32m'npm notice 14.0kB README.md\n'[39m +
+2025-09-13T14:47:35.1343684Z     [32m'npm notice 462B dist/events.d.ts\n'[39m +
+2025-09-13T14:47:35.1344220Z     [32m'npm notice 533B dist/events.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1344613Z     [32m'npm notice 501B dist/events.js\n'[39m +
+2025-09-13T14:47:35.1344988Z     [32m'npm notice 644B dist/events.js.map\n'[39m +
+2025-09-13T14:47:35.1345357Z     [32m'npm notice 248B dist/index.d.ts\n'[39m +
+2025-09-13T14:47:35.1345738Z     [32m'npm notice 284B dist/index.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1346103Z     [32m'npm notice 134B dist/index.js\n'[39m +
+2025-09-13T14:47:35.1346473Z     [32m'npm notice 185B dist/index.js.map\n'[39m +
+2025-09-13T14:47:35.1346881Z     [32m'npm notice 607B dist/layout/calculator.d.ts\n'[39m +
+2025-09-13T14:47:35.1347339Z     [32m'npm notice 586B dist/layout/calculator.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1347783Z     [32m'npm notice 8.4kB dist/layout/calculator.js\n'[39m +
+2025-09-13T14:47:35.1348399Z     [32m'npm notice 7.1kB dist/layout/calculator.js.map\n'[39m +
+2025-09-13T14:47:35.1348885Z     [32m'npm notice 1.1kB dist/layout/types.d.ts\n'[39m +
+2025-09-13T14:47:35.1349312Z     [32m'npm notice 1.2kB dist/layout/types.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1349720Z     [32m'npm notice 44B dist/layout/types.js\n'[39m +
+2025-09-13T14:47:35.1350115Z     [32m'npm notice 112B dist/layout/types.js.map\n'[39m +
+2025-09-13T14:47:35.1350559Z     [32m'npm notice 710B dist/renderer/ansi-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1351046Z     [32m'npm notice 771B dist/renderer/ansi-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1351521Z     [32m'npm notice 4.1kB dist/renderer/ansi-renderer.js\n'[39m +
+2025-09-13T14:47:35.1351998Z     [32m'npm notice 4.2kB dist/renderer/ansi-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1352479Z     [32m'npm notice 684B dist/renderer/layout-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1352975Z     [32m'npm notice 665B dist/renderer/layout-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1353457Z     [32m'npm notice 10.1kB dist/renderer/layout-renderer.js\n'[39m +
+2025-09-13T14:47:35.1353951Z     [32m'npm notice 8.2kB dist/renderer/layout-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1354566Z     [32m'npm notice 614B dist/renderer/zone-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1355042Z     [32m'npm notice 686B dist/renderer/zone-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1355513Z     [32m'npm notice 3.6kB dist/renderer/zone-renderer.js\n'[39m +
+2025-09-13T14:47:35.1355982Z     [32m'npm notice 3.4kB dist/renderer/zone-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1356469Z     [32m'npm notice 885B dist/transports/file-transport.d.ts\n'[39m +
+2025-09-13T14:47:35.1356971Z     [32m'npm notice 1.0kB dist/transports/file-transport.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1357465Z     [32m'npm notice 3.8kB dist/transports/file-transport.js\n'[39m +
+2025-09-13T14:47:35.1357956Z     [32m'npm notice 3.5kB dist/transports/file-transport.js.map\n'[39m +
+2025-09-13T14:47:35.1358580Z     [32m'npm notice 1.3kB dist/types.d.ts\n'[39m +
+2025-09-13T14:47:35.1358969Z     [32m'npm notice 1.6kB dist/types.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1359340Z     [32m'npm notice 44B dist/types.js\n'[39m +
+2025-09-13T14:47:35.1359709Z     [32m'npm notice 102B dist/types.js.map\n'[39m +
+2025-09-13T14:47:35.1360089Z     [32m'npm notice 353B dist/zone-manager.d.ts\n'[39m +
+2025-09-13T14:47:35.1360507Z     [32m'npm notice 442B dist/zone-manager.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1360911Z     [32m'npm notice 682B dist/zone-manager.js\n'[39m +
+2025-09-13T14:47:35.1361310Z     [32m'npm notice 906B dist/zone-manager.js.map\n'[39m +
+2025-09-13T14:47:35.1361692Z     [32m'npm notice 841B dist/zone.d.ts\n'[39m +
+2025-09-13T14:47:35.1362063Z     [32m'npm notice 872B dist/zone.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1362426Z     [32m'npm notice 4.0kB dist/zone.js\n'[39m +
+2025-09-13T14:47:35.1362782Z     [32m'npm notice 3.5kB dist/zone.js.map\n'[39m +
+2025-09-13T14:47:35.1363142Z     [32m'npm notice 1.1kB dist/zonr.d.ts\n'[39m +
+2025-09-13T14:47:35.1363513Z     [32m'npm notice 1.0kB dist/zonr.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1364010Z     [32m'npm notice 9.2kB dist/zonr.js\n'[39m +
+2025-09-13T14:47:35.1364378Z     [32m'npm notice 7.9kB dist/zonr.js.map\n'[39m +
+2025-09-13T14:47:35.1364735Z     [32m'npm notice 2.6kB package.json\n'[39m +
+2025-09-13T14:47:35.1365080Z     [32m'npm notice Tarball Details\n'[39m +
+2025-09-13T14:47:35.1365419Z     [32m'npm notice name: @zonr/core\n'[39m +
+2025-09-13T14:47:35.1365753Z     [32m'npm notice version: 1.1.0\n'[39m +
+2025-09-13T14:47:35.1366134Z     [32m'npm notice filename: zonr-core-1.1.0.tgz\n'[39m +
+2025-09-13T14:47:35.1366526Z     [32m'npm notice package size: 29.3 kB\n'[39m +
+2025-09-13T14:47:35.1366902Z     [32m'npm notice unpacked size: 120.7 kB\n'[39m +
+2025-09-13T14:47:35.1367638Z     [32m'npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4\n'[39m +
+2025-09-13T14:47:35.1368821Z     [32m'npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==\n'[39m +
+2025-09-13T14:47:35.1369604Z     [32m'npm notice total files: 51\n'[39m +
+2025-09-13T14:47:35.1370151Z     [32m'npm notice\n'[39m +
+2025-09-13T14:47:35.1370841Z     [32m'npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access\n'[39m +
+2025-09-13T14:47:35.1371353Z     [32m'npm error code E404\n'[39m +
+2025-09-13T14:47:35.1371886Z     [32m'npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found\n'[39m +
+2025-09-13T14:47:35.1372351Z     [32m'npm error 404\n'[39m +
+2025-09-13T14:47:35.1372763Z     [32m"npm error 404  '@zonr/core@1.1.0' is not in this registry.\n"[39m +
+2025-09-13T14:47:35.1373145Z     [32m'npm error 404\n'[39m +
+2025-09-13T14:47:35.1373528Z     [32m'npm error 404 Note that you can also install from a\n'[39m +
+2025-09-13T14:47:35.1374008Z     [32m'npm error 404 tarball, folder, http url, or git url.\n'[39m +
+2025-09-13T14:47:35.1374714Z     [32m'npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log'[39m,
+2025-09-13T14:47:35.1375174Z   stdio: [
+2025-09-13T14:47:35.1375385Z     [90mundefined[39m,
+2025-09-13T14:47:35.1375776Z     [32m'\n'[39m +
+2025-09-13T14:47:35.1376086Z       [32m'> @zonr/core@1.1.0 prepublishOnly\n'[39m +
+2025-09-13T14:47:35.1376663Z       [32m'> pnpm run clean && pnpm run build && pnpm run test:run && pnpm run lint && pnpm run typecheck\n'[39m +
+2025-09-13T14:47:35.1377098Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1377317Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1377679Z       [32m'> @zonr/core@1.1.0 clean /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1378050Z       [32m'> rimraf dist\n'[39m +
+2025-09-13T14:47:35.1378546Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1378893Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1379407Z       [32m'> @zonr/core@1.1.0 build /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1379751Z       [32m'> tsc\n'[39m +
+2025-09-13T14:47:35.1379979Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1380185Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1380558Z       [32m'> @zonr/core@1.1.0 test:run /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1380941Z       [32m'> vitest run\n'[39m +
+2025-09-13T14:47:35.1381192Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1381401Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1381913Z       [32m'\x1B[1m\x1B[46m RUN \x1B[49m\x1B[22m \x1B[36mv3.2.4 \x1B[39m\x1B[90m/home/runner/work/Zonr/Zonr\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1382349Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1382977Z       [32m' \x1B[32m✓\x1B[39m tests/layout.test.ts \x1B[2m(\x1B[22m\x1B[2m10 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 10\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1383909Z       [32m' \x1B[32m✓\x1B[39m tests/integration.test.ts \x1B[2m(\x1B[22m\x1B[2m13 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 17\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1384871Z       [32m' \x1B[32m✓\x1B[39m tests/file-transport.test.ts \x1B[2m(\x1B[22m\x1B[2m14 tests\x1B[22m\x1B[2m)\x1B[22m\x1B[32m 46\x1B[2mms\x1B[22m\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1385427Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1386074Z       [32m'\x1B[2m Test Files \x1B[22m \x1B[1m\x1B[32m3 passed\x1B[39m\x1B[22m\x1B[90m (3)\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1386756Z       [32m'\x1B[2m      Tests \x1B[22m \x1B[1m\x1B[32m37 passed\x1B[39m\x1B[22m\x1B[90m (37)\x1B[39m\n'[39m +
+2025-09-13T14:47:35.1387261Z       [32m'\x1B[2m   Start at \x1B[22m 14:47:29\n'[39m +
+2025-09-13T14:47:35.1388179Z       [32m'\x1B[2m   Duration \x1B[22m 532ms\x1B[2m (transform 215ms, setup 0ms, collect 449ms, tests 73ms, environment 1ms, prepare 306ms)\x1B[22m\n'[39m +
+2025-09-13T14:47:35.1389039Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1389428Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1389911Z       [32m'> @zonr/core@1.1.0 lint /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1390406Z       [32m'> eslint src --ext .ts\n'[39m +
+2025-09-13T14:47:35.1390826Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1391137Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1391608Z       [32m'> @zonr/core@1.1.0 typecheck /home/runner/work/Zonr/Zonr\n'[39m +
+2025-09-13T14:47:35.1392151Z       [32m'> tsc --noEmit\n'[39m +
+2025-09-13T14:47:35.1403257Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1403718Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1404056Z       [32m'> @zonr/core@1.1.0 prepare\n'[39m +
+2025-09-13T14:47:35.1404381Z       [32m'> husky\n'[39m +
+2025-09-13T14:47:35.1404625Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1404901Z       [32m'HUSKY=0 skip install'[39m,
+2025-09-13T14:47:35.1405818Z     [32m'\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mconstructor\x1B[2m > \x1B[22m\x1B[2mshould handle custom error handler\n'[39m +
+2025-09-13T14:47:35.1406739Z       [32m'\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1407146Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1407986Z       [32m'\x1B[90mstderr\x1B[2m | tests/file-transport.test.ts\x1B[2m > \x1B[22m\x1B[2mFileTransport\x1B[2m > \x1B[22m\x1B[2mwrite\x1B[2m > \x1B[22m\x1B[2mshould not write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1409331Z       [32m'\x1B[22m\x1B[39mFileTransport: Attempt to write to destroyed transport\n'[39m +
+2025-09-13T14:47:35.1409729Z       [32m'\n'[39m +
+2025-09-13T14:47:35.1410433Z       [32m'npm warn publish npm auto-corrected some errors in your package.json when publishing.  Please run "npm pkg fix" to address these errors.\n'[39m +
+2025-09-13T14:47:35.1411113Z       [32m'npm warn publish errors corrected:\n'[39m +
+2025-09-13T14:47:35.1411738Z       [32m'npm warn publish "repository.url" was normalized to "git+https://github.com/itsJess1ca/Zonr.git"\n'[39m +
+2025-09-13T14:47:35.1412250Z       [32m'npm notice\n'[39m +
+2025-09-13T14:47:35.1412593Z       [32m'npm notice 📦  @zonr/core@1.1.0\n'[39m +
+2025-09-13T14:47:35.1412955Z       [32m'npm notice Tarball Contents\n'[39m +
+2025-09-13T14:47:35.1413307Z       [32m'npm notice 1.1kB LICENSE.md\n'[39m +
+2025-09-13T14:47:35.1413652Z       [32m'npm notice 14.0kB README.md\n'[39m +
+2025-09-13T14:47:35.1414007Z       [32m'npm notice 462B dist/events.d.ts\n'[39m +
+2025-09-13T14:47:35.1414393Z       [32m'npm notice 533B dist/events.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1414766Z       [32m'npm notice 501B dist/events.js\n'[39m +
+2025-09-13T14:47:35.1415139Z       [32m'npm notice 644B dist/events.js.map\n'[39m +
+2025-09-13T14:47:35.1415511Z       [32m'npm notice 248B dist/index.d.ts\n'[39m +
+2025-09-13T14:47:35.1415885Z       [32m'npm notice 284B dist/index.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1416246Z       [32m'npm notice 134B dist/index.js\n'[39m +
+2025-09-13T14:47:35.1416602Z       [32m'npm notice 185B dist/index.js.map\n'[39m +
+2025-09-13T14:47:35.1417011Z       [32m'npm notice 607B dist/layout/calculator.d.ts\n'[39m +
+2025-09-13T14:47:35.1417462Z       [32m'npm notice 586B dist/layout/calculator.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1417907Z       [32m'npm notice 8.4kB dist/layout/calculator.js\n'[39m +
+2025-09-13T14:47:35.1418667Z       [32m'npm notice 7.1kB dist/layout/calculator.js.map\n'[39m +
+2025-09-13T14:47:35.1419152Z       [32m'npm notice 1.1kB dist/layout/types.d.ts\n'[39m +
+2025-09-13T14:47:35.1419586Z       [32m'npm notice 1.2kB dist/layout/types.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1419986Z       [32m'npm notice 44B dist/layout/types.js\n'[39m +
+2025-09-13T14:47:35.1420387Z       [32m'npm notice 112B dist/layout/types.js.map\n'[39m +
+2025-09-13T14:47:35.1420830Z       [32m'npm notice 710B dist/renderer/ansi-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1421299Z       [32m'npm notice 771B dist/renderer/ansi-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1421769Z       [32m'npm notice 4.1kB dist/renderer/ansi-renderer.js\n'[39m +
+2025-09-13T14:47:35.1422229Z       [32m'npm notice 4.2kB dist/renderer/ansi-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1422700Z       [32m'npm notice 684B dist/renderer/layout-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1423192Z       [32m'npm notice 665B dist/renderer/layout-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1423687Z       [32m'npm notice 10.1kB dist/renderer/layout-renderer.js\n'[39m +
+2025-09-13T14:47:35.1424174Z       [32m'npm notice 8.2kB dist/renderer/layout-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1424649Z       [32m'npm notice 614B dist/renderer/zone-renderer.d.ts\n'[39m +
+2025-09-13T14:47:35.1425130Z       [32m'npm notice 686B dist/renderer/zone-renderer.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1425605Z       [32m'npm notice 3.6kB dist/renderer/zone-renderer.js\n'[39m +
+2025-09-13T14:47:35.1426116Z       [32m'npm notice 3.4kB dist/renderer/zone-renderer.js.map\n'[39m +
+2025-09-13T14:47:35.1426591Z       [32m'npm notice 885B dist/transports/file-transport.d.ts\n'[39m +
+2025-09-13T14:47:35.1427098Z       [32m'npm notice 1.0kB dist/transports/file-transport.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1427597Z       [32m'npm notice 3.8kB dist/transports/file-transport.js\n'[39m +
+2025-09-13T14:47:35.1428089Z       [32m'npm notice 3.5kB dist/transports/file-transport.js.map\n'[39m +
+2025-09-13T14:47:35.1428784Z       [32m'npm notice 1.3kB dist/types.d.ts\n'[39m +
+2025-09-13T14:47:35.1429178Z       [32m'npm notice 1.6kB dist/types.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1429551Z       [32m'npm notice 44B dist/types.js\n'[39m +
+2025-09-13T14:47:35.1429918Z       [32m'npm notice 102B dist/types.js.map\n'[39m +
+2025-09-13T14:47:35.1430314Z       [32m'npm notice 353B dist/zone-manager.d.ts\n'[39m +
+2025-09-13T14:47:35.1430741Z       [32m'npm notice 442B dist/zone-manager.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1431148Z       [32m'npm notice 682B dist/zone-manager.js\n'[39m +
+2025-09-13T14:47:35.1431551Z       [32m'npm notice 906B dist/zone-manager.js.map\n'[39m +
+2025-09-13T14:47:35.1431936Z       [32m'npm notice 841B dist/zone.d.ts\n'[39m +
+2025-09-13T14:47:35.1432311Z       [32m'npm notice 872B dist/zone.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1432667Z       [32m'npm notice 4.0kB dist/zone.js\n'[39m +
+2025-09-13T14:47:35.1433037Z       [32m'npm notice 3.5kB dist/zone.js.map\n'[39m +
+2025-09-13T14:47:35.1433407Z       [32m'npm notice 1.1kB dist/zonr.d.ts\n'[39m +
+2025-09-13T14:47:35.1433781Z       [32m'npm notice 1.0kB dist/zonr.d.ts.map\n'[39m +
+2025-09-13T14:47:35.1434143Z       [32m'npm notice 9.2kB dist/zonr.js\n'[39m +
+2025-09-13T14:47:35.1434500Z       [32m'npm notice 7.9kB dist/zonr.js.map\n'[39m +
+2025-09-13T14:47:35.1434855Z       [32m'npm notice 2.6kB package.json\n'[39m +
+2025-09-13T14:47:35.1435196Z       [32m'npm notice Tarball Details\n'[39m +
+2025-09-13T14:47:35.1435546Z       [32m'npm notice name: @zonr/core\n'[39m +
+2025-09-13T14:47:35.1435894Z       [32m'npm notice version: 1.1.0\n'[39m +
+2025-09-13T14:47:35.1436280Z       [32m'npm notice filename: zonr-core-1.1.0.tgz\n'[39m +
+2025-09-13T14:47:35.1436677Z       [32m'npm notice package size: 29.3 kB\n'[39m +
+2025-09-13T14:47:35.1437046Z       [32m'npm notice unpacked size: 120.7 kB\n'[39m +
+2025-09-13T14:47:35.1437643Z       [32m'npm notice shasum: 9e032cef72b1afb4d6c23cdbaf8a4ef61bc570f4\n'[39m +
+2025-09-13T14:47:35.1438322Z       [32m'npm notice integrity: sha512-wDoU3WqsB1yro[...]zqBKZ786j91aA==\n'[39m +
+2025-09-13T14:47:35.1438768Z       [32m'npm notice total files: 51\n'[39m +
+2025-09-13T14:47:35.1439085Z       [32m'npm notice\n'[39m +
+2025-09-13T14:47:35.1439627Z       [32m'npm notice Publishing to https://registry.npmjs.org/ with tag latest and public access\n'[39m +
+2025-09-13T14:47:35.1440125Z       [32m'npm error code E404\n'[39m +
+2025-09-13T14:47:35.1440646Z       [32m'npm error 404 Not Found - PUT https://registry.npmjs.org/@zonr%2fcore - Not found\n'[39m +
+2025-09-13T14:47:35.1441096Z       [32m'npm error 404\n'[39m +
+2025-09-13T14:47:35.1441513Z       [32m"npm error 404  '@zonr/core@1.1.0' is not in this registry.\n"[39m +
+2025-09-13T14:47:35.1441899Z       [32m'npm error 404\n'[39m +
+2025-09-13T14:47:35.1442296Z       [32m'npm error 404 Note that you can also install from a\n'[39m +
+2025-09-13T14:47:35.1442783Z       [32m'npm error 404 tarball, folder, http url, or git url.\n'[39m +
+2025-09-13T14:47:35.1443487Z       [32m'npm error A complete log of this run can be found in: /home/runner/.npm/_logs/2025-09-13T14_47_24_629Z-debug-0.log'[39m
+2025-09-13T14:47:35.1443938Z   ],
+2025-09-13T14:47:35.1444104Z   ipcOutput: [],
+2025-09-13T14:47:35.1444299Z   pipedFrom: [],
+2025-09-13T14:47:35.1444594Z   pluginName: [32m'@semantic-release/npm'[39m
+2025-09-13T14:47:35.1445130Z HUSKY=0 skip install ELIFECYCLE  Command failed with exit code 1.
+2025-09-13T14:47:35.1559214Z }
+2025-09-13T14:47:35.1570360Z ##[error]Process completed with exit code 1.
+2025-09-13T14:47:35.1615419Z ##[group]Run # Get final version for comparison
+2025-09-13T14:47:35.1615801Z [36;1m# Get final version for comparison[0m
+2025-09-13T14:47:35.1616164Z [36;1mFINAL_VERSION=$(node -p "require('./package.json').version")[0m
+2025-09-13T14:47:35.1616514Z [36;1mINITIAL_VERSION="1.0.1"[0m
+2025-09-13T14:47:35.1616745Z [36;1m[0m
+2025-09-13T14:47:35.1616921Z [36;1mif [ "false" = "true" ]; then[0m
+2025-09-13T14:47:35.1617410Z [36;1m  echo "## 🔍 Dry Run Summary" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1617734Z [36;1m  echo "" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1618108Z [36;1m  echo "**Mode**: Dry Run Analysis (No actual changes made)" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1618708Z [36;1melse[0m
+2025-09-13T14:47:35.1618983Z [36;1m  echo "## 🚀 Production Release Summary" >> $GITHUB_STEP_SUMMARY  [0m
+2025-09-13T14:47:35.1619324Z [36;1m  echo "" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1619663Z [36;1m  echo "**Mode**: Production Release" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1619965Z [36;1mfi[0m
+2025-09-13T14:47:35.1620134Z [36;1m[0m
+2025-09-13T14:47:35.1620378Z [36;1mecho "**Package**: \`@zonr/core\`" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1620789Z [36;1mecho "**Starting Version**: \`v$INITIAL_VERSION\`" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1621146Z [36;1m[0m
+2025-09-13T14:47:35.1621372Z [36;1mif [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then[0m
+2025-09-13T14:47:35.1621757Z [36;1m  echo "**Final Version**: \`v$FINAL_VERSION\` ✨" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1622235Z [36;1m  echo "**Version Change**: \`v$INITIAL_VERSION → v$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1622611Z [36;1melse[0m
+2025-09-13T14:47:35.1622905Z [36;1m  echo "**Final Version**: \`v$FINAL_VERSION\` (no change)" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1623243Z [36;1mfi[0m
+2025-09-13T14:47:35.1623411Z [36;1m[0m
+2025-09-13T14:47:35.1623696Z [36;1mecho "**Timestamp**: $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1624062Z [36;1mecho "" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1624302Z [36;1m[0m
+2025-09-13T14:47:35.1624470Z [36;1mif [ "false" = "true" ]; then[0m
+2025-09-13T14:47:35.1624969Z [36;1m  echo "✅ **Dry run completed** - Review the semantic-release logs above to see what would be released." >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1625448Z [36;1melse[0m
+2025-09-13T14:47:35.1625683Z [36;1m  if [ "$FINAL_VERSION" != "$INITIAL_VERSION" ]; then[0m
+2025-09-13T14:47:35.1626164Z [36;1m    echo "✅ **Release completed** - Package published as \`@zonr/core@$FINAL_VERSION\`" >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1626598Z [36;1m  else[0m
+2025-09-13T14:47:35.1626959Z [36;1m    echo "ℹ️ **No release needed** - No relevant changes found since last release." >> $GITHUB_STEP_SUMMARY[0m
+2025-09-13T14:47:35.1627368Z [36;1m  fi[0m
+2025-09-13T14:47:35.1627533Z [36;1mfi[0m
+2025-09-13T14:47:35.1657239Z shell: /usr/bin/bash -e {0}
+2025-09-13T14:47:35.1657468Z env:
+2025-09-13T14:47:35.1657707Z   PNPM_HOME: /home/runner/setup-pnpm/node_modules/.bin
+2025-09-13T14:47:35.1657997Z ##[endgroup]
+2025-09-13T14:47:35.2043234Z Post job cleanup.
+2025-09-13T14:47:35.2573634Z Pruning is unnecessary.
+2025-09-13T14:47:35.2657451Z Post job cleanup.
+2025-09-13T14:47:35.3598676Z [command]/usr/bin/git version
+2025-09-13T14:47:35.3639998Z git version 2.51.0
+2025-09-13T14:47:35.3684279Z Temporarily overriding HOME='/home/runner/work/_temp/39d7e653-7101-41fa-93ac-4f41bc5889f8' before making global git config changes
+2025-09-13T14:47:35.3685770Z Adding repository directory to the temporary git global config as a safe directory
+2025-09-13T14:47:35.3691308Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/Zonr/Zonr
+2025-09-13T14:47:35.3728067Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-09-13T14:47:35.3762569Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-09-13T14:47:35.3995146Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-09-13T14:47:35.4017042Z http.https://github.com/.extraheader
+2025-09-13T14:47:35.4029800Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-09-13T14:47:35.4060281Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-09-13T14:47:35.4381965Z Cleaning up orphan processes
