@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/itsJess1ca/Zonr/compare/v1.1.0...v1.2.0) (2025-09-13)
+
+
+### Features
+
+* change package name to @zonr-logs/core ([1841346](https://github.com/itsJess1ca/Zonr/commit/18413460d215fa00edd3b6c16ccedc97adcf4a6d))
+
 # [1.1.0](https://github.com/itsJess1ca/Zonr/compare/v1.0.1...v1.1.0) (2025-09-13)
 
 
