@@ -1,3 +1,13 @@
+## [1.2.1](https://github.com/itsJess1ca/Zonr-Core/compare/v1.2.0...v1.2.1) (2025-09-13)
+
+
+### Bug Fixes
+
+* configure release workflow to use RELEASE_PAT for repository rule bypass ([1a9b835](https://github.com/itsJess1ca/Zonr-Core/commit/1a9b8356c688ea3e443cc5aa21c21338f21dcccf))
+* remove unsupported pnpm pack --dry-run from PR validation ([07a8a30](https://github.com/itsJess1ca/Zonr-Core/commit/07a8a302a62d5db30083010794a964cdbfa67266))
+* resolve PR validation pipeline issues ([991aa72](https://github.com/itsJess1ca/Zonr-Core/commit/991aa7221c8eed9010464b16d2aa63847a4c9733))
+* update README badges to reflect new package name @zonr-logs/core ([65be57b](https://github.com/itsJess1ca/Zonr-Core/commit/65be57b3a5d69fd412fd70a5da03fed5eac3f9fc)), closes [#2](https://github.com/itsJess1ca/Zonr-Core/issues/2)
+
 # [1.2.0](https://github.com/itsJess1ca/Zonr/compare/v1.1.0...v1.2.0) (2025-09-13)
 
 
