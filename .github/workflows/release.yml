@@ -1,10 +1,13 @@
 name: Release
 
 on:
-  push:
-    branches:
-      - main
   workflow_dispatch:
+    inputs:
+      dry-run:
+        description: 'Run in dry-run mode (preview changes without publishing)'
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -13,13 +16,16 @@ permissions:
 
 jobs:
   release:
+    name: Semantic Release
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
         with:
+          # Fetch full history for semantic-release
           fetch-depth: 0
+          # Use a personal access token to allow pushing back to main
           token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Install pnpm
@@ -37,12 +43,24 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Run full test suite
+      - name: Run full quality checks
         run: pnpm run prepublishOnly
 
-      - name: Release
+      - name: Configure git
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+
+      - name: Release (Dry Run)
+        if: ${{ inputs.dry-run }}
+        run: pnpm run release:dry
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Release
+        if: ${{ !inputs.dry-run }}
         run: pnpm run release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
