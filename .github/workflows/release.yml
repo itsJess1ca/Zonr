@@ -71,6 +71,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_USERCONFIG: ~/.npmrc
+          HUSKY: 0
 
       - name: Release
         if: ${{ !inputs.dry-run }}
@@ -79,6 +80,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
           NPM_CONFIG_USERCONFIG: ~/.npmrc
+          HUSKY: 0
 
       - name: 📋 Release Summary
         if: always()
